@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    
+
+    <style>
+
+        .tbl {
+            border : 1px solid black;
+            border-collapse: collapse;
+        }
+
+        .tbl td {
+            border : 1px solid black;
+            padding : 5px 15px;
+            text-align: center;
+        }
+
+        .sel {
+            color:red;
+            font-weight: bold;
+        }
+
+
+    </style>
+
+
+</head>
+<body>
+	<!-- ex39_DOM.html -->
+	<h1>목록</h1>
+	<ul id="list1">
+		<li title="keyboard">키보드</li>
+		<li>마우스</li>
+		<li>모니터</li>
+		<li>노트북</li>
+	</ul>
+	<hr>
+	<input type="button" value="버튼1" id="btn1">
+    <input type="button" value="버튼2" id="btn2">
+    <input type="button" value="버튼4" id="btn4">
+    <input type="button" value="버튼5" id="btn5">
+    
+
+    <h1>링크</h1>
+    <div id = "links"></div>
+    <input type="button" value = "버튼3" id = "btn3">
+
+
+	<script>
+		
+		var list1 = document.getElementById("list1");
+		var btn1 = document.getElementById("btn1");
+        var btn2 = document.getElementById("btn2");
+
+		btn1.onclick = function() {
+
+			//동적으로 태그 생성하기
+			//1. innerHTML 속성 사용하기
+			//	- 간단 방식
+			//	- 복잡한 업무에는 부적합 > 추가하려는 코드를 텍스트 취급
+			//2. DOM 메소드 사용하기
+			//  - 태그 생성 메소드 제공
+			//	- 복잡한 업무에 적합 > 모든 구성 요소(태그, 속성, PCDATA)를 각각의 객체로 제공 > 조작 가능
+			//	- 코드가 많아짐
+
+			//1. innerHTML 을 사용하는 방법
+			var name = "태블릿"; //textbox
+			var item = "<li>" + name + "</li>";
+            var item = "<li><img src='../images/" + img + "' style='width: 100px;'> " + name + "</li>";
+
+
+			list1.innerHTML += item;
+
+
+		};
+
+
+         btn2.onclick = function() {
+			//2. innerHTML 을 사용하는 방법
+
+            // 태그,속성,PCDATA -> 독립된 객체 취급한다.
+            var li = document.createElement("li");//이 순간 li태그가 만들어진다.
+
+            // console.log(li.nodeName);
+
+            var name = "태블릿";
+            var txt = document.createTextNode(name);//pcdata를 넣어준다 -> 태블릿이라는 글자가 있는 텍스트 노드를 그냥 만들어준것이다.
+            console.log(txt.nodeType,txt.nodeName);
+
+
+            li.appendChild(txt);//li자식으로 txt를 넣어준것이다. -> <li>태블릿</li> 이 만들어진다
+            console.log(li);
+            
+            list1.appendChild(li);
+
+            //-----------------------다른방법 -> 섞어서 쓰는 방법
+
+            var li = document.createElement("li");
+            //사실 텍스트 노드는 잘 안만든다 그냥  innerTEXT 처리를 해준다.
+
+            li.innerHTML = "펜";//이런식으로 써도 된다. innerTEXT 처리를 하면 너무 복잡해진다.
+            list1.appendChild(li);
+
+
+            //-----------------------이미지 처리
+            var li = document.createElement("li");
+            var img = document.createElement("img");
+
+            img.setAttribute("src","../images/1.jpg");//src에 해당 url을 넣을래~ 라는 뜻으로 해석될 수 있다.
+
+            li.appendChild(img);
+
+            // li.innerTEXT += "노트북";//이런식으로 하면 내용물이 날아가게 된다. 원래 있던 이미지를 텍스트화 시킨다
+            li.innerHTML += "노트북";
+
+            // var txt = document.createElement("노트북");
+            li.appendChild(txt);
+
+
+            list1.appendChild(li);
+
+
+
+
+
+
+
+         }
+
+
+         
+        //-----------------------이미지 처리
+
+        var links = document.getElementById("links");
+		var btn3 = document.getElementById("btn3");
+
+         	btn3.onclick = function() {
+
+			//<a href="http://google.com" target="_blank" title="구글로 이동합니다.">구글</a>
+
+			var a = document.createElement("a");
+
+			a.setAttribute("href", "http://google.com");
+			a.setAttribute("target", "_blank");
+			a.setAttribute("title", "구글로 이동합니다.");
+
+			a.innerText = "구글";
+
+			links.appendChild(a);
+			//document.body.appendChild(a);
+
+
+			//테이블 만들기
+			//10행 x 5열
+
+			var table = document.createElement("table");
+
+			for (var i=0; i<10; i++) {
+				var tr = document.createElement("tr");
+
+				for (var j=0; j<5; j++) {
+					var td = document.createElement("td");
+					td.innerText = i + "," + j;
+					tr.appendChild(td);//조립
+				}
+
+				table.appendChild(tr);//조립
+			}
+
+			table.className = "tbl";
+
+			links.appendChild(table);			
+		};
+   
+
+        //---------------------목록 수정/삭제
+        var btn4 = document.getElementById("btn4");
+
+        btn4.onclick = function() {
+
+            //태그수정
+            //1. 속성 생성
+            //2. 속성 수정
+            //3. 속성 삭제
+            //4. 텍스트 추가/수정/삭제~...
+            
+            // list1.children[2];//모니터 를 감싸고 있는 li 태그를 의미한다.
+            // list1.children[2].innerText = ""//빈 문자열 넣으면 그게 삭제임
+            // list1.children[2].innerText += "(monitor)"; 
+
+
+            // list1.children[2].setAttribute("title","Monitor");
+
+
+            // list1.children[0].removeAttribute("title");//속성 삭제 메서드 -> 있던 타이틀이 사라진다.
+
+
+            //태그 삭제
+            //innerHTML : 조작 불편
+            // console.log(list1.innerHTML);//이런식으로 innerHTML 으로 조작을하게 되면 힘들어진다.
+            
+            // list1.removeChild(list1.children[2]);//**이런식으로 하면 태그가 삭제가 된다.
+
+
+            //신박하게 삭제법 -> li클릭하고 버튼4를 누르면 없어지게 만들거임.
+            list1.removeChild(temp);
+
+
+
+        };
+
+        //삭제하고 싶은애들을 클릭하도록 할것
+        
+        var temp;//전역변수
+
+        for (var i = 0; i < list1.children.length; i++) {
+
+            list1.children[i].onclick = function() {
+
+                console.log(event.srcElement.innerTEXT);//구분 함
+                
+                if(temp != null) {
+                    temp.className = "";//클래스 이름 초기화
+                } 
+                temp = event.srcElement;//li 태그
+                event.srcElement.className = "sel";
+
+                
+
+            };
+
+        }
+
+
+        //-------------------------------------------------------
+        var btn5 = document.getElementById("btn5");
+        
+
+        btn5.onclick = function() {
+
+            //버튼을 누르면 자식으로 li버튼을 만들것이다.
+
+            var li = document.createElement("li");
+            li.innerTEXT = "책";
+
+            // list1.appendChild(li);//무조건 끝에 붙인다는 의미인데 중간에 삽입하고 싶거나 처음에 넣어야하는 경우가 있는데?
+            list1.insertBefore(li,list1.children[0]);//(추가될객체,위치) : 해당위치 바로 전에 삽입 시키라는 이야기임
+            
+
+        }
+        
+        
+
+        
+
+    </script>
+    
+    <!-- 2020/07/12 복습완료 -->
+
+</body>
+</html>

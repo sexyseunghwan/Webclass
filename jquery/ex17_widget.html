@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+	<link rel="stylesheet" href="css/jquery-ui.css">
+	<style>
+
+        * {
+            outline: none;
+        }
+
+		#a1 {
+			width: 400px;
+		}
+
+        #p1 > div {
+            transition : width 1s;
+            transition-timing-function: linear;
+            /* 위와 같은 방식으로 해주면 더 이쁘게 해줄수 있다! */
+        }
+
+        .slider {
+            margin: 10px;
+        }
+
+	</style>
+</head>
+<body>
+	<!-- ex17_widget.html -->
+
+    <h1>Widgets</h1>
+
+    
+    <h2>Tabs</h2>
+
+    <div id="tabs">
+        <ul>
+            <li><a href="#tab1">HTML</a></li>
+            <li><a href="#tab2">CSS</a></li>
+            <li><a href="#tab3">JavaScript</a></li>
+        </ul>
+        <div id = "tab1">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Sit optio vel sint impedit vero obcaecati odit repellat. Mollitia ab sit iste distinctio libero, vel cupiditate, unde fugit fugiat eveniet modi!</div>
+        <div id = "tab2">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Sit optio vel sint impedit vero obcaecati odit repellat. Mollitia ab sit iste distinctio libero, vel cupiditate, unde fugit fugiat eveniet modi!</div>
+        <div id = "tab3">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Sit optio vel sint impedit vero obcaecati odit repellat. Mollitia ab sit iste distinctio libero, vel cupiditate, unde fugit fugiat eveniet modi!</div>
+    </div>
+
+
+
+
+
+
+
+
+
+
+
+    <!-- ----------------------------------------------------------------- -->
+
+    <h2>spinner</h2>
+
+    <input type="text" id="age" title = "나이 입력">
+
+
+    <!-- ----------------------------------------------------------------- -->
+    <h2>Slider</h2>
+   
+
+    <div id = "slider5" class = "slider"></div>
+
+    
+    
+
+
+
+
+
+
+
+
+
+
+
+
+    <div id = "slider1"></div>
+
+
+    <fieldset>
+        <div id = "slider2" class = "slider" title = "빨강"></div>
+        <div id = "slider3" class = "slider" title = "녹색"></div>
+        <div id = "slider4" class = "slider" title = "파랑"></div>
+    </fieldset>
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <!-- ----------------------------------------------------------- -->
+    <h2>Dialog</h2>
+    <input type="button" value = "확인" id = "btn4">
+    <div id="dialog1">
+        안녕하세요
+        
+    </div>
+
+
+
+
+    <h2>Datepicker</h2>
+
+    <input type="text" id="date1">
+
+
+
+
+
+    <h2>Progressbar</h2>
+
+    <input type="button" value="버튼" id="btn3">
+    <div id="p1"></div>
+
+
+    <h2>Checkbox & Radio</h2>
+
+
+    <h3>성별을 선택하세요</h3>
+    <div id = "set2">
+
+        <label for="rb1">남자</label>
+        <input type="radio" id = "rb1" class = "rb" name = "rb">
+
+        
+        <label for="rb2">여자</label>
+        <input type="radio" id = "rb2" class = "rb" name = "rb">
+
+
+    </div>
+
+
+
+
+    
+    <h3>취미를 선택하시오</h3>
+
+    <div id = "set1">
+        <label for="cb1">코딩</label>
+        <input type="checkbox" id = "cb1" class = "cb">
+        
+        <label for="cb2">먹기</label>
+        <input type="checkbox" id = "cb2" class = "cb">
+        
+        <label for="cb3">낮잠자기</label>
+        <input type="checkbox" id = "cb3" class = "cb">
+    </div>
+
+
+
+
+	<h2>Buttons</h2>
+
+	<div id="btns">
+		<input type="button" value="등록하기" id="btn1" class="btn">
+        <input type="button" value="취소하기" id="btn2" class="btn">
+        <a href="#" class = "btn">링크버튼</a>
+	</div>
+
+
+
+	<h2>Accordion</h2>
+
+	<div id="a1">
+		<h3>HTML</h3>
+        <div>appleasd</div>
+        <h3>CSS</h3>
+        <div>samsung</div>  
+        <h3>JavaScript</h3>
+        <div>amazon</div>
+	</div>
+
+
+	<script src="js/jquery-1.12.4.js"></script>
+	<script src="js/jquery-ui.js"></script>
+	<script>
+
+		$("#a1").accordion();
+
+		$(".btn").button();//조금 모습을 바꿔준다!
+
+        $(".cb").checkboxradio();//애도 checkbox의 모습을 좀 변형시켜준다.
+        $(".rb").checkboxradio();//애도 radio의 모습을 좀 변형시켜준다.
+
+
+        $("#set1,#set2").controlgroup();//달라붙어진다 원래 서로 따로따로 있었는데 -> 애네들은 한셋트구나 하는 느낌을 줄 수 있다!
+        
+        
+        $("#p1").progressbar({
+            value : 50//퍼센트를 의미한다 바를 얼마나 채우냐의 의미!
+        });//막대기가 하나가 생긴다
+
+        $("#btn3").click(function(){
+            $("#p1").progressbar({
+                value : 30//버튼 누르면 50퍼센트 이던게 30프로로 변한다! -> 순식간에 변한다
+            });
+        });
+
+
+        $("#date1").datepicker({
+			dateFormat: "yy-mm-dd",
+            // minDate: "2020-07-06",//7월6일 부터 선택이 가능함!
+            // maxDate:"2020-07-24"
+            
+            //-------------------------------
+            // minDate : "-5",
+            // maxDate : "+5"
+            //현재날짜를 기준으로 5일전부터 5일 후까지 선택가능
+
+
+            minDate : "-1M -5D",
+            maxDate : "1M 5D"
+            // 오늘로부터 한달 오일전부터 오늘로부터 한달 후 플러스 오일까지 선택가능!
+		});
+
+        $("#dialog1").hide();
+
+        $("#btn4").click(function(){
+
+            // $("#dialog1").show(); 이렇게도 보일 수 있지만 다른방식을 써볼것이다.
+
+            $("#dialog1").dialog({
+                title: "인삿말",
+                width : 1000,
+                height : 250,
+                draggable : false,
+                resizable : false,
+                modal : true,//모달이 꺼져있으면 팝업이 켜져도 부모작업이 가능 
+                //하지만 모달이 켜져 있으면 팝업이 켜지면 부모작업이 불가능해진다.
+                buttons : {
+                    // "text" : function() {alert();}
+                    "확인" : function() {alert("파일을 삭제했습니다.")},
+                    "취소" : function() {$("#dialog1").dialog("close");}//창을 닫아주는 역할을 수행한다.
+                }
+            });
+
+
+        });
+
+
+        // 대화 상자 종류 (JavaScript)
+        //  - alert(), conform(), prompt()
+
+        //대화 상자 종류(일반)
+		//1. modal
+        //  - 팝업이 포커스를 독점한다.
+        //  - 팝업이 동작 중인 경우 부모로 포커스를 이동 시킬 수 없다.
+        //  - 업무상 순서가 정해질때는 modal 상자를 쓸 수 있다 !
+		
+        //2. modeless
+		//	- 팝업과 부모창의 포커스 전환이 자유롭다.
+		//  - 팝업의 업무와 부모창의 업무가 서로 종속적이 않을 때
+
+        
+
+        //---------------------------------
+        $("#slider1").slider({
+            min : 0,
+            max : 1000,
+            step : 10,
+            slide : function(event,ui) {
+                console.log(ui.value);
+            }
+
+
+        });//수치 입력해주는애
+
+
+        $("#slider2,#slider3,#slider4").slider({
+
+            //RGB
+            min : 0,
+            max : 255,
+            value : 255,
+            slide : function(event,ui) {
+                var r = $("#slider2").slider("value");
+                var g = $("#slider3").slider("value");
+                var b = $("#slider4").slider("value");
+                console.log(r,g,b);
+
+
+                $("body").css("background-color",`rgb(${r},${g},${b})`);
+
+                
+
+            }
+
+
+        });
+//-----------------------------------------------------------------
+
+        $("#slider5").slider({
+                // orientation : "vertical"//막대의 방향이 서있게 된다
+                range : true,//범위를 지정할 수 있는 박스가 나오게 된다.
+                min : 10000,
+                max : 300000,
+                values : [50000,200000],
+                step : 10000,//보폭 10000단위로 움직이게 될것이다.
+                change : function(event,ui) {
+                    // ui.value // 버튼이 하나일때 이렇게 얻어왔다
+                    console.log(ui.values[0],ui.values[1]);//막대의 최소값 최대값!
+                }
+                // change 는 마우스를 뗄때만 생긴다고 볼 수 있다.
+                // slide는 마우스를 움직이는 내내 이벤트가 생기고
+
+        });
+
+//-----------------------------------------------------------------
+
+        $("#age").spinner({
+            min : 15,
+            max : 150,
+            step : 10
+
+
+        });//키보드나 마우스로 숫자입력에 적합하다!
+
+
+        $("#age").tooltip();//title에 그림자가 생기게 된다 마우크 커서를 올리면 설명란에 그림자가 생긴다는 뜻이다.
+
+        $("*[title]").tooltip({
+            track:true,
+            show : {
+                effect : "slideDown",
+                delay : 250
+                //딜레이를 어느정도 줘야 모든 풍선도움말을 띄우고 다니지 않는다!
+            },
+            hide : {
+                effect : "slideUp",
+                // delay : 250
+            }
+
+
+        });
+
+        //1. 마우스를 객체에 바로 올릴 때 발생 -> mouseover,mouseenter
+        //2. 마우스를 객체에 올린 후 일정 시간이 흐른 후 발생 -> hover(0.2s~0.3s) 정도가 된다.
+
+        $("#tabs").tabs({
+            active: 0//기본적으로 몇번째 탭을 선택되잇게 할것인지 기본값은 0 이 된다.
+        });
+
+	</script>
+</body>
+</html>

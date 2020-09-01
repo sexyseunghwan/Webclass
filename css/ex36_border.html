@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+
+    <style>
+        
+        body {
+            margin-bottom:300px;
+        }
+
+        .box {
+            border : 1px solid gray;
+            width : 300px;
+            height : 200px;
+            margin : 20px;
+        }
+
+        /* 여기서 중요한 개념은 border-radious는 height 의 길이의 
+        반이상으로 늘어나지 못한다는 것이다. -> 원의곡률을 직접 대입해서 
+        꾸미므로 높이보다 지름이 클순 없다. 즉 사각형에 내접하는 원을 생각하면 된다.
+         */
+
+        #box1 {
+            border-radius: 10px;
+        }
+
+        #box2 {
+            height: 300px;
+            border-radius: 150px;
+        }
+
+        #box3 {
+            height: 300px;
+            border-top-left-radius: 50px;
+            border-bottom-right-radius: 50px;
+
+            border-top-right-radius: 70px;
+            border-bottom-left-radius: 70px;
+            /* 이런식으로 세부적으로 곡률을 줄 수 도 있다.*/
+        }
+
+        #box4 {
+            border-radius: 50%;
+        }
+
+        /* % 는 타원형과 더 가까운 모습이다.*/
+
+
+        #box5 {
+            border-radius: 100px;
+        }
+
+        #list > img {
+            border-radius: 94px;
+            /* cursor: pointer;
+            border-radius: 50%; */
+        }
+
+        #txt1 {
+            border: 1px solid gray;
+            border-radius: 100px;
+            padding: 4px 10px;
+            outline:none;
+        }
+
+        #btn1{
+            margin-top: 10px;
+            border: 0px solid gray;
+            border-radius: 100px;
+            outline: none;
+            background-color: gray;
+            /* width : 100px;
+            height : 20px; */
+            padding: 8px 45px;
+        }
+        
+        #btn1:hover {
+            text-shadow: -1px -1px #666;
+            box-shadow: 1px 1px #666;
+            cursor: pointer;
+        }
+        /* 이렇게 padding 을 지정해주면 버튼의 글자 크기를 늘리더라도 버튼의 내용이 짤려서 보이지 않는다~ 마진을 준것이므로 */
+
+
+        #tbl1 {
+            /* border: 1px solid gray; */
+            /* border-collapse: collapse; */
+            border-radius: 25px;
+            
+        }
+
+        /* 보더 두개가 collapse 되어 있으면 radius가 안먹는다. -> 굳이 쓸필요는 없음 호불호가 갈리는 디자인 ㅋㅋㅋ */
+
+        #tbl1 td {
+            border: 1px solid gray;
+            width:100px;
+            padding:5px;
+        }
+
+        #tbl1 tr:first-child td:first-child {
+            background-color: yellow;
+            border-top-left-radius: 20px;
+        }
+
+        #tbl1 tr:first-child td:last-child {
+            background-color: yellow;
+            border-top-right-radius: 20px;
+        }
+
+        
+        #tbl1 tr:last-child td:first-child {
+            background-color: yellow;
+            border-bottom-left-radius: 20px;
+        }
+                
+        #tbl1 tr:last-child td:last-child {
+            background-color: yellow;
+            border-bottom-right-radius: 20px;
+        }
+
+
+    </style>
+
+
+</head>
+<body>
+    
+    
+    <div id="box1" class="box">Lorem ipsum dolor sit amet consectetur adipisicing elit. Porro quisquam exercitationem distinctio sit reprehenderit accusamus nemo, sequi natus voluptas? Officiis, quidem! Facere ut repudiandae adipisci quam eligendi hic totam animi?</div>
+    <div id="box2" class="box">Amet vitae labore itaque dignissimos similique vero omnis minima, consequatur quasi minus id quod ipsa quaerat non nemo nulla ut totam nobis rem inventore atque perferendis assumenda necessitatibus rerum. Unde?</div>
+    <div id="box3" class="box">Minima ipsam quos delectus illo accusamus, dicta libero eaque ducimus vitae. Nostrum adipisci ut ipsam error voluptatum voluptates quod et odio velit, molestias natus quae earum quos pariatur quaerat minus!</div>
+    <div id="box4" class="box">Optio distinctio molestias in modi recusandae doloremque fugiat, beatae, earum eveniet omnis minus delectus praesentium corporis. Exercitationem iste itaque voluptatem placeat quod, voluptates excepturi perspiciatis in cumque doloremque voluptatum enim!</div>
+    <div id="box5" class="box">Optio, exercitationem tempore facere harum praesentium, doloribus voluptatem officia omnis autem, iusto id eligendi distinctio! Distinctio, iste, repellat soluta delectus aspernatur laborum saepe aut quos velit, dignissimos tenetur! Hic, impedit.</div>
+    
+
+    <br>
+    <hr>
+    <br>
+
+    <div id ="list">
+        <img src="../images/dog01.jpg" alt="">
+        <img src="../images/dog02.jpg" alt="">
+        <img src="../images/dog03.jpg" alt="">
+        <img src="../images/dog04.jpg" alt="">
+        <img src="../images/dog05.jpg" alt="">        
+    </div>
+
+    <hr>
+    <h1>컨트롤</h1>
+    <div><input type="text" id="txt1"></div>
+    <div><input type="button" id="btn1" value = "Button"></div>
+    
+    
+
+    <h1>표</h1>
+
+    <table id="tbl1">
+        <tr>
+            <td>data</td>
+            <td>data</td>
+            <td>data</td>
+            <td>data</td>
+            <td>data</td>
+        </tr>
+        <tr>
+            <td>data</td>
+            <td>data</td>
+            <td>data</td>
+            <td>data</td>
+            <td>data</td>
+        </tr>
+        <tr>
+            <td>data</td>
+            <td>data</td>
+            <td>data</td>
+            <td>data</td>
+            <td>data</td>
+        </tr>
+        <tr>
+            <td>data</td>
+            <td>data</td>
+            <td>data</td>
+            <td>data</td>
+            <td>data</td>
+        </tr>
+        <tr>
+            <td>data</td>
+            <td>data</td>
+            <td>data</td>
+            <td>data</td>
+            <td>data</td>
+        </tr>
+        <tr>
+            <td>data</td>
+            <td>data</td>
+            <td>data</td>
+            <td>data</td>
+            <td>data</td>
+        </tr>
+        <tr>
+            <td>data</td>
+            <td>data</td>
+            <td>data</td>
+            <td>data</td>
+            <td>data</td>
+        </tr>
+        <tr>
+            <td>data</td>
+            <td>data</td>
+            <td>data</td>
+            <td>data</td>
+            <td>data</td>
+        </tr>
+        <tr>
+            <td>data</td>
+            <td>data</td>
+            <td>data</td>
+            <td>data</td>
+            <td>data</td>
+        </tr>
+        <tr>
+            <td>data</td>
+            <td>data</td>
+            <td>data</td>
+            <td>data</td>
+            <td>data</td>
+        </tr>
+        <tr>
+            <td>data</td>
+            <td>data</td>
+            <td>data</td>
+            <td>data</td>
+            <td>data</td>
+        </tr>
+        <tr>
+            <td>data</td>
+            <td>data</td>
+            <td>data</td>
+            <td>data</td>
+            <td>data</td>
+        </tr>
+        <tr>
+            <td>data</td>
+            <td>data</td>
+            <td>data</td>
+            <td>data</td>
+            <td>data</td>
+        </tr>
+        <tr>
+            <td>data</td>
+            <td>data</td>
+            <td>data</td>
+            <td>data</td>
+            <td>data</td>
+        </tr>
+        <tr>
+            <td>data</td>
+            <td>data</td>
+            <td>data</td>
+            <td>data</td>
+            <td>data</td>
+        </tr>
+        <tr>
+            <td>data</td>
+            <td>data</td>
+            <td>data</td>
+            <td>data</td>
+            <td>data</td>
+        </tr>
+        <tr>
+            <td>data</td>
+            <td>data</td>
+            <td>data</td>
+            <td>data</td>
+            <td>data</td>
+        </tr>
+        <tr>
+            <td>data</td>
+            <td>data</td>
+            <td>data</td>
+            <td>data</td>
+            <td>data</td>
+        </tr>
+        <tr>
+            <td>data</td>
+            <td>data</td>
+            <td>data</td>
+            <td>data</td>
+            <td>data</td>
+        </tr>
+        <tr>
+            <td>data</td>
+            <td>data</td>
+            <td>data</td>
+            <td>data</td>
+            <td>data</td>
+        </tr>
+    </table>
+
+
+</body>
+</html>

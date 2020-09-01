@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        
+        #box1 {
+            border : 10px solid black;
+            width : 200px;
+            height : 200px;
+            background-color:gold;
+            padding : 20px;
+            margin : 20px;
+        }
+
+    </style>
+</head>
+<body>
+    
+    <h1>jquery 에서 객체의 영역에 관련된 기능(=박스모델)</h1>
+
+    <div id = "box1">상자</div>
+
+
+    <script src = "js/jquery-1.12.4.js"></script>
+    
+    <script>
+
+        //box1의 너비?
+        console.log(
+            ocument.getElementById("box1").style.width);//인라인 스타일시트가 아니면 값을 얻어 올 수 없다!
+        
+        console.log(getComputedStyle(document.getElementById("box1"))["width"]);
+
+        //이것은 객체의 너비와 높이는 아니다
+        console.log($("#box1").css("width"));//여기서는 인라인 으로 했네 안했네 고민 할 필요가 없다.
+        console.log($("#box1").css("height"));
+
+        //아래처럼 하면 px 단위가 빠지게 된다...
+        console.log("width",$("#box1").width());
+        console.log("width",$("#box1").height());
+
+        // $("#box1").width(100);
+
+
+        // 콘텐츠 영역 크기 + padding
+        //jqqery 에는 프로퍼티가 없다 모두 함수라는걸 꼭 기억하자!!!!!
+        console.log("innerWidth",$("#box1").innerWidth());
+        console.log("innerHeight",$("#box1").innerHeight());
+        
+        // 실제 상자!!
+        // 콘텐츠 영역 크기 + padding + border
+        console.log("outerWidth",$("#box1").outerWidth());
+        console.log("outerHeight",$("#box1").outerHeight());
+        //좌우 보더 까지 더해준 영역의 크기를 말하는 것이다!.
+
+        //콘텐츠 영역 크기 + padding + border + margin
+        console.log("outerWidth",$("#box1").outerWidth(true));//마진을 포함
+        console.log("outerHeight",$("#box1").outerHeight());//마진을 포함하지 않음
+        
+        
+
+
+
+    </script>
+    
+
+
+</body>
+</html>

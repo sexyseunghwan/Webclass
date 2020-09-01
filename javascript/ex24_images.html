@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <!-- <input type="button" value = "테스트" name = "btn1">
+    <hr>
+    <img src="../images/catty01.png" name="cat1">
+    <img src="../images/arr05.png" name="arr"> -->
+
+    <!-- -------------------------------------- -->
+
+    <!-- <img src="../images/0.png" name="number"> -->
+
+    <!-- -------------------------------------- -->
+
+    <img src="../images/switch_off.png" name="sw">
+
+    <!-- -------------------------------------- -->
+    <img src="../images/catty01.png" name="c1" data-file="catty04.png" data-origin="catty01.png" data-index = "0">
+    <img src="../images/catty02.png" name="c2" data-file="catty05.png" data-origin="catty02.png" data-index = "1">
+    <img src="../images/catty03.png" name="c3" data-file="catty06.png" data-origin="catty03.png" data-index = "2">
+    <!-- 왜 file을 붙여놓는 것인가?ㅋㅋㅋ -->
+    <!-- 어떤 속성인가?! 그냥 마음대로 만들어 놓는 속성이다 -->
+    <!-- HTML은 문법에 없는 거 써도 에러가 잘 나지 않는다. 해석 안하고 pass 해버린다. -->
+    <!-- 앞에 data- 를 붙여주면 새로운 저장소 하나를 만들어주는 것이다.
+        개발자가 임시로 쓸려고 둔 저장소구나라고 HTML 이 인식을 한다.
+    -->
+
+    <img src="../images/catty04.png" name="c4" data-file="catty07.png" data-origin="catty04.png" data-index = "3">
+
+    
+
+    <script>
+
+        // var btn1 = document.all.btn1;
+        // var cat1 = document.images["cat1"];
+        // var arr = document.images["arr"];
+        // var number = document.images["number"];
+        var sw = document.images["sw"];
+
+        // //-----------------------------------------------c
+
+
+
+
+
+        // // btn1.onclick = function() {//버튼을 누르면 고양이가 바뀌게된다.
+        // //     //태그 조작 -> 속성이나 pcdata 건드리는것이다 즉 인라인태그는 pcdata가 없으므로 속성만 건들이면 된다.
+        // //     console.log(cat1.src);
+        // //     cat1.src = "../images/catty02.png";
+        // //     cat1.width *= 2;
+        // //     cat1.title="고양이"; 
+        // // }
+
+
+
+        // //롤오버 이미지 -> 마우스 반응에 움직이는 이미지를 "롤오버 이미지"라고 부른다
+        // // cat1.onmouseover = function() {
+        // //     cat1.src = "../images/catty02.png";
+        // // };
+        // // cat1.onmouseout = function() {
+        // //     cat1.src = "../images/catty01.png";
+        // // };
+
+
+        // //이런식으로 또한 마우스 반응에 움직이는 롤오버 이미지를 만들수 있다 대부분 비슷한 사진 두개를 엮어서 만든다.
+        // // arr.onmouseover = function() {
+        // //     arr.src="../images/arr13.png";
+        // // }
+        // // arr.onmouseout = function() {
+        // //     arr.src="../images/arr05.png";
+        // // }
+        // // ----------------------------------------
+        
+        
+        // var n = 1;
+
+        // number.onclick = function() {
+
+
+        //     if(n > 9) {
+        //         n=0;
+        //     } else {
+        //         number.src = "../images/" + n + ".png";
+        //         n++;
+        //     }
+
+            
+        // }
+
+        // // ----------------------------------------
+
+        // // window.onmousemove = function() {//화면에서 마우스를 움직일때마다 숫자가 줜나게 바뀐다.
+        // //     if(n > 9) {
+        // //         n=0;
+        // //     } else {
+        // //         number.src = "../images/" + n + ".png";
+        // //         n++;
+        // //     }
+        // // }
+
+        // // ----------------------------------------
+
+        //스위치 클릭하면 전원키자
+        var count = 1;
+        sw.onclick = function() {
+
+           	// if (getFileName(sw.src) == "switch_off.png") {
+			// 	sw.src = "../images/switch_on.png";
+			// 	document.body.bgColor = "white";
+			// } else {
+			// 	sw.src = "../images/switch_off.png";
+			// 	document.body.bgColor = "red";
+			// }
+
+
+            if(count % 2 == 0) {
+                sw.src="../images/switch_on.png";
+            } else {
+                sw.src="../images/switch_off.png";
+            }
+            count++;
+        }
+
+
+       	// function getFileName(url) {
+		// 	//http://127.0.0.1:5501/images/switch_off.png
+
+		// 	return url.substr(url.lastIndexOf("/")+1);
+        // }
+        
+        // ----------------------------------------
+
+        //고양이 세마리 롤오버 해보자
+
+        //1. 노가다 방법 -> 여러개 이미지를 롤오버 처리하기
+        function m1() {
+            
+            var c1 = document.images["c1"];
+            var c2 = document.images["c2"];
+            var c3 = document.images["c3"];
+
+            c1.onmouseover = function() {
+                c1.src="../images/catty04.png";
+            }
+            c1.onmouseout = function() {
+                c1.src="../images/catty01.png";
+            }
+
+            
+            c2.onmouseover = function() {
+                c2.src="../images/catty05.png";
+            }
+            c2.onmouseout = function() {
+                c2.src="../images/catty02.png";
+            }
+    
+            c3.onmouseover = function() {
+                c3.src="../images/catty06.png";
+            }
+            c3.onmouseout = function() {
+                c3.src="../images/catty03.png";
+            }
+
+    
+        }
+        
+        // m1();
+
+        // function m2() {
+
+        //     for(var i = 1; i <= 3; i++) {
+        //         document.images["c" + i].onmouseover = function() {
+        //             // document.title= event.srcElement.name;//이름이 뜨게 된다.
+                    
+        //             document.title = event.srcElement.dataset["file"];//위에서 data-~ 한것 data를 빼준 이름을 적어줘야 한다.
+        //             // 파일명을 얻어온 것이다.
+                     
+        //             event.srcElement.src = "../images/" + event; 
+        //         }
+        //     }
+        // }
+
+		function m2() {
+			for (var i=1; i<=3; i++) {
+				document.images["c" + i].onmouseover = function() {
+					//document.title = event.srcElement.name;
+					//document.title = event.srcElement.file;
+					document.title = event.srcElement.dataset["file"];
+					event.srcElement.src="../images/" + event.srcElement.dataset["file"];
+				};
+				document.images["c" + i].onmouseout = function() {
+                    // event.srceElement.src = "원래이미지";
+					event.srceElement.src = "../images/" + event.srcElement.dataset["origin"];
+                    
+				};
+			}
+		}
+
+
+        // m2();
+
+        // 이 방법이 더 좋다.
+       function m3() {
+
+			var list = [
+				["catty01.png", "catty04.png"],
+				["catty02.png", "catty05.png"],
+				["catty03.png", "catty06.png"],
+				["catty07.png", "catty08.png"]
+			];
+
+			for (var i=1; i<=4; i++) {
+				var c = document.images["c" + i];//객체 이름을 불러주는것이라고 생각하면 된다.
+				c.onmouseover = function() {
+					//cat.src = 
+                    // console.log(i);
+                    event.srcElement.src = "../images/" + 
+                    list[event.srcElement.dataset["index"]][1];
+                };
+                c.onmouseout = function() {
+					//cat.src = 
+                    // console.log(i);
+                    event.srcElement.src = "../images/" + 
+                    list[event.srcElement.dataset["index"]][0];
+				};
+			}
+
+		} 
+        
+        
+
+        m3();
+
+
+        
+
+
+
+        
+        
+
+
+
+
+
+
+
+    </script>
+
+
+</body>
+</html>

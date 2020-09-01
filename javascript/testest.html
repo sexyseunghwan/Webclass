@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+	
+	<style>
+		.tbl1 {
+			border : 1px solid black;
+			width : 400px;
+			height : 400px;
+			border-collapse: collapse;
+		}
+
+		.tbl1  td {
+			border : 1px solid black;
+		}
+
+		
+	</style>
+
+
+
+</head>
+<body>
+	
+
+	<h1>테이블생성</h1>
+	<div id = "main">
+
+	</div>
+	<hr>
+	<input type="button" value = "버튼1" id = "btn1">	
+	<input type="button" value = "버튼2" id = "btn2">	
+		
+	
+    
+
+    <script>
+		var btn1 = document.getElementById("btn1");
+		var main = document.getElementById("main");
+
+		btn1.onmousedown = function() {
+
+			var table = document.createElement("table");
+			table.className = "tbl1";
+
+
+			for (var i = 0; i < 5; i++) {
+	
+				var tr = document.createElement("tr");
+
+				for (var j = 0; j < 5; j++) {
+
+					var td = document.createElement("td");
+					td.innerHTML = i+","+j;
+					tr.appendChild(td);
+
+				}	
+				table.append(tr);
+			}
+
+			main.appendChild(table);
+
+		}
+
+
+		
+
+
+
+
+
+    </script>
+
+
+</body>
+</html>

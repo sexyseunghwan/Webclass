@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    
+    <h1>window 객체</h1>
+
+
+    <form name="form1">
+        <input type="button" value="자식 창 띄우기" name= "btn1">
+        <input type="button" value="띄웠던 자식창 닫기" name= "btn2">
+    </form>
+
+    
+    <h2>회원가입</h2>
+
+    <form name="form2">
+        아이디: <input type="text" name = "txtID">
+        <input type="button" value="아이디 중복 검사" name="btnCheck">
+    </form>
+
+
+    <script>
+        //버튼일단 찾아주는 작업
+        var btn1 = window.document.form1.btn1;
+        var btn2 = window.document.form1.btn2;
+        var child;
+        
+       var btnCheck = window.document.form2.btnCheck;
+
+        btn1.onclick = function() {
+            //새창 띄우기
+            // window.open("URL","name","options");//이런식으로 구성되어있다.
+            // window.open("ex15_event.html","ex15","");//새탭에서 띄워진다. 탭 브라우저로 넘어가서 새창으로 띄워지지 않음.
+            
+            
+            // window.open("http://naver.com","naver","");
+            //name 이 하는 역할이 무엇인가? -> 사전에 같은 이름의 창이 있는지 확인하고 같은이름의 창이 있다면 리프레시 시키나
+            //만약 name = "" 이런식으로 준다면 계속해서 띄워 줄 수 있다. -> 보통은 이름을 준다.
+            
+            
+            // window.open("http://naver.com","naver","width=300,height=300");
+
+            //자식객체를 받는것
+            child = window.open("http://naver.com","naver","width=300,height=300")
+        }
+        // window.open("http://naver.com","naver","width=300,height=300");
+        // 브라우저가 이런식으로 팝업을 그냥 다 막아버림 -> 광고 때문에 ㅋㅋㅋ
+        // 들어가자 마자 뜨는 팝업은 고객의 의지가 아니라서 팝업 차단을 한것이지만 
+        // 내가 클릭해서 들어가는 팝업은 막으면 안된다.
+
+       
+        
+        btn2.onclick = function(){
+            //창 닫기
+            // window.close();
+            child.close();
+        };
+
+       	btnCheck.onclick = function() {
+			child = window.open("ex17_child.html", "check", "width=330, height=250");
+		};
+        
+
+
+    </script>
+
+
+</body>
+</html>

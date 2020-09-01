@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+<style>
+
+
+
+
+    .box{
+        border: 1px solid black;
+        width: 200px;
+        height: 200px;
+        display: inline;
+        /* 블럭태그의 diplay 의 기본값은 block 이 된다 
+            display 를 inline 으로 바꾼다면 보여주는 방식을 인라인형태로 바꿔준다 
+        */
+
+
+        /* display 처음보는 속성들은 유추하기가 매우 힘들다 완전히 요소 하나하나가 성질이 다르므로
+        diplay : 요소의 출력 방식을 결정
+        
+        */
+    }
+
+    .link{
+        border: 1px solid black;
+        width: 200px;
+        height: 200px;
+        display: block;
+        /*  인라인 태그들의 display 기본속성은 inline 이 된다 
+            display 를 block으로 바꾸면 인라인 태그가 블럭태그처럼 보이게 된다.
+
+        */
+    }
+
+
+    #menu ul {
+        border: 1px solid blue;
+        padding: 0;
+    }
+    #menu li {
+        border: 0px solid red;
+        /* 인라인인지 블럭인지 알아보려면 보더를 줘보는게 좋다.
+            너비 100프로면 블럭이라고 할 수 있다.
+        */
+        display: inline-block;
+        /* 이런식으로 하게되면 메뉴구성이 블럭태그임에도 불구하고
+            인라인 태그 처럼 보이게 된다.
+
+            inline-block: 인라인의 성질을 가지면서도
+            블럭의 성질은 width, height를 지정할수 있게 한다.
+            원래 인라인 태그는 width와 height 를 지정할 수 없다.
+        */
+
+        width: 20%;
+        text-align: center;
+    }
+
+    .cat {
+        display: block;
+        margin: 30px;
+        /* padding: 20px; */
+    }
+    /* 마진은 음수도 지원한다. */
+
+
+
+</style>
+
+</head>
+<body>
+
+    <nav id = "menu">
+        <ul>
+            <!-- 인라인태그화 되면 홈 회원처럼 다닥다닥 붙여야 빈칸이 안생기게된다. -->
+            <li>홈</li><li>회원</li><li>관리자</li><li>게시판</li><li>통계</li>
+        </ul>
+    </nav>
+
+    <!-- 요즘스타일은 의미있는 태그를 쓰는것이 유행이다. -->
+
+
+
+    
+    <h1>블럭태그</h1>
+    
+    <!-- div#box$.box{상자}*3 -->
+    <div id="box1" class="box">상자</div>
+    <div id="box2" class="box">상자</div>
+    <div id="box3" class="box">상자</div>
+
+
+    <a href="#" id="link1" class="link">링크1</a>
+    <a href="#" id="link2" class="link">링크2</a>
+    <a href="#" id="link3" class="link">링크3</a>
+
+    <hr>
+    <h1>고양이</h1>
+    <img src="../images/catty01.png" class="cat">
+    <img src="../images/catty01.png" class="cat">
+    <img src="../images/catty01.png" class="cat">
+    <img src="../images/catty01.png" class="cat">
+    <img src="../images/catty01.png" class="cat">
+    <img src="../images/catty01.png" class="cat">
+    <img src="../images/catty01.png" class="cat">
+    <img src="../images/catty01.png" class="cat">
+    <img src="../images/catty01.png" class="cat">
+    <img src="../images/catty01.png" class="cat">
+    <img src="../images/catty01.png" class="cat">
+    <img src="../images/catty01.png" class="cat">
+    <img src="../images/catty01.png" class="cat">
+    <img src="../images/catty01.png" class="cat">
+    <img src="../images/catty01.png" class="cat">
+    <img src="../images/catty01.png" class="cat">
+    <img src="../images/catty01.png" class="cat">
+    <img src="../images/catty01.png" class="cat">
+    <img src="../images/catty01.png" class="cat">
+    <img src="../images/catty01.png" class="cat">
+    <img src="../images/catty01.png" class="cat">
+    <img src="../images/catty01.png" class="cat">
+    <img src="../images/catty01.png" class="cat">
+    <img src="../images/catty01.png" class="cat">
+    <img src="../images/catty01.png" class="cat">
+    <img src="../images/catty01.png" class="cat">
+    <img src="../images/catty01.png" class="cat">
+    <img src="../images/catty01.png" class="cat">
+    <img src="../images/catty01.png" class="cat">
+    <img src="../images/catty01.png" class="cat">
+    <img src="../images/catty01.png" class="cat">
+    <img src="../images/catty01.png" class="cat">
+    <img src="../images/catty01.png" class="cat">
+    <img src="../images/catty01.png" class="cat">
+    <img src="../images/catty01.png" class="cat">
+    <img src="../images/catty01.png" class="cat">
+    <img src="../images/catty01.png" class="cat">
+    <img src="../images/catty01.png" class="cat">
+    <img src="../images/catty01.png" class="cat">
+    <img src="../images/catty01.png" class="cat">
+    <img src="../images/catty01.png" class="cat">
+    <img src="../images/catty01.png" class="cat">
+    <img src="../images/catty01.png" class="cat">
+    <img src="../images/catty01.png" class="cat">
+    <img src="../images/catty01.png" class="cat">
+    <img src="../images/catty01.png" class="cat">
+
+    <!-- 한줄당 고양이를 하나씩 출력해라! -->
+    <!-- 
+        img 태그는 인라인 태그이기 때문에 한 사진당 하나의 라인을 독점하는
+        방식이 아니므로 한줄에 여러마리의 고양이 사진이 출력되게 된다.
+        그래서 이 인라인 방식의 출력 자체를 
+
+        1번째 방법 : 고양이 사진마다 br태그를 붙여주는것 -> 고양이
+        2번째 방법 : div로 묶는것 하나하나씩
+        3번째 방법 : 인라인태그인 img 자체를 display를 건들어서 block처럼출력해준다.
+
+
+     -->
+
+     <!-- 먄약 이렇게 까지 했는데 고양이마다 좀 여백이 있으면 좋겟다?
+    
+        마진을 주면 된다
+        블럭 태그 마다의 여백을 조정가능
+    -->
+
+
+
+</body>
+</html>

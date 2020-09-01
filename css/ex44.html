@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        #list{
+            border : 1px solid black;
+            width:740px;
+        }
+        /* width 가 아래의 list div 높이와 넓이와 border를 더해줘서 지금 계산해준것이다. */
+        
+        #list::after {
+            content: ' ';
+            display: block;
+            clear:both;
+        }
+
+        #list div {
+            border: 10px solid tomato;
+            width : 128px;
+            height : 128px;
+            float : left;
+            overflow: hidden;
+            
+        }
+
+        /* overflow 라는것은 부모의 영역을 벗어날때 어떤식으로 처리할것인지 정해주는 옵션이다. */
+
+
+        #list div img {
+            transition-property: transform;
+            transition-duration: .7s;
+        }
+
+        #list div:hover img{
+            transform: translate(128px,0px);
+        }
+        /* div 에 마우스가 올라가 있을때 고양의 상태를 말하는 것이다. */
+
+
+        /* ----------------------------------------문제가 해결***-------------------- */
+
+        #list2 {
+            border: 10px solid blue;
+            width:128px;
+            height:128px;
+            /* overflow: hidden; */
+        }
+        #list2 #content {
+            /* border: 1px solid black; */
+            /* width:1000px; */
+            width: 640px;
+            transition-property: transform;
+            transition-duration: 1s;
+            transition-timing-function: linear;
+            
+            
+        }
+
+        #list2 #content::after {
+            content:' ';
+            display: block;
+            clear: both;
+        }
+        #list2 #content img {
+            float:left;
+        }
+        
+
+        #list2:hover #content{
+            transform: translate(-512px,0px);
+            /* 128이 고양이 하나의 길이이므로 잘 봐주는게 좋다. */
+        }
+
+    </style>
+
+</head>
+<body>
+    
+    <h1>고양이</h1>
+
+    <div id="list">
+        <div><img src="../images/catty01.png" alt=""></div>
+        <div><img src="../images/catty02.png" alt=""></div>
+        <div><img src="../images/catty03.png" alt=""></div>
+        <div><img src="../images/catty04.png" alt=""></div>
+        <div><img src="../images/catty05.png" alt=""></div>
+    </div>
+
+    <hr>
+
+
+    <h1>고양이</h1>
+
+    <div id="list2">
+        <div id="content"><!-- 중요 -->
+            <img src="../images/catty01.png" alt="">
+            <img src="../images/catty02.png" alt="">
+            <img src="../images/catty03.png" alt="">
+            <img src="../images/catty04.png" alt="">
+            <img src="../images/catty05.png" alt="">  
+        </div>
+    </div>
+
+
+</body>
+</html>

@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    
+</head>
+<body>
+    
+
+    <title>Document</title>
+
+    <!-- 
+        jQuery
+        - 자바스크립트 라이브러리
+        - 자바스크립트 프레임워크
+        - 자바스크립트 작업을 -> 쉽고 빠르고 편리하게 작업할 수 있도록 도와준다.
+
+
+        jQuery 설치해야한다
+        - 적용할 HTML 페이지에 관련 *.js -> import 시키면 된다.
+        - jquery,js -> <script src = "jquery.js">
+
+        파일배포 정식 사이트 : jquery.com
+
+        1.파일 직접 다운로드
+            a. 배포 사이트에서 다운로드(jquery.com)
+            b. npm 도구 사용 다운로드
+        2. CDN
+            a. js파일을 별도의 서버로부터 제공받아서 사용하는 방법
+
+
+
+     -->
+     
+
+     <input type="button" value = "버튼" id = "btn" name = "btn">
+     <script src = "js/jquery-3.5.1.js"></script>
+     <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script> -->
+
+    <script>
+        //자바스크립트로 했을때 어떤 모습인지 봐주자
+        //BOM 의 모습
+        document.all.btn.onclick = function() {
+            alert("BOM");
+        }
+        
+        //DOM 의 모습
+        document.getElementById("btn").addEventListener("click",function(){
+
+            alert("DOM");
+
+        });
+
+        //아래는 위의 내용을 jquery로 변환했을때 코드이다
+        //1.jquery 로 변환하는 첫번째 방법
+        jQuery("#btn").click(function(){
+            alert("jquery");
+        });
+        
+        //2. jquery 로 변환하는 두번째 방법
+        $("#btn").click(function() {
+			alert("jquery");
+        });
+        
+        //위에서 보면 알겠듯이, jQuery 자체를 $로 줄여서 쓴다.
+        
+
+    </script>
+
+
+    <!-- 2020.07.10 복습완료 -->
+</body>
+</html>

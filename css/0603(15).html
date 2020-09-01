@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+<!-- 모르겠엄 -->
+    <style>
+
+        #main {
+            border:1px solid red;
+            width:720px;
+            height:1000px;
+            margin :100px 500px;
+        }
+        .item {
+            border:1px solid black;
+            float:left;
+            
+            /* width:500px;
+            height:720px; */
+        }
+        .item img {
+            /* float:left; */
+            width:150px;
+            height:150px;
+            margin:0px 20px;
+            /* position: relative;
+            right:-400px;
+            top:-50px; */
+        }
+        .item label{
+            width:150px;
+            font-size: 4em;
+            background-color: red;
+            margin: 10px 100px;
+
+        } 
+        .item input {
+            display:none;
+        }
+
+
+    </style>
+
+
+
+</head>
+<body>
+    
+<div id="main">
+	<h1>Music</h1>
+	<div class="item">
+		<input type="radio" name="rb" id="rb1">
+		<label for="rb1">Play</label>
+        <div class="disc" id="disc1"></div>
+        <div><img src="../images/disc/lp01.png" alt=""></div>
+        <!-- <div style="clear:both;"></div> -->
+	</div>
+	<div class="item">
+		<input type="radio" name="rb" id="rb2">
+		<label for="rb2">Play</label>
+        <div class="disc" id="disc2"></div>
+        <div><img src="../images/disc/lp02.png" alt=""></div>
+	</div>
+	<div class="item">
+		<input type="radio" name="rb" id="rb3">
+		<label for="rb3">Play</label>
+        <div class="disc" id="disc3"></div>
+        <div><img src="../images/disc/lp03.png" alt=""></div>
+	</div>
+	<div class="item">
+		<input type="radio" name="rb" id="rb4">
+		<label for="rb4">Play</label>
+        <div class="disc" id="disc4"></div>
+        <div><img src="../images/disc/lp04.png" alt=""></div>
+    </div>
+</div>	
+
+
+</body>
+</html>

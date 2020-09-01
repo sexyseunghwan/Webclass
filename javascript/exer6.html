@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        
+        #main{
+
+            margin-top: 150px;
+            margin-left: 350px;
+            /* border: 1px solid black; */
+            width : 1000px;
+            height : auto;
+        }
+        /* img{
+            width : 128px;
+            height : 128px;
+        } */
+
+    </style>
+
+
+</head>
+<body>
+
+    
+
+    <div id = "main">
+        <img src="../images/catty01.png" name="cat1" width= 128 height = 128>
+        <img src="../images/catty02.png" name="cat2" width= 128 height = 128>
+        <img src="../images/catty03.png" name="cat3" width= 128 height = 128>
+        <img src="../images/catty04.png" name="cat4" width= 128 height = 128>
+        <img src="../images/catty05.png" name="cat5" width= 128 height = 128>
+    </div>
+
+
+    <script>
+        var cat1 = document.images.cat1;
+        var cat2 = document.images.cat2;
+        var cat3 = document.images.cat3;
+        var cat4 = document.images.cat4;
+        var cat5 = document.images.cat5;
+
+        var list = [cat1,cat2,cat3,cat4,cat5];
+
+
+        // cat1.onmouseover = function() {
+        //     cat1.width += 10;
+        //     cat1.height += 10;
+        // }
+
+        for(let i = 0; i < list.length; i++) {
+
+            list[i].onmouseover = function() {
+                list[i].width += 10;
+                list[i].height += 10;
+            }
+
+            list[i].onclick = function() {
+                if(confirm("reset???")) {
+                list[i].width = 128;
+                list[i].height = 128;
+                }
+            }
+
+
+        }
+
+
+    </script>
+
+
+
+</body>
+</html>

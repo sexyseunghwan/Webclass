@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <!-- 
+        HTML 5 에서 추가된 태그~~
+
+        HTML5 Semantic tag
+        - 페이지 레이아웃 구성하는 용도
+        - 랜더링 결과가 <div>와 동일(아무런 특징이 없는 블럭태그)
+
+        1. <header> 
+            : 해당 영역의 머릿말 역할
+        2. <nav>
+            : 메뉴 역할
+        3. <section>
+            : 주요 콘텐츠 역할
+        4. <article>
+            : 주요 콘텐츠 아이템 역할
+        5. <aside>
+            : 보조 콘텐츠 역할
+        6. <footer>
+            : 바닥글 역할
+
+
+
+     -->
+
+     <h1>이전방식 div 를 사용하는 방식</h1>
+     <!-- 의미없는 블럭태그 를 만들어준다! -->
+     <!-- 그 상자에 대해서 식별자를 만들어준다! id 또는 class 를 써주면 된다
+        id 는 유일한 실별자 class 는 그룹 식별자이다. -->
+        <!-- id 는 절대 중복값을 가지면 안된다! 페이지 내에서만 구분되면 된다! -->
+<!-- 
+        <div id = "m1">강아지</div>
+        <div id = "m2">고양이</div>
+        <div id = "m3">고등어</div> -->
+
+
+    <!-- class 는 비슷한애들을 묶기 위한 식별자로 보면 된다.  -->
+
+        <!-- <div class = "group">강아지</div>
+        <div class = "group">고양이</div>
+        <div id = "party">고등어</div>
+
+     <div id = "유일값 식별자" class = "그룹 식별자">
+        
+
+     </div> -->
+
+     <!-- 책읽는 순서대로 만들어준다~ -->
+
+
+     <div id = "main">
+         <div id = "mainmenu">메인메뉴</div>
+         <div id = "submenu">보조메뉴</div>
+         <div id = "contents">
+             <div class = "item">콘텐츠 아이템</div>
+             <div class = "item">콘텐츠 아이템</div>
+             <div class = "item">콘텐츠 아이템</div>
+             <div id = "subcontent">추가 콘텐츠</div>
+         </div>
+         <div id = "footer">하단부</div>
+     </div>
+
+
+
+     <hr>
+
+     <h1>현재방식 HTML5</h1>
+     
+     <main>
+         <header>
+            <nav>메인 메뉴</nav>
+        </header>
+        <nav>보조 메뉴</nav>
+        <section>
+            <article>콘텐츠 아이템</article>
+            <article>콘텐츠 아이템</article>
+            <article>콘텐츠 아이템</article>
+            <aside>추가 콘텐츠</aside>
+        </section>
+        <footer>하단부</footer>
+     </main>
+
+     <!-- 디자인을 안하고 둘다 골격만 잡은것이다 -->
+     <!-- 위에꺼와 아래꺼가 다른게 의미의 유무이다! -->
+     <!-- div 방식은 id 를붙여놓고 그 안에 의미전달을 할 수 있는 키워드를 잘 적어놨으면 상관없긴함 
+            문제는 id 나 class 에 들어가는 단어는 개발마다 통일이 어렵다
+            즉 남의 소스를 보기가 상당히 어렵게 된다.-->
+    <!-- HTML5 방식으로 쓰면 의미가 존재하게 된다. -->
+
+
+
+</body>
+</html>

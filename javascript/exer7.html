@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+
+        body {
+            margin-top : 200px;
+            margin-left : 400px;
+        }
+        #main {
+        
+            padding-left : 20px;
+            width : 600px;
+            height : 580px;
+        }
+
+        img {
+            margin : 10px;
+            width : 146px;
+            height: 146px;
+            border:10px solid #A9A9A9;
+        }
+        #select {
+            margin-top : 5px;
+            margin-left: 20px;
+        }
+        #select > input {
+            display:inline-block;
+            font-size: 1.7em;
+            font-weight: solid;
+            font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+            border: 10px solid #A9A9A9;
+            width : 263px;
+            height: 70px;
+            margin : 10px;
+            text-align: center;
+        }
+        
+        
+    </style>
+
+
+</head>
+<body>
+
+
+    <div id="main">
+        <img src="../images/rect_icon01.png" name = "p1" data-index = "0">
+		<img src="../images/rect_icon02.png" name = "p2" data-index = "1">
+		<img src="../images/rect_icon03.png" name = "p3" data-index = "2"><br>
+		<img src="../images/rect_icon04.png" name = "p4" data-index = "3">
+		<img src="../images/rect_icon05.png" name = "p5" data-index = "4">		
+		<img src="../images/rect_icon06.png" name = "p6" data-index = "5"><br>
+		<img src="../images/rect_icon07.png" name = "p7" data-index = "6">
+		<img src="../images/rect_icon08.png" name = "p8" data-index = "7">
+		<img src="../images/rect_icon09.png" name = "p9" data-index = "8">
+    </div>
+    <div id="select">
+        <input type="button" name = "reset" value = "RESET" onclick="reset();">
+        <input type="button" name = "input" value = "INPUT" onclick="input();">
+    </div>
+
+    <script>
+
+        var pw = [0,0,0,0,0,0,0,0,0];
+        var list = document.images;
+
+
+        for (var i = 0; i < list.length; i++) {
+            
+            list[i].onmouseover = function() {
+                pw[event.srcElement.dataset["index"]] = 1;
+                console.log(pw);
+                event.srcElement.src = "../images/rect_icon10.png";
+            }
+
+        }
+
+        //document.all.input.onclick = input();
+        //document.all.reset.onclick = reset();
+        
+        
+        function input() {
+
+                if( pw[0] == 1 &&
+                    pw[1] == 0 &&
+                    pw[2] == 0 &&
+                    pw[3] == 1 &&
+                    pw[4] == 0 &&
+                    pw[5] == 0 &&
+                    pw[6] == 1 &&
+                    pw[7] == 1 &&
+                    pw[8] == 1) {
+                    location.href = "http://google.com";
+                } else {
+                    alert("ERROR");
+                    reset();
+                }
+
+        }; 
+
+        function reset() {
+
+             for (var i = 0; i < list.length; i++) {
+                list[i].src = "../images/rect_icon0" + (i+1) + ".png";
+            }
+            pw = [0,0,0,0,0,0,0,0,0];
+        };
+
+        
+
+    </script>
+
+</body>
+</html>
+
+

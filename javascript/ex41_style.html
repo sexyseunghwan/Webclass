@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        #box1 {
+            border : 1px solid black;
+            width : 200px;
+            height : 200px;
+            background-color: gold;
+        }
+
+
+    </style>
+
+</head>
+<body>
+    
+    <h1>CSS 조작</h1>
+
+    <input type="button" value = "버튼1" id = "btn1">
+    <input type="button" value = "버튼2" id = "btn2">
+    <hr>
+    <div id = "box1">상자</div>
+    
+    <!-- 버튼을 누르면 -> css 를 조작할수 있게 해보자 -->
+
+
+    <hr>
+
+    <input type="button" value = " + " id = "big">
+    <input type="button" value = " - " id = "small">
+    <p id="p1">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Cupiditate ullam tempore eaque tenetur quis, alias maiores nulla similique eveniet ipsum nobis pariatur distinctio ipsa, suscipit explicabo dolores sapiente, ut vero quia? Amet in debitis placeat ullam? Quasi, voluptatum, cupiditate veritatis placeat expedita sunt nostrum enim cumque illum voluptates, nam asperiores inventore! Voluptates culpa sint commodi, ut doloremque, repellendus repellat dignissimos suscipit quaerat aperiam incidunt deserunt quibusdam! Adipisci non eos quas omnis molestiae, vel autem consequuntur rerum quam expedita esse, quaerat sequi veritatis ipsam aperiam reprehenderit atque commodi in minima vitae. Nulla modi iusto voluptates, perferendis, accusamus eos assumenda quasi asperiores laudantium porro repellat dolores est exercitationem ad impedit adipisci? Esse soluta amet quasi saepe neque? Aut, reiciendis ex consectetur hic ad cum non omnis dolores ipsum et! Quas, asperiores unde mollitia nulla nostrum quod. Esse inventore iusto voluptas iure tempore ducimus laboriosam exercitationem harum? Aliquam, veniam commodi numquam vero tenetur et provident saepe nisi inventore veritatis, dolore adipisci quis ullam, sed dolores nam. Saepe minima non itaque amet maxime maiores deleniti aspernatur quidem. Debitis minus distinctio et in consequatur illo facere vitae, provident error recusandae ipsam voluptates tempora exercitationem eligendi expedita. Sint sequi ab illo, corporis dolorum voluptate! Reiciendis, impedit.</p>
+
+    <script>
+
+        var btn1 = document.getElementById("btn1");
+        var btn2 = document.getElementById("btn2");
+        var box1 = document.getElementById("box1");
+
+
+        var big = document.getElementById("big");
+        var small = document.getElementById("small");
+        var bp1 = document.getElementById("p1");
+        
+
+        btn1.addEventListener("click",function() {
+
+			//JavaScript -> HTML 조작 -> Attirubte
+			//JavaScript -> CSS 읽기/쓰기
+
+			//속성명 패턴
+			//1. CSS 속성명을 그대로 사용한다.
+			//2. '-'이 들어있는 속성명 -> 캐멀 표기법으로 전환
+			//3. '-'이 들어있는 속성명 -> 맵 형식
+
+			//속성값 패턴
+			//1. 숫자(단위) -> 문자열
+			//2. 열거형 -> 문자열
+            //3. 색상 -> 문자열
+            //4. 함수 -> 문자열
+
+			box1.style.width = "400px";
+			//box1.style.background-color = "tomato";
+			//box1.style.backgroundColor = "tomato";
+			box1.style["background-color"] = "royalblue";
+			box1.style.textAlign = "center";
+			box1.style.backgroundImage = "url(../images/catty01.png)";
+
+
+        });
+
+        btn2.addEventListener("click",function(){
+
+            //CSS 읽기
+            console.log(box1.style.width);//아무것도 콘솔창에 안나오게된다 200px인데..?!
+            //1번 버튼을 누르고 2번 버튼을 누르면 400px 이라고 나온다
+            //1번 버튼이 인라인 시트에 style을 직접 입력해주는 역할을 수행하기 때문이다.
+
+            //*******둘의 차이를 상세하게 알아보자!*********** 매우 중요한 개념이다!
+            //- "javascript로 CSS 의 속성값을 읽을 때"
+            //  1. 임베디드 스타일 시트 or 외부 스타일 시트로 정의된 값을 읽을 수 "없다."
+            //  2. 인라인 스타일 시트로 정의된 값을 읽을 수 "있다.""
+            // -> 자바스크립트로 css 조작하면 인라인에 때려박게 된다! -> 인라인 css 에 수정을 해준다는 의미가 된다.
+
+            //상자 키우기
+            // console.log(box1.style.width + 50);
+            // box1.style.width = box1.style.width + 50;//문자열 더하기가 된다...
+            // box1.style.width = parseInt(box1.style.width) + 50 + "px";
+            //위 처럼 하면 매우 귀찮아진다...
+
+            console.log(getComputedStyle(box1));//객체가 나오게 된다. -> 읽을 수 없었던 width를 읽을 수 있다
+            //-> 해당 태그가 가지고 있는 ***모든 css 값*** 이라고 보면 된다.
+            //-> 인라인이던 임베디드던 뭐던 지정이 안된 초기값이던 모든것이 다 들어있다.
+
+            console.log(getComputedStyle(box1).width);//이렇게 하면 임베디드 스타일시트 값도 읽어 올 수 있다!! -> 매우 중요한 메서드라고 볼 수 있다.
+
+            box1.style.width = parseInt(getComputedStyle(box1).width) + 50 + "px";//이런식으로 하면 인라인 안에 없어도 된다.
+            
+            //아래와 같이 초기값을 다 읽어올 수 있다...
+            console.log(getComputedStyle(box1).display);
+            console.log(getComputedStyle(box1).position);
+            //읽기만 가능하다!
+
+
+        });
+
+
+        big.onclick = function() {
+            
+            // p1.style.fontSize +5 -> 초기값 얻어와야 한다.
+            // console.log(getComputedStyle(p1).fontSize);
+            p1.style.fontSize = parseInt(getComputedStyle(p1).fontSize) + 2 + "px";
+
+        }
+
+        
+        small.onclick = function() {
+            
+            // p1.style.fontSize +5 -> 초기값 얻어와야 한다.
+            // console.log(getComputedStyle(p1).fontSize);
+            p1.style.fontSize = parseInt(getComputedStyle(p1).fontSize) - 2 + "px";
+            // 여기서 parseInt 를 해주는 이유는 가져오는 값이  10px 이런식으로 가져올 것이므로 
+            // 문자를 그냥 떼어버리려고 parseInt를 쓰는것이다.
+
+        }
+
+        
+
+    </script>
+    
+
+
+</body>
+</html>

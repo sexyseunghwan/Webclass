@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+    <script src="js/highcharts.js"></script>
+    <!-- 필요한 자바스크립트 가져오기 -->
+
+    <style>
+
+        #chart {
+            width : 800px;
+        }
+
+
+    </style>
+</head>
+<body>
+	<!-- ex03_chart.html -->
+
+	<main>
+		<h1>몸무게 변화 <small>2019</small></h1>
+        <!-- 컨테이너 만들기 -->
+		<div id="chart"></div>
+	</main>
+	
+	<script type="text/javascript">
+		Highcharts.chart('chart', 
+		{
+		
+			title: {
+				text: '몸무게 변화 기록'
+			},
+		
+			subtitle: {
+				text: '오전 9시 측정'
+			},
+		
+			yAxis: {
+				title: {
+					text: '몸무게(kg)'
+				}
+			},
+		
+			xAxis: {
+				accessibility: {
+					rangeDescription: 'Range: 2010 to 2017'
+				}
+			},
+		
+			legend: {
+				layout: 'vertical',
+				align: 'right',
+				verticalAlign: 'middle'
+			},
+		
+			plotOptions: {
+				series: {
+					label: {
+						connectorAllowed: false
+					},
+					pointStart: 1
+				}
+			},
+		
+			series: [
+            {
+				name: '홍길동',
+				data: [80, 82, 90, 83, 120, 130, 70, 65]
+            },
+            {
+				name: '전우치',
+				data: [60, 63, 72, 75, 75, 76, 74, 73]
+            }
+            ],
+		
+			responsive: {
+				rules: [{
+					condition: {
+						maxWidth: 500
+					},
+					chartOptions: {
+						legend: {
+							layout: 'horizontal',
+							align: 'center',
+							verticalAlign: 'bottom'
+						}
+					}
+				}]
+			}
+		
+		});
+	</script>
+</body>
+</html>

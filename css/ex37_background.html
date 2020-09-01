@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+
+        body {
+            margin-bottom: 300px;
+        }
+
+        .box {
+            border: 1px solid black;
+            width : 500px;
+            height: 300px;
+            margin:20px;
+        }
+
+        #box1 {
+            background-image: url(../images/catty01.png),url(../images/catty03.png),url(../images/catty05.png);
+            background-repeat: no-repeat;
+            background-position: left top,right top,bottom right;
+        }
+        /* 이런식으로 그림을 따로따로 제어해줘서 배치 해 줄 수 있다. */
+
+        #box2 {
+            background-image: url(../images/cat01_big.jpg);
+            /* background-size: 500px 300px; */
+            /* background-size: 25px 15px; */
+            /* background-size: 500px 30px; */
+            /* background-size: 100% 100%; */
+
+            /* 위의 방법은 모두 종횡비가 깨져버린다 */
+            /* background-size: 500px auto; */
+            background-size: auto 300px;
+            background-position: center center;
+            background-repeat: no-repeat;
+        }
+
+        /* 원래 백그라운드 이미지크기 조절 못했는데 size를 통해서 css에서 조절이 가능하다. */
+
+        #box3 {
+            background-image: url(../images/cat01_big.jpg);
+            background-size: cover;
+            background-position: center center;
+            /* 높이를 컨테이너에 맞추고 너비를 auto로 줬을때 생기는것과 똑같은 행위 */
+            /* contain : 배경 이미지가 있는 공간의 단축을 100% 출력 + 반복되늠ㄴ 영역 발생
+                -배경 이미지의 크기가 상자와 같게 만들되 단, 이미지가 잘리지 않았으면 좋겠다.-> point
+                이럴때 쓰는게 contain 이 된다.
+
+                cover : 배경 이미지가 있는 공간의 장축을 100%로 출력 + 반복 영역 미발생
+                - 배경 이미지의 일부가 짤리면서 꽉찬 이미지로 출력되게 된다.
+                background-size: 상자너비 auto
+                 
+            */
+            
+        }
+
+
+        #thumbnail {
+            border: 1px solid gray;
+            width: 516px;
+        }
+        #thumbnail::after {
+            content: ' ';
+            display: block;
+            clear:both;
+        }
+
+        #thumbnail > div {
+            border: 1px solid gray;
+            width: 150px;
+            height: 150px;
+            float:left;
+            margin: 10px;
+        }
+
+
+        #thumbnail > div:nth-child(1) {
+            padding-top:10px;
+            height: 140px;
+        }
+
+        #thumbnail > div:nth-child(2) {
+            padding-top:30px;
+            height: 120px;
+        }
+        
+        #thumbnail > div:nth-child(3) {
+            padding-top:50px;
+            height: 100px;
+        }
+        /* 대머리 아저씨 인라인태그 가운데 정렬 시켜보자. */
+        /* #thumbnail > div:nth-child(1) > img {
+            height:100%;
+        }   
+
+        #thumbnail > div:nth-child(2) > img {
+            width: 100%;
+        }
+
+        
+        #thumbnail > div:nth-child(3) > img {
+            width: 100%;
+        } */
+
+
+        /*--------썸네일은 위처럼 하는게 아니다*/
+        
+        #thumbnail > div {
+            background-image: url(../images/sp.png);
+            background-size: contain;
+            background-repeat: no-repeat;
+            background-position: center center;
+        }
+        /* 이런식으로 배경이미지로 다루면 훨씬 쉬워진다. */
+        /* 아래와 같이 상속형식으로 물려줄 수 있다. */
+        #thumbnail > div:nth-child(1) {
+            background-image: url(../images/sp.png);
+        }
+        #thumbnail > div:nth-child(2) {
+            background-image: url(../images/mobile_1440421138.jpg);
+        }
+        #thumbnail > div:nth-child(3) {
+            background-image: url(../images/main.png);
+        }
+
+        /* 즉 반복적인 일을 잘 처리도 했음 -> 유지보수가 가능함 */
+
+
+
+        /* 풀 사이즈 배경 이미지*/
+        html {
+            /* border: 10px solid red; */
+            background-image: url(../images/wall34.jpg);
+            background-repeat: no-repeat;
+            background-position: center center;
+            /* background-size: 100% 100%; */
+            /* background-size: 100% auto; */
+            background-size: cover;
+            background-attachment: fixed;
+            /* 픽스드로 하면 스크롤이 움직여도 배경이미지가 안움직이게 된다.*/
+            
+        }
+
+        /* body {
+            border : 10px solid blue;
+        } */
+
+
+
+        /*
+            배경색
+            1. solid color : 단색
+            2. gradient : 색의 변화를 ~
+        */
+        #box4 {
+            background: linear-gradient(white,black);
+        }
+        #box5 {
+            background: linear-gradient(black,white);
+        }
+        #box6 {
+            background: linear-gradient(to top left,yellow,red);
+        }
+
+        /*to right -> 오른쪽으로 그래디언트 준다. */
+        /*to top -> 위쪽으로 그래디언트 준다. */
+        /* to top left -> 이런식으로도 표현이 가능하다 */
+        /* 8가지 방향 줄 수 있다 또한 세밀하게 조절이 가능하다 */
+        
+        #box7 {
+            background: linear-gradient(35deg,yellow,yellow,yellow,red,blue,green);
+        }
+
+        #box7 {
+            background: radial-gradient(red,yellow);
+        }
+        #box8 {
+            background: radial-gradient(circle,red,yellow);
+        }
+        /* circle로하면 진짜 정원의 형태가 된다. */ 
+
+    </style>
+
+
+</head>
+<body>
+    
+    <div id="box1" class="box">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Aliquam qui rerum nihil sint possimus inventore fugiat expedita explicabo impedit sunt ab voluptas, nemo quaerat fugit, accusamus sit eveniet eos. Corrupti.</div>
+    <div id="box2" class="box">Autem dolores earum animi consequuntur explicabo. Quod tenetur doloribus neque quisquam. Officia dolor quas praesentium deleniti debitis, odio saepe ut rem fugiat harum nesciunt, possimus sunt fuga accusamus commodi deserunt?</div>
+    <div id="box3" class="box">Ipsam vitae itaque inventore quam, voluptas soluta rem similique et consequatur alias totam veniam sit pariatur quis autem. Nostrum cumque doloremque maxime iure repellendus provident repellat, magni explicabo velit itaque?</div>
+
+
+    <h1>썸네일</h1>
+
+    <!-- <div id="thumbnail">
+        <div id="item"><img src="../images/sp.png" alt=""></div>
+        <div id="item"><img src="../images/mobile_1440421138.jpg" alt=""></div>
+        <div id="item"><img src="../images/main.png" alt=""></div>
+    </div> -->
+
+    <div id="thumbnail">
+        <div id="item"></div>
+        <div id="item"></div>
+        <div id="item"></div>
+    </div>
+
+    
+    <div>상자</div>
+
+    <div id="box4" class="box">상자1</div>
+    <div id="box5" class="box">상자2</div>
+    <div id="box6" class="box">상자3</div>
+    <div id="box7" class="box">상자4</div>
+    <div id="box8" class="box">상자5</div>
+
+    
+
+</body>
+</html>

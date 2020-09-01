@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+
+        #tbl {
+            border-top : 1px solid gray;
+            border-bottom: 1px solid gray;
+            padding: 10px 3px;
+            width: 340px;
+        }
+        #tbl .row {
+            margin-bottom : 5px;
+        }
+        #tbl .row .col1, #tbl .row .col2, #tbl .row .col3, #tbl .row .col4 {
+            display:inline-block;
+        }
+        /* 인라인 블럭이 어떤 역할을 하는 애였지? */
+
+        #tbl .row .col1 {
+            width: 110px;
+            font-style: '돋움';
+            font-size: 12px;
+            font-weight: bold;
+        }
+
+        #tbl .row .col2 , #tbl .row .col3 {
+            width: 70px;
+            font-family: '돋움';
+            font-size: 12px;
+            color: red;
+            
+        }
+
+        #tbl .row .col4 {
+            width: 70px;
+            font-style: '돋움';
+            font-size: 12px;
+            
+        }
+
+        #tbl .row .down {
+            color: blue;
+        }
+
+        /* #tbl .row .col2, #tbl .row .col3 {
+
+        } */
+
+
+
+
+    </style>
+
+</head>
+<body>
+    
+    <div id = "tbl">
+        
+        <div class = "row">
+            <span class = "col1">HB테크놀러지</span>
+            <span class = "col2">+17.42%</span>
+            <span class = "col3">+21.26%</span>
+            <span class = "col4">16.10.20</span>
+        </div>
+        <div class = "row">
+            <span class = "col1">우리산업</span>
+            <span class = "col2">+17.38%</span>
+            <span class = "col3 down">-18.10%</span>
+            <span class = "col4">16.10.12</span>
+        </div>
+        <div class = "row">
+            <span class = "col1">AP시스템</span>
+            <span class = "col2">+14.81%</span>
+            <span class = "col3">+13.20%</span>
+            <span class = "col4">16.12.07</span>
+        </div>
+        <div class = "row">
+            <span class = "col1">유니트론텍</span>
+            <span class = "col2">+13.47%</span>
+            <span class = "col3 down">-5.90%</span>
+            <span class = "col4">16.09.26</span>
+        </div>
+        <div class = "row">
+            <span class = "col1">심텍</span>
+            <span class = "col2">+12.73%</span>
+            <span class = "col3">+40.75%</span>
+            <span class = "col4">16.10.24</span>
+        </div>
+        
+    </div>
+
+
+
+</body>
+</html>

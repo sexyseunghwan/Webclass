@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+
+        body {
+            margin-top : 200px;
+            margin-left : 400px;
+        }
+        #main {
+            /* border : 1px solid black; */
+            padding-left : 20px;
+            width : 600px;
+            height : 580px;
+        }
+
+        img {
+            margin : 10px;
+            width : 146px;
+            height: 146px;
+            border:10px solid #A9A9A9;
+        }
+        #select {
+            margin-top : 5px;
+            margin-left: 20px;
+        }
+        #select > input {
+            display:inline-block;
+            font-size: 1.7em;
+            font-weight: solid;
+            font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+            border: 10px solid #A9A9A9;
+            width : 263px;
+            height: 70px;
+            margin : 10px;
+            text-align: center;
+        }
+        
+        
+    </style>
+
+</head>
+<body>
+
+
+    <div id="main">
+        <img src="../images/rect_icon01.png" name = "p1" data-index = "0">
+		<img src="../images/rect_icon02.png" name = "p2" data-index = "1">
+		<img src="../images/rect_icon03.png" name = "p3" data-index = "2"><br>
+		<img src="../images/rect_icon04.png" name = "p4" data-index = "3">
+		<img src="../images/rect_icon05.png" name = "p5" data-index = "4">		
+		<img src="../images/rect_icon06.png" name = "p6" data-index = "5"><br>
+		<img src="../images/rect_icon07.png" name = "p7" data-index = "6">
+		<img src="../images/rect_icon08.png" name = "p8" data-index = "7">
+		<img src="../images/rect_icon09.png" name = "p9" data-index = "8">
+    </div>
+
+    <div id="select">
+        <input type="button" value = "RESET" onclick="reset();">
+        <input type="button" value = "INPUT" onclick="input();">
+    </div>
+
+
+    <script>
+        var list = "";
+        var pw = "";
+
+        
+        list = document.images;//전체 이미지를 불러와준다.
+
+         for(var i = 0; i < list.length; i++) {
+            
+            list[i].onmouseover = function() {
+                pw += getNum(event.srcElement.src);
+                event.srcElement.src = "../images/rect_icon10.png";
+            };
+        }
+        
+        
+
+
+
+        function getNum(url) {
+            var index = url.lastIndexOf(".");
+            return url.substr(index-1,1);
+        }
+
+        
+
+        function input() {
+            if(pw == "14789") {
+                location.href = "http://google.com";
+            } else {
+                alert("ERROR");
+                reset();    
+            }
+        }
+
+        function reset() {
+
+            for (var i = 0; i < list.length; i++) {
+                list[i].src = "../images/rect_icon0" + (i+1) + ".png";
+            }
+            pw = "";
+
+        }
+        
+
+
+    </script>    
+
+
+
+
+</body>
+</html>

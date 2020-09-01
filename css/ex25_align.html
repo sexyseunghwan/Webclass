@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+
+    /* 
+        정렬,alignment
+        - 수평정렬
+        - 인라인 태그와 블럭 태그의 수평 정렬
+
+        1. 인라인 태그
+            - 내용물의 수평 정렬을 할 수 없다.
+            - 인라인태그는 영역의 크기가 곧 내용물의 크기므로
+                공간때문에 움직일 수 없다.
+            - 인라인 태그의 수평정렬을 위해서는 부모인 블럭태그를 통해서
+                text-align 속성을 사용하면 된다.
+            - 부모가 인라인 태그이면 소용이 없다.
+
+        2. 블럭 태그
+            - 수평 정렬의 개념이 없다.(너비가 100%이기 때문에)
+            - 편법 사용 > 마진을 사용한다.
+        
+    */
+        b {
+            width:300px;
+            text-align: center;
+            background-color: yellow;
+        }
+
+        /* 
+            인라인태그는 영역의 크기가 곧 내용물의 크기므로
+            중앙으로 움직이지 않는다.
+
+            즉, 인라인의 부모를 건드려야 한다.
+
+        */
+
+        #box1 {
+            text-align: center;
+            background-color: blue;
+            /* padding:3px; */
+        }
+
+        #box2{
+            background-color: teal;
+            width: 100px;
+            height: 100px;
+            /* text-align: center; */
+            
+            /* 아래 처럼 해도된다 */
+            margin-left: auto;
+            margin-right: auto;
+
+            margin:0px auto;
+
+
+
+        }
+
+
+        #box3{
+            background-color: aquamarine;
+            padding:5px;
+            /* text-align: center; */
+        }
+
+        /* 스타일 시트는 기본적으로 상속이 가능하다
+
+        */
+
+
+    </style>
+
+
+</head>
+<body>
+
+    <div id = "box1">
+        <b>홍길동</b>    
+    </div>
+
+    <div id="box3">
+    <div id="box2">상자2</div>
+    </div>
+
+
+
+
+
+</body>
+</html>

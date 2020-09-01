@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <h1>키 이벤트</h1>
+    <form name="form1">
+        <input type="text" name ="txt1" size = "50" autocomplete="off">
+        <hr>
+        <input type="text" name ="txt2" size = "50" autocomplete="off">
+        <hr>
+        <textarea name="txt3"></textarea>
+    </form>
+
+    <script>
+
+        /*
+            키 이벤트
+            - "폼관련" 된 태그들에게만 줄 수 있다! -> 포커스를 가져야 하므로
+            - onkeyXXX 로 시작함
+
+
+            1. onkeydown
+                - 키를 눌렀을 때 발생
+                - 물리 키에 반응(a,A)-> 65 즉 입력한 문자랑 상관없이 키캡에 고유값을 받아오는것이다. 
+                - 입력값이 바로 필요하지 않는 경우
+                2. onkeyup
+                - 키를 뗏을 때 발생
+                - 입력값을 사용해야 하는 업무를 쓸 때
+            3.onkeypress
+                - 키를 뗏을 때 발생
+                - 문자 자체에 반응한다.
+                - 특수키에는 반응을 보이지 않는다.(방향키,보조키...)
+                - 잘 사용 안함 -> 보조키에대한 대응이 없으므로 잘 안쓴다.
+
+
+        */
+
+        var txt1 = window.document.form1.txt1;
+        var txt2 = window.document.form1.txt2;
+        var txt3 = window.document.form1.txt3;
+
+
+        txt1.onkeydown = f1;
+        txt1.onkeyup = f2;
+        txt1.onkeypress = f3;
+        //함수 하나로 두개에게 걸 수 있다. -> 코드재사용 가능 : 실명으로 건다.
+
+        function f1() {
+            // console.log("keydown");
+            // 이사람이 어떤 키를 눌렀는지 알고싶을때
+            // console.log(event.keyCode);//문자코드값을 반환해준다 A -> 65 이런식으로(대소문자 구분 안함)
+            //방향키 엔터 컨트롤 쉬프트 엔터 이런 문자코드값을 다 기억해두는 편이 좋다.
+
+            txt2.value = txt1.value;
+
+        }
+
+        function f2() {
+            // console.log("keyup");
+            txt2.value = txt1.value;
+        }
+
+        function f3() {
+            console.log("keypress");
+            console.log(event.keyCode);//여기서는 문자 자체를 구분한다 a -> 65 A-> 97
+        }
+
+        // 전역 이벤트
+        // - 어디에든 태그에 포커스가 있던지 항상 반응하는 이벤트
+        // window 즉 최상위 객체한테 걸면 전역 이벤트가 된다.
+        window.onkeydown = function() {//여기를 up이랑 down 으로 바꾸면 느낌이 확 달라진다.
+            if(event.keyCode == 37) {//좌
+                txt3.cols--;
+            } else if (event.keyCode == 39) {//우
+                txt3.cols++;
+            } else if (event.keyCode == 38) {//상
+                txt3.rows--;
+            } else if (event.keyCode == 40) {//하
+                txt3.rows++;
+            }
+        };
+
+
+    </script>
+
+
+</body>
+</html>

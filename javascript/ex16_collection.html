@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <img src="../images/catty01.png">
+    <img src="../images/catty02.png">
+    <img src="../images/catty03.png">
+    <img src="../images/catty04.png">
+    <img src="../images/catty05.png">
+
+    
+    <h1>링크</h1>
+    <a href="#">네이버</a><!-- 링크 -->
+    <a name="a">A 표지판</a><!-- 앵커 -->
+    <a href="#">다음</a>
+    <a name="a">B 표지판</a>
+    <a href="#">구글</a>
+
+    <h2>폼</h2>
+    <!-- name 을 주고 폼에 접근하는법 -->
+    <form id="form1">
+        <input type="text" name = "txt1">
+        <input type="text" name = "txt2">
+        <input type="button" value="전송" name = "btn1">
+    </form>
+
+
+
+
+    <script>
+        // 고양이 5마리에 접근 해볼것이다!
+        //javascript가 문서 내용을 기반으로 자동 생성하는 배열
+        //1. window.document.images : 문서상의 모든 <img> 태그
+        //2. window.document.links : 문서상의 모든 a인데 href 를 가지고 있는 태그배열
+        //3. window.document.anchors : 문서상의 모든 a인데 name 이나 id 가 부여된 태그배열
+        //4. window.document.forms : 문서상의 모든 <form>이 들어있는 배열
+        //5. window.document.forms[1].elements : 특정 폼의 하위 입력 태그 배열
+        //6. window.document.all : 문서상의 모든 태그 배열, 비표준임(MS) -> 그런데 대부분의 브라우저가 지원은 하긴함
+
+
+        //1. window.document.images
+        console.log(window.document.images);//고양이 다섯마리에 대한 참조가 다 들어있다는 것이다.
+
+
+        console.log(window.document.links.length);//애는 위에서 링크건놈들의 개수
+        console.log(window.document.anchors.length);//애는 위에서 앵커 건놈들의 개수
+
+        //밑에 두개가 같은 표현이라고 할 수 있다
+        // window.document.form1
+        // window.document.forms[0]
+        // console.log(window.document.forms.length);
+        window.document.forms[0].txt1.value="확인";
+        // window.document.forms[0].txt2   .value="dhdn";
+
+        console.log(window.document.forms[0].elements.length);
+
+        //1. 모든 태그 집합이라고 할 수 있다.(BOM 에 없는 태그조차 존재)
+        //2. 계층에 상관없이 하나의 집합으로 관리한다. 부모든 자식이든 따지지 않는다.
+        console.log(window.document.all.length);//
+
+        var alist = window.document.all;
+
+        for(var i =0; i < alist.length; i++) {
+            console.log(alist[i].nodeName);//Dom
+        }
+
+
+
+    </script>
+
+
+
+
+</body>
+</html>

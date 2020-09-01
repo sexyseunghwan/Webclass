@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="css/jquery-ui.css">
+    <!-- 위에꺼 가져와야 한다 -->
+    <style>
+
+        #box3 {
+            border: 1px solid black;
+            width : 500px;
+            height : 300px;
+        }
+
+        /* #box1 {
+            overflow: hidden;
+        } */
+        
+        
+
+    </style>
+</head>
+<body>
+
+    <h1>jQuery-ui</h1>
+
+    <ul>
+        <li>Interaction</li>
+        <li>Widjets</li>
+        <li>Effects</li>
+    </ul>
+
+    <img src="../images/catty01.png" class = "cat">
+
+    <hr>
+
+    <img src="../images/catty02.png" id = "cat2">
+
+    <hr>
+    <div id = "box3">
+        <img src="../images/catty03.png" id = "cat3">
+    </div>
+
+    <script src = "js/jquery-1.12.4.js"></script>
+    <script src = "js/jquery-ui.js"></script>
+    <!-- 위의 스크립트 불러오는 순서는 딱 저대로 해줘야 한다 그래야 제이쿼리 유아이를 쓸 수 있다! -->
+
+    
+    <script>
+        
+        $(".cat").draggable();
+        $("h1,ul,li").draggable();
+
+        $("#cat2").draggable({
+            // axis : "y"//y축으로만 움직이게 된다.
+            grid: [100,100],//뭔가 뚝뚝 끊어진다 -> 좌우/위아래 움직일때 100px 씩 움직이는 것이다
+            cursor : "move"
+
+        });
+
+        $("#cat3").draggable({
+            // containment: "#box3"//못 빠져나가게 된다!
+
+            //부모가 식별자가 존재하지 않으면
+            // containment : "parent"//예약어
+            // snap : "#box3"//달라붙는 기능을 수행한다!
+            snap:"img"
+            
+
+        });
+        
+
+        
+
+
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<!-- frameset은 잘 안쓴다 이젠... -->
+<!-- <frameset cols = "1,1">
+    <frame src = "ex17_form.html">
+    <frame src = "ex18_form.html">
+        
+    일반 대중적인 사이트에서는 frameset 을 쓰지는 않는다
+
+</frameset> -->
+<body>
+    
+    <!-- 
+
+        HTML 프레임
+        1. <frameset> + <frame>
+        2. <iframe> -> 애는 자주 쓴다.(**중요도가 상당히 높음)
+            - inner frame 이라도 부르고.
+            - inline frame 이라고도 부른다.
+        <iframe>이 내부는 독립적인 영역이 된다.</iframe>
+        문서 일부에 다른 문서를 삽입할 때 쓰는 태그라고 보면 된다.
+        외부 문서도 삽입 가능하다
+        페이지 재사용기능을 수행하는 녀석이라고 생각하면 편함 
+        인라인 태그~
+
+    frameborder = "no" -> 영역나눠주는 그 선이 안보이게 된다.
+    scrolling = "no" -> 스크롤 내리는것이 보이지 않게 된다.
+
+    프레임 사용 이유
+    1. 여러 페이지에서 반복되는 페이지 일부를 모듈화 시킬때 사용(조각 페이지)
+    2. 불필요한 소스나 리소스를 반복해서 다운로드 하지 않는다(변해야 하는 부분만 가져온다 그부분이 바로 프레임)
+    3. 클라이언트 <-> 서버 : 불필요한 트래픽이 발생하지 않는다.**(이게 돈임 트래픽이 돈임)
+    4. 클라이언트 입장에서는 인터넷 속도가 빠르다고 느끼게 한다
+
+     -->
+
+     <h1>iframe</h1>
+     <iframe src = "ex18_form.html"></iframe><br>
+     <iframe src = "http://coupang.com" width = "100%" height = "200"
+        frameborder = "no" scrolling = "no"></iframe>
+
+
+
+     <hr>
+
+     <!-- 예제1 -->
+     <h1>쇼핑몰</h1>
+
+    <table border width = "100%" height = "500"> <!-- 100 퍼센트 라는것은 부모영역 즉 body 전부의 크기를 뜻하는 것이다 -->
+
+        <tr>
+            <td width = "200" valign = "top">
+                <h2>국내 쇼핑몰</h2>
+                <ul>
+                    <!-- target은 새창에서 열어주는 "_blank" 와 기존창에서 계속 열어주는 "_self"가 존재한다.-->
+                    <li><a href = "http://coupang.com" target = "iframe1">쿠팡</a></li>
+                    <li><a href = "http://11st.co.kr" target = "iframe1">11번가</a></li>
+                    <li><a href = "http://gmarket.co.kr" target = "iframe1">지마켓</a></li>
+                </ul>
+            </td>
+            <td width = "auto"></td>
+        </tr>
+        <iframe name = "iframe1" width = "100%" height = "500"></iframe>
+
+    <!-- </table> -->
+
+    <!-- target은 새창에서 열어주는 "_blank" 와 기존창에서 계속 열어주는 "_self"가 존재한다.
+        또한 iframe을 통해서 어떤식으로 브라우저를 열건지 어디서 열건지 정해줄 수 있다!-->
+
+    
+</body>
+</html>

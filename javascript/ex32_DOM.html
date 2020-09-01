@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <h1 id = "title">DOM</h1>    
+
+    <form name = "form1">
+        <input type="text" name = "txt" id="txt1" class = "txts">
+        <input type="text" name = "txt" id="txt2" class = "txts">
+        <input type="text" name = "txt" id="txt3" class = "txts">
+    </form>
+
+
+    <div id="desc">DOM, Document Object Model</div>
+
+    
+    
+    <script>
+
+        /*
+
+        BOM vs DOM 
+        - BOM : 1세대 도구
+        - DOM : 2세대 도구
+
+        BOM(Browser Object Model)
+        1. 검색 도구 제공 > BOM 트리 제공
+        2. 조작 도구 제공 > HTML 속성 ->  Java Script 프로퍼티
+        - images 를 받으려면 document.images 이런식으로~
+
+        DOM(Document Object Model)
+        - 문서의 실제 코드 내용을 바탕으로 트리 구조를 제공하는 모델
+        - "모든 태그" 인식
+        1. 검색 도구 제공 > DOM 트리 제공 + 추가 검색 도구
+        2. 조작 도구 제공 > 다양한 도구 제공(기능이 많이 있다.)
+
+         */
+
+        //첫번쨰 텍스트 박스를 찾아보자
+        //1.BOM 방식  
+        var txt1_1 = document.form1.txt1;
+        //2. DOM 방식 -> 검색 메서드를 사용한다. -> 족보가 필요없다.
+        var txt1_2 = document.getElementById("txt1");
+
+        console.log(txt1_1==txt1_2);
+        console.log(txt1_1===txt1_2);//자료형까지 비교하는 진성연상자
+        //태그로 찾을때 BOM 이던 DOM이던 아무거나 찾아도 상관없다 두개가 같으니까~
+        
+        txt1_1.size = 50;//BOM -> 프로퍼티 제어
+        txt1_2.setAttribute("size",50);//DOM 프로퍼티 제어
+
+        //섞어써도 상관없음 BOM으로 찾은걸 DOM 조작해도 되는거고
+        // DOM으로 찾은걸 BOM 으로 조작해도 아무 상관 없다.
+        //결국 BOM 과 DOM 은 혼용해서 쓸 수 있다는것이다 뒤에 배울 jquery 문은 섞어 쓸 수 없음
+        
+        txt1_1.setAttribute("size",50);//속성 값 조정
+        txt1_2.size = 50;
+        //이런식으로 쓸 수 있다~
+
+        /*
+        DOM에서 제공하는 태그 검색 도구
+        
+        1. id 검색
+        - 유일한 객체(태그)를 찾겠다.
+        - document.getElementById("id") : id 만 붙어있으면 바로 찾아준다.
+        
+        2. class 검색
+        - 특정 class 값을 가지는 태그를 찾을 수 있다.
+        - getElementsByClassName("class"); : class 만 붙어 있으면 바로 찾아준다.
+                : 반환값이 배열이 된다.
+
+        3. name 검색
+        - 특정 name을 가지는 객체(태그)를 찾겠다
+        - document.getElementsByName("name")
+            : 반환값이 배열이 된다. name 을 같게 지정할 수 있으므로~
+
+        4. tag명 검색
+        - 특정 태그명을 가지는 객체(태그)를 찾겠다.
+        - document.getElementsByTagName("tag")
+            : 애도 반환값이 배열이 된다.
+
+        */
+
+        document.getElementById("title").title = "제목입니다.";
+        document.getElementById("title").innerText = "제목이 바뀝니다.";//글자가 바뀐다.
+
+        var txts = document.getElementsByClassName("txts");//텍스트박스 3개 찾은 것이다.
+        console.log(document.getElementsByClassName("txts").length);
+        
+        for(var i = 0; i < txts.length; i++) {
+            txts[i].value = i;
+        }
+
+        document.getElementsByName("txt")[0].value = "홍길동";
+        console.log(document.getElementsByName("txt").length);
+
+
+        var input = document.getElementsByTagName("input");
+        input[0].value = "하나";
+        input[1].value = "둘";
+        input[2].value = "셋";
+
+
+
+    </script>
+
+
+    <!--2020.07.110 복습완료  -->
+
+
+
+</body>
+</html>

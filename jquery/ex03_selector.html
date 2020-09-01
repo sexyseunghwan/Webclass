@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+	<style>
+
+	</style>
+</head>
+<body>
+	<!-- ex03_selector.html -->
+
+	<div id="box1" class="box">상자1</div>
+	<div id="box2" class="box">상자2</div>
+	<div id="box3" class="box">상자3</div>
+	<div id="box4" class="box">상자4</div>
+	<div id="box5" class="box">상자5</div>
+
+
+
+	<ul id = "ul1">
+		<li>빨강</li>
+		<li>노랑</li>
+		<li>파랑</li>
+		<li>검정</li>
+	</ul>
+
+
+    <!-- <script src="js/jquery-1.12.4.js"></script> -->
+     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    
+	<script>
+
+		//jQuery 함수 + CSS 선택자
+		
+		//1. 태그 선택자
+
+		//list1 -> HTMLCollection -> BOM, DOM 에서는 배열로 받아줬다
+		var list1 = document.getElementsByClassName("box");// 현재 위에 상자1,상자2,상자3...등등의 객체가 배열에 들어있는것이다.
+
+		for (var i=0; i<list1.length; i++) {
+			list1[i].style.color = "blue";//하나하나의 css에 접근하여 글자색을 변경해준다.
+		}
+
+		//list2 -> jQuery 객체(배열 X -> 유사 배열{하지만 정확하게 배열은 아니라고 할 수 있다.})
+		//var list2 = jQuery("div");//-> 태그 선택자로 이해 할 수 있다. 이런식으로 div 객체를 다 가져올 수 도 있지만 위처럼  class로 가져올 수 도 있다
+		var list2 = jQuery(".box");//이런식으로 쓸 수 있다는 소리가 된다.
+
+		for (var i=0; i<list2.length; i++) {
+			list2[i].style.backgroundColor = "yellow";
+		}// 해당 문구는 전혀 적용되지 않을것이다 --> 이유는 바로!!! -> list2속에 있는 객체들은 더이상 자바스크립트 객체가 아닌 jquery 객체이기 때문이다.
+
+		//jQuery() 함수의 반환값은 jQuery 객체이다.(**********) -> jquery 객체에 자바스크립트 문법을 쓰면 인식할 수 없다.
+		//console.log(jQuery("div").constructor);
+
+		var box1_1 = document.getElementById("box1");
+		var box1_2 = jQuery("#box1");
+
+		//console.log(box1_1 == box1_2);
+		box1_1.style.color = "orange";// box1_1은 자바스크립트 객체로 만들었으므로 자바스크립트 문법으로 적용한다.
+									  // 하지만 해당 문법은 작동하지 않을것이다 => 이유 : 배열에 style을 적용했으므로..
+									  // 요소 하나하나당 색을 입혀줘야 적용이된다. 
+		box1_2.css("color", "red");//box1_2는 jquery 객체로 만들었으므로 jquery문법을 적용시킨다.
+
+								   // 여기서 jquery 가 더 편한이유는 위처럼 배열과 같은 형태임에도 불구하고 color가 일괄적으로 적용이 된다.
+
+		//box1_1.css("color", "red");
+        // box1_2.style.color = "green";
+        
+
+		jQuery(".box").css("font-size","3em");//해당 jquery 문은 일괄적용이 가능한 문장이다.
+		document.getElementsByTagName("div").style.fontSize = "3em";//여기선 당연히 안된다 -> 배열이 반환되므로! -> 배열에 css 적용할 수 없다! -> 그래서 for문을 돌리게 된다		
+		//** 아주 중요한 성질 : 제이쿼리는 "프로퍼티"가 존재하지 않는다 -> 모두다 함수형태로 나타낸다.
+		
+		jQuery("div")
+			.css("font-size","3em")
+			.css("font-style","italic");//이런식으로 "중복처리"를 할 수 있다! -> 모두 일괄적용이 된다!!
+		
+		
+
+
+
+		//2. id 선택자
+		jQuery("#box3");//jQuery문은 BOM, DOM 떄 처럼 굳이 변수를 선언한 뒤에 변수에 넣지 않는다 
+						//    -> 바로바로 소비함(길이가 짧기 때문이다.)
+		jQuery("#box3").css("text-decoration","underline");//자세히 보면 파라미터 두개를 받는 함수형태에 가까운걸 알 수 있다.
+
+
+		//3. class 선택자
+		jQuery(".box");//이때까지 배운것처럼 class 를 부를땐 . 을 적어주면 좋다.
+		jQuery(".box").css("float","left");//직접 float도 적용이 가능하다.
+
+		
+		//4. 그룹 선택자 -> 한번에 여러가지를 선택 가능함
+		jQuery("#box1,#box2,#box3").css("font-family","궁서체");
+
+		//5. 자식 선택자
+		jQuery("#ul1 > li").css("color","#888");
+		
+		//6. 자손 선택자
+		jQuery("#ul1 li").css("font-style","italic");
+
+		//7. 형제 선택자** 자꾸 형제선택자가 헷갈리네 
+		jQuery("li + li").css("font-weight","bold");
+
+		//8. 인접형제 선택자** -> "인접" 이라는 단어를 유의깊게 살펴봐라
+		jQuery("li ~ li").css("font-weight","bold");
+
+		//9 CSS3 선택자
+		jQuery("li:nth-child(odd)").css("background-color","green");
+
+
+
+		// 자꾸 형제 선택자와 인접형제 선택자를 헷갈리는데...	
+		/*
+			1.형제 선택자
+
+			(첫째) -> (둘째) -> (셋째) -> (넷째)
+			
+			여기서 둘째에 대한 형제선택자는 셋제 넷째가 다 포함되는것이고
+			둘째에 대한 인접형제 선택자는 셋째만이 해당 되는것이다.(매우 즁요한 개념)
+
+		
+		*/
+
+
+
+        
+
+	</script>
+
+
+    <!-- 2020.07.10 복습완료 -->
+
+</body>
+</html>

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <h1>History</h1>
+    <!-- 브라우저가 방문한 이력을 관리하는 객체 
+        네이버 -> 구글 -> 예제 -> 다음 -> 쿠팡(현재)
+
+        내가 만약 이전에 갔던 페이지 가고싶으면 
+        뒤로가기 해서 다음 그리고 다음을 하면 앞으로가기 버튼이 활성화 되어있게된다.
+
+    -->
+
+    <hr>
+
+    <input type="button" value="뒤로가기" name="btnBack">
+    <input type="button" value="앞으로가기" name="btnForward">
+
+    <script>
+        var btnBack = window.document.all.btnBack;
+        var btnForward = window.document.all.btnForward;
+
+
+
+        btnForward.onclick = function() {
+            // window.history.back();//뒤로가기 버튼과 같은 역할 수행
+            history.go(-1);// 위와 같은 표현인데 -1만 들어갈 수 있는것이 아니다 즉 -2 는 뒤로 두번간다는 뜻과 같은것이다.
+
+        };
+
+        btnBack.onclick = function() {
+            // window.history.forward();//앞으로가기 버튼과 같은역할
+            history.go(1);    
+        };
+        
+
+
+
+    </script>
+
+
+</body>
+</html>

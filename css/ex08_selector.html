@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* 속성 충돌 */
+/* 
+        #box1 {color : red; font-style: italic;}
+
+
+        #box1 {color : yellow;} */
+
+        /* 동일한 값에 다른 속성을 줬을때! 
+            나중에 지정한 속성이 덮어쓰기를 한것이다.
+            속성이 충돌났다고 이야기 한다.
+
+            하지만 글씨체는 덮어쓰기 안한것! 같은 속성만 덮어쓰기 한것이라고 보면 된다.
+            
+
+        */
+/* 
+        #box1 {color: orange;}
+        
+        .box {color : yellow;}
+
+        div {color : red;} */
+
+
+        div {color : red;}
+        div > div {color : yellow;}
+        div div {color: orange;}
+
+
+        #parent > div {color : purple;}
+
+        /* 이것도 충돌이 된것
+            그런데 덮어쓰기가 안된다?  바뀌지 않는다
+            왜 그런것일지 생각을 해보자!
+
+            선택자 우선순위라는것이 존재한다.
+
+            *선택자 우선순위
+            - 서로 다른 선택자가 하나의 태그를 선택했을 때 + 같은 속성을 선언했을 때
+                -> 누구를 적용해야 하는지??
+
+            점수계산
+            - 단일 or 다중 선택자를 구성하는 요소의 점수 합이 가장 높은 선택자가 적용이 된다.
+            - 태그 선택자는 무조건 "개당" 1 점이다
+            - 클래스 선택자는 무조건 "개당" 10점이다
+            - id 선택자는 "개당" 무조건 100점이다
+
+            태그는 아무리 모여도 클래스를 이길수 없고 
+            클래스는 아무리 모여도 id를 이길수 없다 위의 점수는 형식적인 점수이다.
+            즉 더 구체적인 표현이 적용된다!!
+            동일할 급일때만 점수계산이 의미가 있는 것이다.
+
+         */
+
+         .box {color : orange;}
+         #box1.box {color : orange;}
+         /* 만약에 이게 변경이 안된다면 어떤 놈한테 우선순위가 밀린것 -> 개발자도구를 확인해라!
+            element 에서 css 탭에서 찾아주면 된다. -> style */
+            /* 기존꺼 바꾸면 그전꺼도 완전 바뀌게 되서 엉망진창이 되어 꼬여버린다. */
+
+
+            /* 비권장 : 최후의 수단 
+            
+                모든 규칙을 무시해버리는 도구
+            
+            */
+
+            div {color : red !important;}
+            /* 진짜로 꼬였을 때만 사용되는 도구라고 생각하면 된다... 안쓰는게 가장 좋다 */
+
+    </style>
+
+</head>
+<body>
+    
+    <div id = "parent">
+        <div id = "box1" class = "box">상자</div>
+
+    </div>
+
+
+
+</body>
+</html>

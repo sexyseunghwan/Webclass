@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        /* 가시성, visibility 
+        
+        - 해당 요소를 화면에 보일지? 말지?
+        - 해당 요소의 원래 영역은 보존한다.(사진이 잠깐 없어지더라도 그 영역이 보존된다는 의미)
+        
+        */
+        /* #cat2 {
+            visibility: visible;
+
+
+        } */
+                    /*  hidden : 안보이게 해준다.
+                visible : 보이게 해준다.
+
+                보통 정적으로 쓸 일은 없다.
+                자바스크립트랑 연동해서 보였다가 안보였다가 하게 하는 통제를 할때 의미가 존재한다.
+                
+            
+            */
+        
+            
+            /* ---------------------------------------------- */
+        #cat1:hover + #cat2 {
+            visibility: hidden;
+        }
+        /* 마우스 첫번째 고양이에 올리면 두번째 사진이 지워진다~
+            이정도 까지는 css로도 움직임을 만들수는 있다.
+        */
+
+        /* ---------------------------------------------- */
+
+        /* ---------------------------------------------- */
+        #cat1:hover ~ img {visibility: hidden;}
+
+        /* cat1에 마우스를 올려두면 아래 형제들 모두 사라지게 된다. */
+
+        /* ---------------------------------------------- */
+
+        /* 사진이 사라져도 해당 영역의 빈공간이 그대로 남아있지 */
+
+        
+
+        
+
+
+    </style>
+</head>
+<body>
+
+    <!-- img[src=../images/catty0$.png]#vat$*3 -->
+    
+    <img src="../images/catty01.png" alt="" id="cat1">
+    <img src="../images/catty02.png" alt="" id="cat2">
+    <img src="../images/catty03.png" alt="" id="cat3">
+
+
+
+
+</body>
+</html>

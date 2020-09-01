@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+</head>
+<body>
+	<!-- ex15_event.html -->
+	<h1>이벤트</h1>
+
+	<form name="form1">
+
+		<div>이름: <input type="text" name="txt1" size="10" autocomplete="off"></div>
+		<div>나이: <input type="text" name="txt2" size="10" autocomplete="off"></div>
+		<div>주소: <input type="text" name="txt3" size="10" autocomplete="off"></div>
+		<div>
+			<input type="button" value="Long" name="btnLong">
+			<input type="button" value="Short" name="btnShort">
+		</div>
+	</form>
+	<script>
+		var txt1 = window.document.form1.txt1;
+		var txt2 = window.document.form1.txt2;
+		var txt3 = window.document.form1.txt3;
+		var btnLong = window.document.form1.btnLong;
+		var btnShort = window.document.form1.btnShort;
+
+		var list = [txt1, txt2, txt3];
+		
+		btnLong.onclick = function() {
+			// txt1.size = 50;
+			// txt2.size = 50;
+			// txt3.size = 50;
+
+			// 이런식으로 객체 하나하나 따로 성질을 지정해 줄 수 있다. -> 또한 루프문으로 접근도 가능하다.
+
+
+			// for (var i=0; i<list.length; i++) {
+			// 	list[i].size = 30;
+			// }
+
+			//i = 1;
+			//window.document.form1.txt + i
+			//window.document.form1["txt" + i]
+			// 위와 같은 형식으로도 표현 가능했잖아~~ 맞다 맞아 가능했었지~~ㅋㅋㅋ
+
+			
+
+
+
+			//for (var i=1; i<=3; i++) {
+			//	window.document.form1["txt" + i].size = 15;
+			//}
+
+
+			console.log(window.document.form1.elements);//이게 뭘 뜻하는건지 잘 생각해보자
+			//뒤에서 보게되겠지만 collections 를 뜻한다.
+			//배열처럼 사용할 수 있다.**
+			// 현재 form1 태그 하위에있는 요소들을 모두 엘리먼트로 취급한다.
+			// 즉,  window.document.form1.elements = [txt1,txt2,txt3] 라고 생각하면 된다. 
+			var els = window.document.form1.elements;
+					
+			for (var i=0; i<els.length; i++) {
+				//<input type="text"
+				//<input type="button"
+				console.log(els[i].type);
+				if (els[i].type == "text") {
+					els[i].size = 50;
+				}
+            }
+            
+            
+
+
+		};//btnLong
+
+		btnShort.onclick = function() {
+			txt1.size = 10;
+			txt2.size = 10;
+			txt3.size = 10;
+		};//btnShort
+
+
+
+		// 이 부분이 뭔가 생소하게 느껴지긴 한다.
+		
+
+		for (var i=0; i<list.length; i++) {
+			//console.log(1);   
+
+			list[i].onfocus = function() {
+				//해당 객체가 포커스를 얻는 경우 발생		
+				//window.document.body.bgColor = "yellow";
+				//event.srcElement.size = 50;
+
+				//* 여기서 중요한것
+				//event.srcElement 이것은 이벤트가 일어났을때 영향을 받는 객체를 말한다
+				//아래에서도 중요하게 별표를 쳐주고 있네요옹~~
+
+			};
+
+			list[i].onblur = function() {   
+				//해당 객체가 포커스를 잃어 버린 경우 발생
+				//window.document.body.bgColor = "white";
+				
+				//event.srcElement
+				// - ***이벤트를 발생 시킨 객체(태그)***
+				//event.srcElement.size = 10;
+
+				//무언가를 입력했는지?
+				if (event.srcElement.value.length > 0) {//이게 왜 그렇게 되는건지  이~~해가 안가는데?
+					//입력O
+					event.srcElement.readOnly = true;
+				} else {
+					//입력X
+				}
+			};//onblur
+
+			list[i].ondblclick = function() {
+				//event.shiftKey
+				//event.ctrlKey
+				//event.altKey
+				//******위에 세개는 특수키를 조합할때 사용하는 방식이 된다!!*******
+				if (event.ctrlKey) {
+					event.srcElement.readOnly = false;//이때 리드온리를 풀어주게 된다.
+				}
+			};
+
+		}//for
+		
+		
+
+	</script>
+</body>
+</html>

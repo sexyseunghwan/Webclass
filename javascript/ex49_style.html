@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        #box {
+            width : 250px;
+            height : 188px;
+            border : 10px solid black;
+            overflow:hidden;
+        }
+        #list {
+            width : 2500px;
+            transition: all 1s linear;
+        }
+        #list img {
+            float: left;
+        }
+
+        /* #box:hover #list{
+            transform: translate(-500px,0px);
+        } */
+        /* 빠져 나가면 자꾸 복구가 되어서 이걸 스크립트로 만들어보자! */
+
+    </style>
+
+</head>
+<body>
+    
+    <h1>애완동물</h1>
+    <div id = "box">
+        <div id="list">
+            <img src="../images/cat01.jpg" alt="">
+            <img src="../images/cat02.jpg" alt="">
+            <img src="../images/cat03.jpg" alt="">
+            <img src="../images/cat04.jpg" alt="">
+            <img src="../images/cat05.jpg" alt="">
+            <img src="../images/dog01.jpg" alt="">
+            <img src="../images/dog02.jpg" alt="">
+            <img src="../images/dog03.jpg" alt="">
+            <img src="../images/dog04.jpg" alt="">
+            <img src="../images/dog05.jpg" alt="">
+        </div>
+    </div>
+
+    <hr>
+    <input type="button" value = "버튼" id = "btn1">
+
+
+    <select id="sel1">
+        <option value="0">고양이1</option>
+        <option value="1">고양이2</option>
+        <option value="2">고양이3</option>
+        <option value="3">고양이4</option>
+        <option value="4">고양이5</option>
+        <option value="5">강아지1</option>
+        <option value="6">강아지2</option>
+        <option value="7">강아지3</option>
+        <option value="8">강아지4</option>
+        <option value="9">강아지5</option>
+             
+    </select>
+
+
+    <script>
+
+        var btn1 = document.getElementById("btn1");
+        var list = document.getElementById("list");
+
+
+        btn1.onclick = function() {
+            list.style.transform = "translate(-2250px,0px)";
+        }
+
+        //----------------------select box 처리
+
+        var sel1 = document.getElementById("sel1");
+        var oldX = 0;//이전 선택 동물
+        var newX = 0;//현재 선택 동물
+
+        sel1.onchange = function() {//셀렉트 박스에 변화가 생겼을때 ! 필터
+            console.log(sel1.value);//선택된 놈들
+            newX = sel1.value;
+            // 먼거리에 있는 놈일수록 빠르게 된다 -> 조정해보자 : 먼거리에 있는건 이동시간이 더 오래걸리게
+            list.style.transitionDuration = Math.abs(newX - oldX)/2 + "s";
+            
+            list.style.transform = "translate(-" + (250*sel1.value) + "px,0px)";
+            // 이런식으로 제어하면 된다 -> 한 이미지당 250px 이기 때문이다.
+
+            oldX = newX;//이거 이해가 잘 안가는데?! 
+        }
+
+
+    </script>
+
+
+
+</body>
+</html>

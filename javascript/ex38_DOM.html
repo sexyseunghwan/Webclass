@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+       <style>
+        #tbl1{
+            border : 1px solid black;
+            border-collapse: collapse;
+            
+        }
+
+        #tbl1 td {
+            border : 1px solid black;
+            padding : 5px;
+            width : 126px;
+            height : 126px;
+            
+        }
+        #tbl td img {
+            display : block;
+        }
+
+        
+
+
+
+
+    </style>
+
+
+</head>
+<body oncontextmenu="return false;">
+    
+    <h1>테이블</h1>
+    <table id = "tbl1">
+        <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+    </table>
+
+
+    <script>
+        // 이 부분에서도 이벤트 터널링,버블링 현상에 대해서 조심해야 한다! 
+        // 테이블 위에 사진이 한장 올라가고 그 다음 해당 테이블 을 누르면 테이블을 누른것이 아니고 사진을 누른것으로 인식한다! => 매우 중요한 개념이다.
+
+        var tr = document.getElementById("tbl1").firstElementChild.children;
+
+        for (var i = 0; i < tr.length; i++) {
+
+            //<td>
+            var td = tr[i].children;
+
+            for (var j = 0; j < td.length; j++) {
+                
+                td[j].onclick = function() {
+                    // alert("click");
+                    // alert(event.buttons);
+                }
+
+                td[j].onmousedown = function() {
+                    // alert("down");
+                    // alert(event.buttons);
+                    //세세한 마우스에 대한 정보를 알기 위해서라면 onmousedown 을 쓰는것이 좋다.
+
+                    // event.srcElement.bgColor = "yellow";
+                    
+                    console.log(event.srcElement.nodeName);
+
+                    if(event.buttons == 1) {
+                        
+                        if(event.srcElement.nodeName == "TD") {
+                            event.srcElement.innerHTML = "<img src = '../images/rect_icon01.png'>";
+                        } else if(event.srcElement.nodeName == "IMG"){
+                            event.srcElement.parentNode.innerHTML =  "<img src = '../images/rect_icon01.png'>";
+                        }
+                    } else if (event.buttons == 2) {
+                        if(event.srcElement.nodeName == "TD") {
+                            event.srcElement.innerHTML = "<img src = '../images/rect_icon02.png'>";
+                        } else if(event.srcElement.nodeName == "IMG"){
+                            event.srcElement.parentNode.innerHTML =  "<img src = '../images/rect_icon02.png'>";
+                        }
+                    } else if (event.buttons == 4) {
+
+                        if(event.srcElement.nodeName == "IMG") {
+                            event.srcElement.parentNode.innerHTML="";
+                        }
+
+                    }
+                    
+                }
+
+            }
+
+        }
+        
+
+
+
+    </script>
+
+    <!-- 2020/07/12 복습완료 -->
+
+
+</body>
+</html>

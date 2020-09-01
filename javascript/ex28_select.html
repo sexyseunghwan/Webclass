@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+   
+    
+    <h1>셀렉트 박스</h1>
+
+    <select name="sel1" size = "10" multiple>
+        <option value="1">강아지</option>
+        <option value="2">고양이</option>
+        <option value="3">병아리</option>
+        <option value="4">토끼</option>
+        <option value="5">거북이</option>
+        <option value="red">빨강</option>
+        <option value="blue">파랑</option>
+    </select>
+
+    <hr>
+
+
+    <input type="button" value="버튼1" name = "btn1">
+    <input type="button" value="버튼2" name = "btn2">
+    <input type="button" value="버튼3" name = "btn3">
+    <input type="button" value="버튼4" name = "btn4">
+    <input type="button" value="버튼5" name = "btn5">
+
+
+
+
+    <script>
+
+		//<select> 다룰때 가장 중요한것
+		//1. sel1.value 읽기/쓰기
+		//2. sel1.selectedIndex 읽기/쓰기
+		//3. sel1.options 읽기/쓰기
+
+
+
+
+        var sel1 = document.all.sel1;
+        var btn1 = document.all.btn1;
+        var btn2 = document.all.btn2;
+        var btn3 = document.all.btn3;
+        var btn4 = document.all.btn4;
+        var btn5 = document.all.btn5;
+
+
+
+        btn1.onclick = function() {
+            //셀렉트박스 > 선택한 값?
+            //읽기 기본동작
+            console.log(sel1.value);// 선택값이 유일할때만 가능
+                                    //만약 셀렉트 박스에 강아지가 체크되어 있다면 강아지의  value = "1"이므로 1이 출력될 것이다
+                                    //그런데 만약 셀렉트 박스에 파랑이 체크되어 있다면 파랑의 value = "blue"이므로 blue가 출력될 것이다.                        
+            //쓰기 기본동작
+            // sel1.value = 3;//셀렉트 박스에있는 원래값이 3인 병아리로 바뀌게 된다 ! -> 병아리로 선택되는 상태로 바뀌게 된다.
+            // sel1.value = "red";//이런식으로 해주면 옵션의 밸류에 해당하는 값 즉 빨강으로 박스상태가 변하게 된다.
+
+
+        }
+
+        btn2.onclick = function() {
+            console.log(sel1.selectedIndex);//위와 같은 숫자로 헷갈리면 안된다 -> 일단 빨강 파랑 보면 아닌게 감이 온다
+                                            // selectedIndex : 선택된 옵션태그의 서수(index)이다. 0부터 시작한다.
+
+            sel1.selectedIndex = 5;//이렇게 해도 박스내부가 바뀌게된다. 이 경우에는 5번째 인덱스는 빨강을 뜻하므로 빨강에 체크가 가있을것이다.
+
+        }
+
+        btn3.onclick = function() {
+            //셀렉트박스 동적제어
+            // <option> tag 생성/수정/삭제 : 생성이나 삭제하는 경우가 가장 많다.
+            
+            //<option> 생성
+            var op = new Option();//옵션태그 하나 생성 : <option> tag 생성 -> 지금 이상태는 <option></option>인 상태임
+            op.value = "yellow";//<option value = "yellow"></option>
+            op.text = "노랑";//<option value = "yellow">"노랑"</option>
+
+            //여기까지만 하면 아직 넣어주진 않고 어디 셀렉트에 넣을지 아직 지정을 안해줬음.
+
+            //<select>의 자식으로 <option>을 추가하기
+            // sel1.options.add(op);//options는 sel1이 가지고 있는 배열
+            //버튼3를 계속 누르게 되면 노랑이 계속 만들어지게 된다.
+
+            //노랑이 중복 추가하는 걸 방지하고 싶다면?
+            //***selectbox는 알아서 배열을 하나 지정해주는데 그 배열은 sel1.options 이런식으로 치면 그게 바로 해당 옵션을 모아놓은 리스트라고 생각하면 된다.
+            var isDuplication = false;
+
+            for (var i = 0; i < sel1.options.length; i++) {
+                console.log(sel1.options[i].txt,sel.options[i].value);
+
+              		if (sel1.options[i].text == "노랑"
+					&& sel1.options[i].value == "yellow") {
+						isDuplicate = true;
+						break;
+					}
+            }
+
+            if(!isDuplication) {
+                sel1.options.add(op);
+            }
+            
+        }
+
+        btn4.onclick = function() {
+            //옵션 삭제를 해보자
+
+
+            // sel1.options.remove(index);//인자값은 index를 넣어주면 된다.
+            // sel1.options.remove(3);
+            //쉬프트 되기때문에 계속 누르면 사라지게 된다 -> 인덱스 3번이 될때까지
+            //index를 0 으로 넣고 계속 버튼을 누르면 게속 사라지게 된다.
+
+            sel1.options.remove(sel1.selectedIndex);//선택된 애를 지운단
+
+
+
+        }
+
+      	btn5.onclick = function() {
+			//다중 선택
+			for (var i=0; i<sel1.options.length; i++) {
+                // console.log(sel1.options[i].selected);//불린값으로 대답함
+                if(sel1.options[i].selected) {
+                    console.log(sel1.options[i].value);
+                }
+			}
+
+		};
+
+
+
+    </script>
+
+
+</body>
+</html>

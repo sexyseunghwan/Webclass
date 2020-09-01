@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+
+        .box {
+            border : 1px solid black;
+            width : 150px;
+            height : 150px;
+            position : absolute;
+        }
+
+        
+
+
+    </style>
+</head>
+<body oncontextmenu="return false;">
+    
+    <script>    
+    
+        
+        window.addEventListener("mousedown",function(){
+
+            if(event.buttons == 1) {
+                var box = document.createElement("div");//태그를 동적으로 생성
+                box.className = "box";//클래스랑 연동 그러면 아래와 같은 헛짓거리 안해도 된다.
+
+
+                // box.style.border = "1px solid black";
+                // box.style.width = "150px";
+                // box.style.height = "150px";
+                // box.style.position = "absolute";
+
+                //위와 같은 방식은 권장하고 싶지 않은 방법이다!
+                //css 로 미리 만들어놓는게 더 비용이 안들지~
+
+                var r = parseInt(Math.random()*250);
+                var g = parseInt(Math.random()*250);
+                var b = parseInt(Math.random()*250);
+
+                box.style.backgroundColor = "rgb(" + r+ "," + g + "," + b +")"//10 진수로 넣을 수 잇는 함수가 존재했지
+
+                // box.innerText = "상자";
+
+                box.style.left = event.clientX - 75 + "px";
+                box.style.top = event.clientY - 75 + "px";
+
+                //바디의 자식으로 넣자
+                document.body.appendChild(box);
+
+
+
+            } else if (event.buttons == 2) {//없애보자..
+
+                document.body.removeChild(event.srcElement);//눌린상자를 없애주시오
+
+            }
+
+        });
+
+
+
+
+
+    </script>
+
+
+
+</body>
+</html>

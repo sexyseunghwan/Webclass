@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    
+    <style>
+
+        div {
+            border : 1px solid black;
+            margin : 15px;
+            padding : 15px;
+        }
+
+        #me {
+            border : 10px solid cornflowerblue; 
+        }
+
+    </style>
+</head>
+<body>
+    
+    <div>
+        <div>
+            <div></div>
+            <div></div>
+            <div id = "me">
+                <div class = "child"></div>
+                <div class = "child">
+                    <div class = "child"></div>
+                </div>
+                <div id = "third"></div>
+            </div>
+            <div></div>
+            <div></div>
+        </div>
+    </div>
+
+
+
+
+    <script src = "js/jquery-1.12.4.js"></script>
+    <script>
+
+        //자식 검색
+        // $("#me").children().css("border","10px solid tomato");//나의 친자식만 찾아주는 코드
+        // $("#me").children().children().css("border","10px solid gold");//손자 찾기
+        //루프를 안돌려도 된다는게 아주 큰 장점으로 다가온다리 
+
+        // console.log($("#me").find());//특정놈을 검색해주는 메소드가 find
+        // find -> 자손들 중에 검색해준다.
+        // $("#me").find("#third").css("border","10px solid green");
+        
+        // $("#me").find(".child").css("border","10px solid gold");
+
+        // $("#me").find("div").css("border","10px solid green");//이런식으로 div도 다 찾아줄 수 있다
+
+        // $("#me").find("div:eq(0)").css("border","10px solid yellow");
+		// $("#me").find("div:last").css("border", "10px solid green");
+
+
+        //부모검색
+        // $("#me").parent().css("border","10px solid green");
+        // $("#me").parents().css("border","10px solid green");//parents 는 부모들 ~~ 부모계속 타고 올라간다
+        $("#me").parentsUntil("body").css("border","10px solid green");//body 만날때까지 가라
+        
+        
+        //형제 검색
+        // $("#me").prev().css("border","10px solid pink");//앞에 형
+        // $("#me").next().css("border","10px solid pink");//뒤에 동생
+        
+        // $("#me").prevAll().css("border","10px solid pink");//내 위의 형제들 모두다
+        // $("#me").nextAll().css("border","10px solid pink");//내 아래 형제들 모두다
+
+        $("#me").siblings().css("border","10px solid pink");//모든 형제들을 찾아주는 도구가 된다!
+
+        
+        //****jQeury -> document 꼭 참고해야 할것들****
+        //1. Selector
+        //2. Manipulate
+        //3. Traversing
+
+
+
+
+    </script>
+
+</body>
+</html>

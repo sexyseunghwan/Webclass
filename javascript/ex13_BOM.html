@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- 브라우저를 통해 자바스크립트를 써보자 -->
+
+    <!-- 
+        자바 스크립트 기능
+        - 코어 + BOM + DOM 
+        오늘은 BOM 을 볼것이다 그전꺼는 코어의 일부분을 배운것이다.
+
+        BOM (Browser Object Model)
+        - 자바스크립트를 사용해서 HTML 문서상의 객체(태그)를 접근해서 그 태그들을
+            조작하기 위한 기능 모음(API)
+        - 완전 초창기 모델 -> 현재도 사용(일부만 사용)
+        - 브라우저 상의 여러 객체들을 트리구조로 제공한다.
+            - 창(윈도우) , 제목표시줄, 주소창,도구상자,상태표시줄 등등, 문서객체도 제어가 가능
+            또한 그 문서객체 안에는 수많은 태그들이 있는데 그런것들에 대한 접근을 할 수 있도록
+            트리구조로 접근
+            - BOM Tree -> 탐색 -> 특정 태그 접근
+            (인터넷에  javascript bom 쳐서 트리구조 보자)
+        - 태그를 접근
+            1. 유일한 객체 -> 예약어를 제공 대표적으로 window 나 document 같은 애들
+            2. 유일하지 않은 객체 -> 일반객체(실제로 우리가 코드로 작성하는 이지지태그 링크태그~)
+                -> 이때 쓰는 "식별자"는 무조건 "name"!-> js 가 name만 인식할 수 있다.
+                - HTML 식별자
+                a. name : BOM 에서 사용 가능, CSS 에서 사용 불가능, Dom에서는 사용가능
+                b. id : BOM 에서 사용 불가능, CSS 사용가능, Dom에서는 사용가능
+                c. class : BOM 에서 사용 불가능, CSS 사용가능, Dom에서는 사용가능
+                - 제한된 객체(태그)만 접근이 가능하다.(링크,이미지,폼관련태그)
+                    :원래 자바스크립트는 폼관련 태그를 제어하려고 만든것이었다 
+
+     -->
+
+
+     
+
+     <form name = "form1">
+
+        <input type="text" name = "txt1" value="시간">
+
+     </form>
+
+     <script>
+         //BOM ->  족보순서대로 접근해야 한다.(tree)
+
+        // window.close();//문서를 띄우자 마자 창을 닫으라고 명령을 내린것.
+        //윈도우라는 예약어를 먼저 찾아준다 
+        // window.document.form1.txt1.size = 50;//이런식으로 써주면 텍스트박스의 사이즈가 바뀐다.
+        // window.document.form1.txt1.value = (new Date()).toLocaleTimeString();
+
+
+
+        // 폼태그를 한페이지에 여러개 적을수 있으므로 따로 예약어가 존재하지 않아서 우리가 붙여준 이름을 넣는다
+        // 텍스트 박스도 여러개가 있을 수 있으므로 이름을 붙여야 한다.
+
+
+        //1.태그의 속성 제어
+        // window.document.form1.txt1.readOnly = true;//이런식으로 동적으로 자바스크립트로 태그를 제어한다.
+
+
+        var now = new Date();
+
+        if (now.getSeconds() % 2 == 0) {//짝수초이면 보이고 홀수초이면 안보이는
+            window.document.form1.txt1.size = 50;//이런식으로 써주면 텍스트박스의 사이즈가 바뀐다.
+            window.document.form1.txt1.value = (new Date()).toLocaleTimeString();
+            window.document.form1.txt1.readOnly = true;//이런식으로 동적으로 자바스크립트로 태그를 제어한다.
+
+        }
+
+        //즉 자바스크립트를 통해서 태그를 통제하는것이 주 목표가 된다.
+
+
+
+
+     </script>
+
+
+</body>
+</html>

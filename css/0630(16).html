@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+
+
+        body {
+            width:1800px;
+            height:968px;
+            /* border : 1px solid black; */
+        }
+
+        #clock {
+            float: left;
+            border:10px dashed gray;
+            width:760px;
+            height:760px;
+            margin: 50px 500px;
+            /* position: relative; */
+        }
+
+        #sec {
+            position :absolute;
+            left: 850px;
+            width:50px;
+            height:300px;
+            margin:50px auto; 
+            background:#FFD700;
+            transition-property: all;
+            transition-duration: 60s;
+            transition-timing-function: linear;
+            transform-origin: bottom center;
+            border: 10px solid black;
+            border-radius: 500px;
+            color:white;
+            text-align: center;
+            font-weight:bold;
+
+
+        }
+
+        #min {
+            position :absolute;
+            left: 850px;
+            width:50px;
+            top:220px;
+            height:150px;
+            margin:50px auto; 
+            background:cornflowerblue;
+            transition-property: all;
+            transition-duration: 360s;
+            transition-timing-function: linear;
+            transform-origin: bottom center;
+            border: 10px solid black;
+            border-radius: 500px;
+            color:white;
+            text-align: center;
+            font-weight:bold;
+
+
+        }
+
+        #hour {
+            position :absolute;
+            left: 850px;
+            /* position:relative; */
+            /* top:-1740px; */
+            top:290px;
+            width:50px;
+            height:90px;
+            margin:50px auto; 
+            background:red;
+            transition-property: all;
+            transition-duration: 3600s;
+            transition-timing-function: linear;
+            transform-origin: bottom center;
+            border: 10px solid black;
+            border-radius: 500px;
+            color:white;
+            text-align: center;
+            font-weight:bold;
+
+
+        }
+
+        #clock:hover .tick {
+             transform:rotate(36000deg);
+        } 
+
+
+
+    </style>
+</head>
+<body>
+
+    <div id="clock">
+        <div id="hour" class="tick"><div>Hour</div></div> 
+        <div id="min" class="tick"><div>Min</div></div>
+        <div id="sec" class="tick"><div>Sec</div></div>  
+    </div>
+    
+
+    
+
+
+</body>
+</html>

@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <!-- 
+
+        <form> 하위 컨트롤
+        - 입력 양식
+
+        <input> 태그
+        - **인라인 태그**
+        - **단독 태그**
+        - input.type : 입력 컨트롤의 종류 지정
+            - 아무것도 안쓰면 "text" 가 된다
+        - input.name : 식별자 -> HTML 태그를 서버에 전달하는 용도
+        
+        <form action="ex18_form.jsp">
+            <input type="text" name = "id">
+            <input type="submit">
+        </form>
+
+        -> 위와 같은 방식으로 하면 http://127.0.0.1:5500/html/ex18_form.jsp?id=ssh9308 이런식으로 서버로 넘어가게 된다.
+
+        - input.id : 식별자 -> "CSS or JS"에서 주로 쓰는 "식별자" -> 그냥 css에서 id 생각해주면 된다.
+        - input.class : 식별자 -> CSS or JS에서 주로 쓰는 식별자 -> 그냥 css에서 class 생각해주면 된다.
+        - input.size : 길이(문자 개수) : size = "50" 50글자정도 넣을 수 있는 박스 대략적은 50글자 넣을 수 있음 ~ 
+             폰트마다 다르기 때문에 상대적임 그렇다고 긴걸 못넣는다는건 아니다
+        - input.maxlength : 최대 입력 길이 -> 글자 제한하는 유효성 검사역할을 수행한다 -> 길이에 대한 제약을 걸수 있다
+        - input.value : 입력 컨트롤의 입력값 "초기값"같은 역할~ -> 게시판 같은곳에서 이미 적혀있는경우에 이걸 제어한 것이다
+        
+        
+        - input.readonly : 읽기전용 -> 수정이 불가하게 된다. -> 전자제품으로 치면 전원은 아직 켜져있는 상태임 (전원on + 서버 전송 됨)
+            -http://127.0.0.1:5500/ex18_form.jsp?txt1=%ED%99%8D%EA%B8%B8%EB%8F%99
+        - input.disabled : 비활성화 -> 전원자체를 꺼버린것임(전원 off + 서버전송 불가)
+            -http://127.0.0.1:5500/ex18_form.jsp? : 정보를 못가져옴
+
+        -input.accesskey : 바로가기의 역할을 수행한다 alt + accesskey 하면 지정된 곳으로 감
+            예를 들어 accesskey = "r" 로 줬다면 alt + r 을 하면 해당 폼 형식 (검색창) 으로 들어가게 된다.
+                            -> 네이버 검색 커서를 다른곳에 뒀다가 다시 검색하고 싶을 때 alt + s 쓰면 다시 검색창으로 커서가 깜빡거리게된다.
+        
+
+        *바로가기(니모닉,Nemonic) : ALT + 조합키 = 해당 항목이 눈에 보여야 실행가능 -> 지역과 같은 느낌
+        *단축키(ShortCut) : Ctrl/Alt/Shift + 조합키 = 해당 항목이 눈에 안보여도 언제든디 실행가능 -> 전역과 같은 느낌
+
+
+        - input.autofocus : 자동 포커스 -> 네이버 바로 들어가면 검색창에 커서가 깜빡인다
+        - input.autocomplete : 'on' | 'off' : 텍스트박스에서 전송했던것들 위주로 옛날 기록 찾아서 자동완성 할건지 말건지
+
+
+     -->
+
+     <!-- label 태그는 주로 input tag를 설명할 떄 쓰인다. -->
+
+
+
+        <h1>입력 컨트롤</h1>
+        <form action = "ex18_form.jsp" method = "GET">
+            <div> 
+                <label for = "txt1">텍스트 박스(단일 라인) :</label> <input type = "text" name = "txt1" id = "txt1"
+                    class = "txts" size = "10" maxlength="10"  accesskey = "s" autofocus autocomplete = "off">
+            </div>
+            <div>
+
+                 <!-- 암호상자 데이터가 안보이게 처리를 해준다
+                    - 모든 속성이 텍스트 박스와 똑같다.
+                    - 텍스트 박스에 쓰던걸 다 가져다 쓰면 되는데 value(기본값)은 절대 사용하지 마시오 -> 보안상 value 값은 안써준당
+                
+                -->
+                텍스트 박스(암호) : <input type = "password" value = 1234>
+
+            </div>
+            <div> 
+                <!-- 다중 라인 텍스트 박스
+                     시작태그 + 끝 태그로 구성되어있다
+                     textarea.cols : 가로너비(컬럼수)
+                     tesxtarea.rows : 세로높이(행수)
+                     나머지 속성은 비슷한데 maxlength 가 안된다 애초부터 다량 텍스트 입력받도록 강제된 애들이기 때문에
+                     value 가 없다
+
+                    속성값의 유형
+                    1. Simple Type : 한줄짜리 데이터
+                        -속성의 형태로 기재를 한다
+                    2. Complex Type : 여러줄 짜리 데이터
+                        - PCDATA로 표기한다.
+
+                -->
+                 텍스트 박스(다중라인) : 
+                 <!-- 편집기 상태가 엉망이 되더라도 textarea안에 기본값을 넣을때 하는행동은 직접접으로 화면에 보인다고 생각하면서 엔터와 공백을 다룬다 -->
+                <textarea cols="50" rows = "5">하나
+둘
+셋
+이 안에서는 함부러 코딩하면 안된다 메모장처럼 똑같이 나오게 된다.</textarea>
+                <input type = "submit">
+                
+                <!-- textarea tag 내에 문자를 입력해놓으면 그 문자가 입력된채로 보이게 된다. -->
+
+            </div>
+            
+            <div>
+                <!-- 체크박스 
+                    - 논리값 입력
+                    - checkbox.checked : 체크유무        
+                    - 단일선택 or 다중선택
+                -->
+
+                <h1>약관</h1>
+                <p>내용</p>
+                <label for = "cb1">"약관에 동의합니다"</label><input type = "checkbox" id = "cb1">
+                <br><input type = "submit" value = "다음단계로" disabled>
+
+
+                체크박스 : <input type = "checkbox">
+            </div>
+            
+            <div>
+
+                <!-- 
+                    라디오 버튼
+                    - 체크 박스 유사
+                    - 최소 2개 이상 사용
+                    - 단일 선택
+
+                    radiation
+                 -->
+
+                 라디오 버튼 : 
+                 동의함 : <input type = "radio" name = "rbAgree">
+                 동의안함 : <input type = "radio" name = "rbAgree" checked>
+                 미정 : <input type = "radio" name = "rbAgree">
+
+                 <!-- 이런식으로 name 으로 그룹을 해줘야 하나 누르면 하나가 지워지는 역할을 수행한다! -->
+                 <!-- name 을 같게 해줘야만 하나를 택하면 나머지 하나가 체크가 풀리게 된다. -->
+                 <!-- checked 를 써주면 아무에게나 라디오 버튼 하나가 체크되어 있다 대부분 동의안함으로 먼저 checked 를 해놔야 한다! -->
+
+            </div>
+                <input type = "submit">
+
+
+            <div>
+
+                <!-- 
+                    셀렉트 박스
+                    - 콤보 박스, 드랍다운 리스트 등....
+                    - 단일선택 -> 한번에 하나만 선택이 가능하다.
+
+                 -->
+
+                 셀렉트 박스 :
+                 <select>
+                    <option>강아지</option>
+                    <option>고양이</option>
+                    <option selected>병아리</option>
+                    <!-- selected 를 주면 기본값을 병아리를 주게된다 -->
+
+                 </select>
+
+                 <br>
+                 <br>
+                 <br>
+                 <br>
+                 <br>
+                 <br>
+                 셀렉트 박스 : 
+                 <select size = "5" multiple>
+                    <option>강아지</option>
+                    <option>고양이</option>
+                    <option selected>병아리</option>
+                    <!-- multiple을 써주고 컨트롤로 커서를 잡으면 다중선택이 가능해진다
+                        size 는 한번에 몇개를 보여줄건지 알려준다
+                    -->
+                 </select>
+
+                 <br>
+                 <br>
+                 <br>
+
+
+                 <select> 
+                     <option>[포유류]</option>
+                     <option>강아지</option>
+                     <option>고양이</option>
+                     <option>뱀</option>
+                     <option>[파충류]</option>
+                     <option>붕어</option>
+                     <option>비단잉어</option>
+                     <option>상어</option>
+                     <option>고래</option>
+                     <option>우엉</option>
+                     <option>족제비</option>
+                     <option>[왓더?]</option>
+                     <option>깐돌이</option>
+                     <option>김돌이</option>
+                     <option>짹쨱이</option>
+                     <option>카릉이</option>
+                     <option>아먼</option>
+                     <option>밪</option>
+                 </select>
+
+                 <!-- 여기서 보면 [포유류] 이렇게 되어 있는것은 선택이 안되었으면 좋겠다
+                    이를 어찌 처리할까? optgroup label = "포유류" 이런식으로 처리하면 된다.
+                    
+                -->
+
+                 <br>
+                 <br>
+                 <br>
+
+
+                 <select> 
+                     <optgroup label = "포유류"> 
+                     <option>강아지</option>
+                     <option>고양이</option>
+                     <option>뱀</option>
+                    </optgroup>
+                    <optgroup label = "파충류">
+                     <option>붕어</option>
+                     <option>비단잉어</option>
+                     <option>상어</option>
+                     <option>고래</option>
+                     <option>우엉</option>
+                     <option>족제비</option>
+                    </optgroup>
+                    <optgroup label = "왓더">
+                     <option>깐돌이</option>
+                     <option>김돌이</option>
+                     <option>짹쨱이</option>
+                     <option>카릉이</option>
+                     <option>아먼</option>
+                     <option>밪</option>
+                    </optgroup>
+                 </select>
+            </div>
+
+
+
+            <div>
+                <!-- 
+                    파일 업로드
+                    - 첨부파일 선택할때
+                    - open Dialog Box 를 호출하는 태그
+                 -->
+                 파일 선택 : <input type = "file">
+
+            </div>
+            <input type = "submit">
+
+
+
+            <div>
+                <!-- 히든태그 
+                    - 일반사람이 보게하려고 남기는게 아니고 개발자들을 위해서 만들어 놓은것이다.
+                    - 화면에 출력되지 않지만 서버로 전송을 해야 하는 데이터
+                -->
+                히든태그 : <input type = "id" name = "id" value = "hong"><br>
+                히든태그 : <input type = "hidden" name = "id" value = "hong">
+
+
+
+            </div>
+
+
+            <div>
+
+                <!-- 버튼류
+                    전송 : 데이터를 전송해준다
+                    리셋 : 컨트롤들을 초기화 할때 쓰는 버튼이다 -> 글쓰기 버튼 옆에 초기화 버튼이 있어서 체크박스 글 이런게 모두 없어진다
+                    이미지 버튼 : 서브밋 버튼 즉 전송 버튼인데 그림으로 그 버튼을 대신하는 것이다 
+                    1.그냥 버튼 : 누른다는 느낌은 나는데 아무것도 하지 않는다. -> 가장 많이 쓰는 버튼이다
+                        -> 여기에 자바 스크립트를 입혀서 여러가지 행동을 할 수 있다 즉 프로그래밍을 입힐 수 있다는 것이다.
+                    2.그냥 버튼 : type이라는 속성을 가지고 있는데 그 안에 button,submit,reset을 가진다
+                        -> 디자인 때문에 만들어진것이다.
+                        -> input tag 로  만들어진 것은 
+                -->
+
+                전송 버튼 : <input type = "submit" value = "보내기"><br>
+                리셋 버튼 : <input type = "reset" value = "초기화"><br>
+                이미지 버튼 : <input type = "image" src = "images/bullet07.png"><br>
+                그냥 버튼 : <input type = "button" value = "그냥버튼" ><br>
+                그냥 버튼 : <button type = "button"><img src = "images/bullet01.png">글쓰기</button>
+            </div>
+
+
+        </form>
+
+
+</body>
+</html>

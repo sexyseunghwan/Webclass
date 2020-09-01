@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+
+        #txt1 {
+            width:800px;
+            height:500px;
+            outline:none;
+        }
+
+    </style>
+
+</head>
+<body>
+    
+    <h1>마우스 이벤트</h1>
+
+    <form name="form1">
+        <textarea name="txt1" id="txt1"></textarea>
+            <hr>
+            <input type="button" value="클릭" name="btn1">
+        
+    </form>
+
+    <script>
+        var txt1 = window.document.form1.txt1;
+        var btn1 = window.document.form1.btn1;
+
+        //마우스 관련
+        //- onmouseXXX 이런식으로 이름이 지정됨
+        //1.onmouseover : 해당 객체 영역에 마우스 커서가 진입하는 순간 발생한다.
+        //2.onmouseout : 해당 객체 영역에서 마우스 커서가 빠져나갈때 발생한다.
+        //3.onmousedown : 해당 객체 영역에서 마우스 버튼을 눌렀을때 발생한다.
+        //4.onmouseup : 해당 객체 영역에서 마우스 버튼을 떼는 순간 발생한다.
+        //5.onmousemove : 해당 객체 영역에서 마우스 커서를 움직일 때 발생한다.
+        //마우스 관련 이벤트
+        //-event 객체(사건 관련 정보 제공)
+        //1.buttons
+        //2.좌표
+        //- event.x 와 event.y : 문서 좌측 상단 기준(비표준)
+        //- event.clientX,event.clientY : 문서 좌측 상단 기준(표준) -> 이거 써라 이말임.
+        //- event.screenX,event.screenY : 모니터(화면) 좌측 상단 기준 -> 잘 안쓴다...
+        //- event.offsetX,event.offsetY : 현재 이벤트가 걸린 객체의 좌측상단을 기준 (position relative 같은 놈이다.)
+
+        
+        //onclick은 마우스 or 키보드 이벤트이다.
+
+        
+        // txt1.onmouseover = function() {
+        //     window.document.body.bgColor = "tomato";
+        // };
+        //텍스트 박스위에 마우스가 올라가면 이벤트가 발생된다 -> 돌아가지는 않는다.
+
+        // txt1.onmouseout = function() {
+            // window.document.body.bgColor = "white";
+            // window.document.form1.txt1.value="마우스오버 : " + event.x;
+
+        // };
+
+        // txt1.onclick = function() {
+            // window.document.body.bgColor = "yellow";
+
+        // };
+
+
+        txt1.onmousedown = function() {
+            // if(event.buttons == 2) {
+                // alert("오른쪽 마우스 사용 금지");
+            // }
+            // txt1.value = "마우스다운 : "+ event.buttons;
+            // 버튼마다 고유번호를 보여준다 -> 사용자의 버튼을 세부적으로 컨트롤 하기 위해서 쓰임
+
+            // 마우스 좌표값도 얻을 수 있다.
+            // txt1.value = "x : "+ event.offsetX + " y : "+ event.offsetY;
+
+
+        };
+        
+        txt1.onmouseup = function() {
+            // txt1.value = "마우스업";
+        };
+        // 마우스에 모든 버튼에 반응 다 한다.
+
+        txt1.onmousemove = function() {
+            txt1.value = event.offsetX + ", " + event.offsetY +"\n"+ txt1.value; //어마어마하게 많이 발생하는 이벤트
+                                                                    //이런 이벤트에 큰일을 하면 끊기게 된다.
+
+        
+
+
+
+        };
+
+
+
+    </script>
+
+
+</body>
+</html>

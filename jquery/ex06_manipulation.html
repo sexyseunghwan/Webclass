@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="js/jquery-1.12.4.js"></script>
+	<style>
+		#box1 {
+			border: 10px solid black;
+			width: 200px;
+			height: 200px;
+			background-color: gold;
+		}
+
+        .one {
+            color : orange;
+            text-decoration : underline;
+            width : 500px;
+        }
+
+        .two {
+            text-align: center;
+
+        }
+        .three {
+            oppacity : .3;
+        }
+
+        
+
+        
+	</style>
+</head>
+<body>
+	<!-- ex06_manipulation.html -->
+
+	<h1>조작</h1>
+
+	<input type="button" value="버튼1" id="btn1">
+	<input type="button" value="버튼2" id="btn2">
+	<input type="button" value="버튼3" id="btn3">
+    <input type="button" value="버튼4" id="btn4">
+    <input type="button" value="버튼5" id="btn5">
+    
+	<hr>
+
+    <div id="box1">상자</div>
+    
+    <hr>
+
+    <input type="text" id="txt1">
+
+    <a href="http://naver.com" target = "_blank" id="link1">네이버</a>
+
+    <hr>
+
+    <div id="list">
+        <img src="../images/catty01.png">
+        <img src="../images/catty02.png">
+        <img src="../images/catty03.png">
+    </div>
+
+	<script>
+
+        $("#btn1").click(function(){
+
+            /*
+                jQuery 함수 패턴
+
+                1. A타입
+                    - 전용 함수
+                    a. obj.test() 인자값이 없다면 getter -> 읽기전용 함수라고 생각
+                    b. obj.test(value) 인자값이 있다면 setter -> 쓰기전용 함수라고 생각하면 된다.
+
+                
+                2. B타입
+                    - 범용 함수
+                    a. obj.test(name)   //getter, 읽기
+                    b. obj.test(name,value) //setter, 쓰기
+
+
+
+            */
+
+
+            // A 타입
+            // console.log($("#txt1").val());//읽기
+            // $("#txt1").val("홍길동");//쓰기
+
+            //B 타입
+            // $("#txt1").css("100px");
+            // $("#txt1").click(함수);
+            // $("#txt1").on(함수);
+
+            //인자를 두개 넣으면 쓰기가 된다.
+
+            $("#txt1").css("color","blue");//setter
+            console.log($("#txt1").css("color"));//getter
+
+
+
+        }); 
+
+        $("#btn2").click(function(){
+
+            //조작
+            //1. 콘텐츠 조작
+            //- innerText => text()
+            //- innerHTML => html()
+            //- value => val()
+
+            // console.log($("#box1").text());//읽기
+            // $("#box1").text("안녕하세요");//쓰기
+            // $("box1").text("<i>안녕하세요</i>")
+
+            // $("#box1").html("<i>안녕하세요</i>");//우리가 쓰던 것을 함수형태로 변환해둔 것이다!
+
+            //클릭할때마다 누적을 하고싶다면?
+            // $("box1").html($("#box1").html() + "<div>" + new Date() +"</div>");
+            // $("#box1").append("<div>" + new Date() +"</div>");//innerhtml 과 appendchild를 합쳐놓은 느낌이다. => 막내 자식으로 집어 넣으라는 말이다
+            // $("#box1").prepend("<div>" + new Date() +"</div>");//애는 append 의 반대 즉 집어넣는것부터 위에 차곡차곡 쌓는것이다.
+            
+            
+
+            $("#txt1").val();//읽기
+            $("#txt1").val(new Date());//쓰기
+
+
+
+
+        });
+
+        $("#btn3").click(function(){
+
+            //속성 조작
+            //1. BOM
+            //- obj.prop -> 읽기
+            //- obj.prop = 값 -> 쓰기
+
+            //2. DOM
+            // - obj.getAttribute("prop") : 읽기
+            // - obj.setAttribute("prop",값) : 쓰기
+
+            //3. jQeuery
+            // - obj.attr("prop") : 읽기
+            // - obj.attr("prop",값) : 쓰기
+            // - obj.prop("prop") : 읽기
+            // - obj.prop("prop",값) : 쓰기
+
+            // console.log($("#link1").attr("href"));//읽기
+            // $("#link1").attr("href","http://google.com");//쓰기
+
+            console.log($("#link1").prop("target"));//읽기
+            $("#link1").prop("target","_self");//쓰기 -> 새창에서 열어주던걸 자신창에서 열게 바꾼것이다.
+
+
+            //append 를 보자
+            // $("#list").append("<img src = '../images/catty04.png'>");//막내로 추가
+            // $("#list").prepend("<img src = '../images/catty04.png'>");//첫째로 추가
+
+            //DOM(removeChild) vs jQuery(remove)
+            $("#list img").click(function(){
+                //alert
+                // $(this).remove();//스스로 죽는다. -> this 는 자바스크립트이므로 제이쿼리로 형변환후 remove를 써준다.
+                $("#list").empty();//리스트 객체 안을 다 지워버린다.
+
+                // $(document.body).empty();//바디에 있는 내용 다 지워버린다
+            
+            });//다섯마리 모두 이벤트를 걸어준것이다.
+
+            
+
+
+
+
+        });
+
+        // ---------------------------0717복습완료
+
+
+        //1. 콘텐츠 조작
+        // - obj.text()
+        // - obj.html()
+        // - obj.val()
+
+        //2. 속성 조작
+        // - obj.attr()
+        // - obj.prop()
+
+        //3. 태그 조작
+        // - append()
+        // - prepend()
+        // - remove()
+        // - empty()
+
+        //4. CSS 조작
+        // - css()
+
+
+        $("#btn4").click(function(){
+
+            //고양이를 자식으로 추가 시켜보자!
+
+            $("#list").append("<img src = '../images/catty06.png' style = 'border : 1px solid black;' onclick = '$(this).remove();'>");
+            
+            $("<img>")
+                .attr("src","../images/catty07.png")
+                .attr("title","고양이")
+                .css("border","1px solid black")
+                .click(function(){
+                    $(this).remove();
+                })
+            
+
+
+            //jQuery 함수 용법
+            //1. $("CSS 선택자")-> 제이쿼리 객체로 반환
+            //2. $(자바스크립트 객체) -> 제이쿼리 객체로 반환
+            //3. $("HTML 코드")-> 제이쿼리 객체로 반환
+
+            //---------------------------------------
+            var temp = $("<input>");
+
+            $("list").append();
+
+            $("list").append("<input>");  
+            
+            
+			$("#list").append($("<img>")
+								.attr("src", "../images/catty07.png")
+								.attr("title", "고양이")
+								.css("border", "1px solid black")
+								.click(function() {
+									$(this).remove();
+                                }));   
+                                         
+            //---------------------------------------
+
+
+
+        });
+
+        $("#btn5").click(function(){
+
+            // console.log($("#box1").css("background-color"));//rgb값으로 나오게 된다.
+
+            // $("#box1").css("color","white");
+
+
+            // $("#box1")
+                // .css("color","white")
+                // .css("font-size","3em")
+                // .css("font-size","italic");
+
+            // $("#box1").css({
+            //         "color" : "red",
+            //         "font-size" : "5em",
+            //         "font-weight" : "bold"
+            //     });
+
+
+            $("#box1").addClass("one");//위에서 클래스를 먼저 지정해서 정해주는 방식 : 이게 제일 편하다!
+            $("#box1").addClass("two");//위에서 클래스를 먼저 지정해서 정해주는 방식 : 이게 제일 편하다!
+            $("#box1").addClass("three");//위에서 클래스를 먼저 지정해서 정해주는 방식 : 이게 제일 편하다!
+            
+            //위와 같은 형식으로 적용하면 동시에 적용된다...  
+            // $("#box1").removeClass("one");//선택적으로 없앨 수 있다.
+
+
+            $("#box1").toggleClass("one");
+
+
+        });
+
+
+	</script>
+</body>
+</html>

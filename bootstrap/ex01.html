@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="css/bootstrap.css">
+    <script src="js/jquery-1.12.4.js"></script>
+    <script src="js/bootstrap.js"></script>
+    <style>
+        
+        span.glyphicon {
+            font-size: 3em;
+            color: red;
+        }
+        
+
+    </style>
+
+</head>
+<body>
+    
+    <!-- 
+        Bootstrap
+        - 반응형
+        - 디자인 프레임워크
+        - CSS 제공 + 자바스크립트
+        - jQuery UI 유사
+        - jQuery 기반
+
+        http://getbootstrap.com : 공홈
+        http://bootstrapk.com : 한국어 페이지
+
+        
+
+
+     -->
+
+
+     <div class="container">
+         <h1>Bootstrap</h1>
+         <p>부트스트랩입니다</p>
+
+        <h2>버튼 디자인</h2>    
+
+        <!-- 부트스트랩은 class 를 조합해서 만든다! -->
+
+        <input type="button" value = "버튼입니다">
+        <input type="button" value = "버튼입니다" class = "btn">
+        <!-- class 에 btn 을 주면 버튼의 모양이 변한다 -->
+        <input type="button" value = "버튼입니다" class = "btn btn-default">
+        <input type="button" value = "버튼입니다" class = "btn btn-info">
+        <input type="button" value = "버튼입니다" class = "btn btn-danger">
+        <input type="button" value = "버튼입니다" class = "btn btn-success">
+        <input type="button" value = "버튼입니다" class = "btn btn-primary">
+        <!-- 이런식으로 그냥 의미있는 단어라기 보단.. class 를 통해서 버튼의 모양을 지정해주는 역할을 수행한다. -->
+
+        <!-- 버튼 크기 조절도 가능 아래와 같이 사이즈를 조절해줄 수 있다. -->
+        <input type="button" value = "버튼입니다" class = "btn btn-primary btn-xs">
+        <input type="button" value = "버튼입니다" class = "btn btn-primary btn-sm">
+        <input type="button" value = "버튼입니다" class = "btn btn-primary">
+        <input type="button" value = "버튼입니다" class = "btn btn-primary btn-lg">
+        
+
+
+    
+
+    <!-- 만약에 반응형으로 길이가 바뀌는게 싫다면 style 영역에서 그냥 너비를 주어 고정시키면 된다! -->
+
+
+    <hr>
+
+    <h2>테이블 디자인</h2>
+    <!-- <table class = "table" style = "width:600px;"> -->
+    <!-- <table style = "width:600px;" class = "table table-bordered" > -->
+    <!-- <table style = "width:600px;" class = "table table-striped"> -->
+    <!-- <table style = "width:600px;" class = "table table-condensed"> -->
+    <!-- <table style = "width:600px;" class = "table table-hover"> -->
+    <table style = "width:600px;" class = "table table-striped table-bordered table-condensed">
+     <!--위와같이 조합해서 쓸 수 도 있다!  -->
+
+        <tr>
+            <th>번호</th>
+            <th>이름</th>
+            <th>나이</th>
+            <th>성별</th>
+            <th>주소</th>
+        </tr>
+        <tr>
+            <td>1</td>
+            <td>홍길동</td>
+            <td>20</td>
+            <td>남</td>
+            <td>서울시 강남구 역삼동</td>
+        </tr>
+        <tr>
+            <td>2</td>
+            <td>유은혜</td>
+            <td>24</td>
+            <td>여</td>
+            <td>서울시 서초구 반포동</td>
+        </tr>
+        <tr>
+            <td>3</td>
+            <td>김삿갓</td>
+            <td>89</td>
+            <td>남</td>
+            <td>서울시 송파구 잠실동</td>
+        </tr>
+                <tr>
+            <td>1</td>
+            <td>홍길동</td>
+            <td>20</td>
+            <td>남</td>
+            <td>서울시 강남구 역삼동</td>
+        </tr>
+        <tr>
+            <td>2</td>
+            <td>유은혜</td>
+            <td>24</td>
+            <td>여</td>
+            <td>서울시 서초구 반포동</td>
+        </tr>
+        <tr>
+            <td>3</td>
+            <td>김삿갓</td>
+            <td>89</td>
+            <td>남</td>
+            <td>서울시 송파구 잠실동</td>
+        </tr>        <tr>
+            <td>1</td>
+            <td>홍길동</td>
+            <td>20</td>
+            <td>남</td>
+            <td>서울시 강남구 역삼동</td>
+        </tr>
+        <tr>
+            <td>2</td>
+            <td>유은혜</td>
+            <td>24</td>
+            <td>여</td>
+            <td>서울시 서초구 반포동</td>
+        </tr>
+        <tr>
+            <td>3</td>
+            <td>김삿갓</td>
+            <td>89</td>
+            <td>남</td>
+            <td>서울시 송파구 잠실동</td>
+        </tr>        <tr>
+            <td>1</td>
+            <td>홍길동</td>
+            <td>20</td>
+            <td>남</td>
+            <td>서울시 강남구 역삼동</td>
+        </tr>
+        <tr>
+            <td>2</td>
+            <td>유은혜</td>
+            <td>24</td>
+            <td>여</td>
+            <td>서울시 서초구 반포동</td>
+        </tr>
+        <tr>
+            <td>3</td>
+            <td>김삿갓</td>
+            <td>89</td>
+            <td>남</td>
+            <td>서울시 송파구 잠실동</td>
+        </tr>        <tr>
+            <td>1</td>
+            <td>홍길동</td>
+            <td>20</td>
+            <td>남</td>
+            <td>서울시 강남구 역삼동</td>
+        </tr>
+        <tr>
+            <td>2</td>
+            <td>유은혜</td>
+            <td>24</td>
+            <td>여</td>
+            <td>서울시 서초구 반포동</td>
+        </tr>
+        <tr>
+            <td>3</td>
+            <td>김삿갓</td>
+            <td>89</td>
+            <td>남</td>
+            <td>서울시 송파구 잠실동</td>
+        </tr>        <tr>
+            <td>1</td>
+            <td>홍길동</td>
+            <td>20</td>
+            <td>남</td>
+            <td>서울시 강남구 역삼동</td>
+        </tr>
+        <tr>
+            <td>2</td>
+            <td>유은혜</td>
+            <td>24</td>
+            <td>여</td>
+            <td>서울시 서초구 반포동</td>
+        </tr>
+        <tr>
+            <td>3</td>
+            <td>김삿갓</td>
+            <td>89</td>
+            <td>남</td>
+            <td>서울시 송파구 잠실동</td>
+        </tr>
+    </table>
+
+
+
+    <h2>폼 관련 태그</h2>
+    
+    <table class = "table table-hover" style = "width:600px;" >
+        <tr>
+            <th style = "width:150px">텍스트 박스</th>
+            <td style = "width:450px">
+                <input type="text" class = "form-control">
+                <!-- 둥그스럽게 바뀐다! -->
+                <!-- 부트스트랩은 input을 블럭태그로 만들어준다리~ -->
+                <!-- 부트스트랩은 표안에 있다고 가정하고 설계하도록 되어있다. -->
+            </td>
+        </tr>
+        <tr>
+            <th style = "width:150px">비밀번호</th>
+            <td style = "width:450px">
+                <input type="password" class = "form-control">
+            </td>
+        </tr>  
+		<tr>
+				<th style="width:150px;">다중 라인</th>
+				<td style="width:450px;">
+					<textarea class="form-control" 
+						style="height: 200px;"></textarea>
+				</td>
+			</tr>
+			<tr>
+				<th style="width:150px;">셀렉트 박스</th>
+				<td style="width:450px;">
+					<select class="form-control">
+						<option>하나</option>
+						<option>둘</option>
+						<option>셋</option>
+					</select>
+				</td>
+			</tr>       
+			<tr>
+				<th style="width:150px;">체크박스</th>
+				<td style="width:450px;">
+					<input type="checkbox"
+						class="form-control">
+				</td>
+			</tr>
+			<tr>
+				<th style="width:150px;">파일</th>
+                <td style="width:450px;">
+                    <input type="file" class = "form-control">
+                </td>
+            </tr>
+			<tr>
+				<th style="width:150px;">HTML5</th>
+                <td style="width:450px;">
+                    <input type="color" class = "form-control">
+                </td>
+			</tr>            
+    </table>
+
+
+    <h2>텍스트 관련</h2>
+    <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Illum quia enim nostrum facere nisi quod sunt cumque nihil in tempore similique cum, ex quasi numquam quisquam harum eaque dolorum a alias? Voluptatibus fuga odio quod, animi accusantium tempore facilis harum a nihil omnis minus libero eius quisquam, esse sapiente! Mollitia facilis veritatis qui commodi nesciunt eius laborum non sed voluptatem recusandae. Quod, consequatur illo! Voluptatem a id repellendus asperiores ad non ducimus doloribus, officiis minus optio aliquam, repudiandae voluptate perferendis nam tenetur voluptatum accusantium reprehenderit ullam architecto voluptatibus veniam suscipit quis necessitatibus! Rerum fugiat asperiores impedit nulla enim. Ea, deserunt!</p>
+    <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Illum quia enim nostrum facere nisi quod sunt cumque nihil in tempore similique cum, ex quasi numquam quisquam harum eaque dolorum a alias? Voluptatibus fuga odio quod, animi accusantium tempore facilis harum a nihil omnis minus libero eius quisquam, esse sapiente! Mollitia facilis veritatis qui commodi nesciunt eius laborum non sed voluptatem recusandae. Quod, consequatur illo! Voluptatem a id repellendus asperiores ad non ducimus doloribus, officiis minus optio aliquam, repudiandae voluptate perferendis nam tenetur voluptatum accusantium reprehenderit ullam architecto voluptatibus veniam suscipit quis necessitatibus! Rerum fugiat asperiores impedit nulla enim. Ea, deserunt!</p>
+    
+    <!-- blockquote도 많이 사용하는것중에 하나임 -->
+    <blockquote>
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Veniam, adipisci tempore. Rerum exercitationem inventore hic. Quam doloribus qui voluptatum illo, laboriosam accusamus enim facilis sunt nemo necessitatibus consectetur dolorum ut quis placeat voluptates officia minus. Autem dolor nisi quibusdam similique? Nesciunt, praesentium perspiciatis non beatae iste voluptatibus iure ipsam alias at necessitatibus sint ipsum id magni reiciendis impedit rem dicta ratione asperiores totam explicabo perferendis atque, esse, adipisci error. Vero, eligendi ut aliquam distinctio necessitatibus, porro inventore vitae possimus blanditiis iste impedit omnis nemo. Suscipit ullam molestiae dolor eos? Soluta necessitatibus culpa repellat molestiae architecto quibusdam! Exercitationem omnis maiores modi!
+    </blockquote>
+
+
+    <h2>프로그래밍 코드</h2>
+    <p>JavaScript 수업중입니다. <code>window.open()</code> 은 새창을 엽니다.</p>
+
+
+    <h2>키보드 단축키</h2>
+    <p>이클립스 실행은 <kbd>Ctrl + F11</kbd> 입니다</p>
+
+    <!-- preformatted text : 외부 텍스트를 가져와 출력할 때 많이 사용한다.-->
+    <!-- 아래와 같이 외부소스를 보여줄때 유용하게 사용할 수 있다! -->
+    <pre>
+<span style = "color:cornflowerblue">class</span> test{
+
+<span style = "color:red">public</span> static void main(String[] args) {
+    System.out.println(<span style = "color:red">"Hello"</span>);
+    }
+}
+    </pre>
+
+
+    <h2>텍스트 색상</h2>
+
+    <p class = "text-danger">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Tenetur laboriosam totam earum, neque reiciendis suscipit, pariatur debitis magnam nobis vel facere. Praesentium odio eius sapiente officiis repellendus! Eaque, nulla totam.</p>
+    <p class="text-primary">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Tenetur laboriosam totam earum, neque reiciendis suscipit, pariatur debitis magnam nobis vel facere. Praesentium odio eius sapiente officiis repellendus! Eaque, nulla totam.</p>
+    <p class="text-warning">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Tenetur laboriosam totam earum, neque reiciendis suscipit, pariatur debitis magnam nobis vel facere. Praesentium odio eius sapiente officiis repellendus! Eaque, nulla totam.</p>
+    <p class="text-info">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Tenetur laboriosam totam earum, neque reiciendis suscipit, pariatur debitis magnam nobis vel facere. Praesentium odio eius sapiente officiis repellendus! Eaque, nulla totam.</p>
+    <p class="text-muted bg-danger">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Tenetur laboriosam totam earum, neque reiciendis suscipit, pariatur debitis magnam nobis vel facere. Praesentium odio eius sapiente officiis repellendus! Eaque, nulla totam.</p>
+    <p class="bg-primary">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Tenetur laboriosam totam earum, neque reiciendis suscipit, pariatur debitis magnam nobis vel facere. Praesentium odio eius sapiente officiis repellendus! Eaque, nulla totam.</p>
+    <!-- 배경색과 문자색 같이 섞어서 쓸 수 있다! -->
+
+    
+    <h2>이미지</h2>
+
+    <img src="../images/cat01.jpg" class = "img-thumbnail">
+    <img src="../images/cat02.jpg" class = "img-circle">
+    <img src="../images/cat03.jpg" class = "img-rounded">
+
+    <!-- 활용도가 매우 높음 -->
+    <h2>Wells</h2>
+    <div class = "well">소규모의 독립된 영역을 만들 때 사용</div>
+    <div class = "well well-sm">소규모의 독립된 영역을 만들 때 사용</div>
+    <div class = "well well-lg">소규모의 독립된 영역을 만들 때 사용</div>
+    <div class = "well well-lg text-primary">소규모의 독립된 영역을 만들 때 사용</div>
+    
+
+
+    <h2>Alert</h2>
+
+    <div class = "alert alert-success"><strong>Lorem ipsum</strong> dolor sit amet consectetur, adipisicing elit. Doloremque reprehenderit, exercitationem nobis dolor, enim assumenda aspernatur, dignissimos tempora animi distinctio voluptates? Sequi possimus nihil veniam corrupti aspernatur. Dignissimos architecto excepturi eum exercitationem, odio in modi quasi vitae hic nesciunt facere unde est magni voluptatum tenetur, corporis omnis doloribus dolor animi! Expedita hic tempore aut doloribus. Doloribus sequi, nobis fugiat temporibus suscipit obcaecati nostrum alias porro ex facere tempore perspiciatis praesentium aut omnis? Minus nemo perspiciatis maxime. Repellat possimus qui optio. Eum asperiores cum, cumque non beatae delectus dolorem placeat magni itaque odio ullam inventore tempora totam hic repudiandae quisquam! Ratione?</div>
+
+
+    <div class = "alert alert-danger alert-dismmissable fade in">
+        <a href="#" class = "close" data-dismiss = "alert" aria-label="close">&times;</a>
+        <strong>주의사항!!</strong>
+        반드시 사진은 규격에 맞아야 합니다.
+    </div>
+
+    <h2>아이콘</h2>
+
+    <div>
+        <span class = "glyphicon glyphicon-download-alt"></span>
+        <span class = "glyphicon glyphicon-play"></span>
+        <!-- bootstrapk 홈페이지 콤포넌트 에서 이름을 복사해오면 해당 아이콘이 적어진다!-->
+        
+
+        <button class="btn btn-success"><span class = "glyphicon glyphicon-hand-down"></span>hash tag</button>
+
+    </div>
+
+
+    <h2>배지, Badges</h2>
+
+    <ul>
+        <li>Java<span class = "badge">5</span></li>
+        <li>Oracle</li>
+        <li>JDBC<span class = "badge">3</span></li>
+        <li>HTML</li>
+    </ul>
+
+
+    <button class = "btn btn-danger">
+        <span class = "glyphicon glyphicon-trash"></span>
+        Remove Items
+        <span class = "badge"></span>
+    </button>
+
+    <h2>Label</h2>
+
+    <p>안녕하세요. 홍길동입니다. <span class = "label label-default">new</span></p>
+    <p>안녕하세요. 홍길동입니다. <span class = "label label-danger">new</span></p>
+
+    
+
+ </div>
+
+
+
+
+</body>
+</html>

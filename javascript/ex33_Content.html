@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+</head>
+<body>
+	<!-- ex33_Content.html -->
+	<h1>DOM</h1>
+
+	<input type="button" id="btn1" value="버튼">
+	<hr>
+	<div id="message">홍길동</div>
+
+	<h1>게시판 글쓰기</h1>
+
+	<div>파일 첨부 : <input type="file"></div>
+	<!-- type이 file 이 라는건 자신의 컴퓨터 파일에 대한 탐색기 기능을 수행해준다. -->
+
+	<div id="list"></div>
+
+	<input type="button" value="+파일" id="btnAdd">
+
+	<script>
+	
+	//DOM 조작
+	// - 조작(수정, 삭제, 생성, 읽기/쓰기)
+	//1. 조작할 태그를 찾는다.
+	//2. 조작한다.
+	//2.1 HTML이 가진 속성값을 조작
+	//2.2 HTML이 가진 콘텐츠를 조작(시작 태그와 끝 태그 사이의 내용물 -> PCDATA or 자식 태그)
+	//2.3 HTML이 가진 CSS를 조작
+
+	var btn1 = document.getElementById("btn1"); //버튼
+	var message = document.getElementById("message"); //<div>
+
+	btn1.onclick = function() {
+
+		//DOM -> Content 영역 조작
+		//1. innerText
+        //	- 시작태그와 끝태그 사이의 문자열 읽기/쓰기 프로퍼티
+        //  - 내부의 태그 인식 못함 
+        //  - 비표준(MS)
+		//	- ****자식을 조정한다****
+        
+		//2. innerHTML
+		//	- 시작태그와 끝태그 사이의 문자열 읽기/쓰기 프로퍼티
+        //  - 내부의 태그 인식함
+        //  - 동적으로 태그를 생성하는 역할
+		//	- ****자식을 조정한다****
+		
+        //3. textContent
+        //  - innerText와 동일
+        //  - 표준(DOM)
+
+
+
+		message.innerText = "아무개";// 이런식의 작업을 수행하면 div 안에 텍스트값이 변경이된다 -> (수정,생성)
+		console.log(message.innerText);
+
+		//message.innerHTML = "하하하";
+		//console.log(message.innerHTML);
+
+
+		//innerText vs innerHTML
+		// - HTML 인식 유무
+		message.innerText = "<i>홍길동</i>"; // 애는 진짜로 문자 그대로의 "<i>홍길동</i>" 이 나오게 된다
+		message.innerHTML = "<i>홍길동</i>"; // 애는 <i>홍길동</i> 을 해석해서 생성시켜준다!!
+
+		//동적으로 태그 추가하기
+		//message.innerHTML = "<input type='text'>";
+		//message.innerHTML = "<img src='../images/catty01.png'>";
+		//message.innerHTML += '<img src="../images/catty01.png">';
+
+		var num = parseInt(Math.random() * 5) + 1; //1~5
+
+		message.innerHTML += '<img src="../images/catty0'
+								 + num + '.png">';
+
+
+	};
+
+
+	var btnAdd = document.getElementById("btnAdd");
+	var list = document.getElementById("list");
+
+	btnAdd.onclick = function() {
+		list.innerHTML += "<div>파일 첨부 : <input type='file'></div>";
+	};
+
+
+	</script>
+
+
+
+	<!--2020.07.110 복습완료  -->
+
+
+</body>
+</html>

@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        .box {
+            width : 150px;
+            height : 150px;
+            position : absolute;
+            left : 10px;
+            top : 50px;
+        }
+
+        #box1 {background-color: tomato;}
+        #box2 {background-color: gold;}
+        #box3 {background-color: orange;}
+        #box4 {background-color: cornflowerblue;}
+        #box5 {background-color: palegreen;}
+
+    </style>
+
+</head>
+<body>
+    
+
+
+    <input type="button" value = "버튼" id = "btn1">
+    <hr>
+    <!-- div#box$.box{상자$}*5 -->
+    
+    <div id="box1" class="box">상자1</div>
+    <div id="box2" class="box">상자2</div>
+    <div id="box3" class="box">상자3</div>
+    <div id="box4" class="box">상자4</div>
+    <div id="box5" class="box">상자5</div>
+
+
+    <script>
+        var btn1 = document.getElementById("btn1");
+        var box1 = document.getElementById("box1");
+        var box2 = document.getElementById("box2");
+        var box3 = document.getElementById("box3");
+        var box4 = document.getElementById("box4");
+        var box5 = document.getElementById("box5");
+
+
+
+        btn1.onclick = function() {
+
+            box5.style.left = "300px";
+            box5.style.top = "250px";
+            //자바스크립트는 속성 자체를 영구적으로 변화를 준다.!!
+            
+            box1.style.left = "400px";
+            box1.style.top = "550px";
+
+            box2.style.left = "600px";
+            box2.style.top = "150px";
+
+            box3.style.left = "100px";
+            box3.style.top = "100px";
+
+            box3.style.zIndex = 10;//주황색 상자가 파랑색 보다 z축이 위에 있게된다.
+
+        };
+
+
+        var index = 0;
+        var zindex = 0;
+        var list = document.getElementsByClassName("box");//상자 5개를 다 찾아주겠지? -> 배열로 반환이 된다.
+
+        
+		window.addEventListener("mousedown", function() {
+
+			//클릭한 좌표
+			// - position: aboslute
+			//box5.style.left = event.clientX - 75 + "px";
+			//box5.style.top = event.clientY - 75 + "px";
+
+			list[index].style.left = event.clientX - 75 + "px";
+			list[index].style.top = event.clientY - 75 + "px";
+			list[index].style.zIndex = zindex;
+
+			index++;
+			zindex++;
+
+			if (index >= list.length) index = 0;
+
+		});
+
+        
+
+
+    </script>
+
+    <!-- 2020/07/12 복습완료 -->
+    
+
+</body>
+</html>

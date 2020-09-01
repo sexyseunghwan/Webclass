@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+
+        #main {
+            /* border : 1px solid black; */
+            margin-top : 300px;
+            margin-left : 900px;
+        }
+        #number {
+            width : 210px;
+            height : 256px;
+            font-size: 10em;
+            font-weight: bold;
+            padding: 1px 0px;
+            border : 0px;
+        }
+        
+    </style>
+
+
+
+</head>
+<body>
+    
+    <!-- //클릭카운트 -->
+    <div id = "main">
+        <form name = "form1">
+        <div>
+            <input type="text" name = "txt" value = "00" id = "number" readonly = "readonly;">
+        </div>
+        </form>
+        <div>
+            <img src="../images/0.png" name="ten">
+            <img src="../images/0.png" name="one">
+        </div>
+    </div>
+
+
+    <script>
+        var txt = document.form1.txt;
+        var ten = document.images.ten;
+        var one = document.images.one;
+        
+        var number = 0;
+
+        window.onmousedown = function() {
+            number++;
+        };
+
+        window.onmouseup = function() {
+            if(number < 10) {
+                txt.value = "0" + number;
+            } else if(number < 100){
+                txt.value = number;
+            } else {
+                number = 0;
+                txt.value = "00";
+            }
+
+            var q = parseInt(number / 10);//몫
+            var r = number % 10;//나머지
+
+            ten.src = "../images/" + q + ".png";
+            one.src = "../images/" + r + ".png";
+
+        };
+    </script>
+</body>
+</html>

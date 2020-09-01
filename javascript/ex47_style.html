@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        #box {
+            border : 5px solid black;
+            width : 150px; height : 150px;
+            background-color: gold;
+            position : absolute;
+            left : 0; top :0
+            }
+
+        #cat {
+            position: absolute;
+
+        }
+
+
+    </style>
+
+
+</head>
+<body>
+    
+
+    <!-- 이 파트를 유심히 잘 살펴봐야 한다 그래야 헷갈리지 않는다 인간아 -->
+
+    <div id="box"></div>
+    <img src="../images/catty01.png" id="cat">
+
+
+    <script>
+
+        // drag & drop
+        var box = document.getElementById("box");
+        var isDown = false;//마우스를 뗏다는것이 -> false
+        var oldX,oldY;
+        var cat = document.getElementById("cat");
+
+        // 아래와 같이 하면 문제가 발생된다 => 주체가 box여서 문제가 생긴다.
+        //  움직임도 상당히 부자연스러운데 이유가 뭐지?--> 아 헷갈리네?!
+
+        // box.onmousedown = function() {
+        //     isDown = true;//마우스가 눌렸는지 알아보려는 것이다.
+            
+
+        // }
+        // box.onmouseup = function() {
+        //     isDown = false;//마우스 뗌
+            
+        // }
+
+        // box.onmousemove = function() {
+
+        //     if(isDown) {
+        //         box.style.left = event.clientX - 75 + "px";
+        //         box.style.top = event.clientY - 75 + "px";
+        //     }
+
+        // }
+
+        
+
+        
+        var temp;
+
+        window.onmousedown = function() {
+            
+            console.log(event.srcElement.nodeName);//div 인지 html인지 구분해준다.
+
+            if(event.srcElement.id == "box" || event.srcElement.id == "cat") {
+                temp = event.srcElement;//박스 나 고양이 -> 이벤트가 끝나도 가지고 있기 위해서 -> 애가 상당히 중요한 개념 같은데?!
+                isDown = true;
+                oldX = event.offsetX;
+                oldY = event.offsetY;
+                console.log(event.offsetX);
+                console.log(event.offsetY);
+
+                console.log(event.clentX);
+                console.log(event.clentX);
+
+            }
+            
+        };
+
+        window.onmouseup = function() {
+            isDown = false;
+            
+        };
+
+        window.onmousemove = function() {
+            //주체가 바껴서 자연스러운 움직임이 나타난다
+            //대신 화면 어디든 눌러도 시작시키는게 부자연 스럽게 된다.
+            //빈공간을 누르면 상자선택 안되게 해야한다!
+            //srcElement 를 생각해준다!
+            if(isDown) {
+                temp.style.left = event.clientX - oldX + "px";
+                temp.style.top = event.clientY - oldY + "px";
+                //무조건 80을 빼서 중앙으로 온것이다!
+
+
+                //고스트 이미지 제거
+                event.preventDefault();//현재 발생하는 **기본적인 행동**을 하지말아라! 라는 뜻이다.
+                return false;//현재 발생하는 기본적인 행동을 하지마시오 -> 오래된 브라우저의 경우 위와같은형식이 안먹을 수 있으므로 보험으로 하나 더 적어주는 것이다.
+                
+            
+            
+            }
+
+        }
+
+        
+
+
+
+        
+
+        
+
+
+
+    </script>
+
+
+    <!-- 20/07/13 복습완료 -->
+
+
+</body>
+</html>

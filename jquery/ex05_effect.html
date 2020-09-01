@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #box1 {
+            border : 10px solid black;
+            width : 200px;
+            height : 200px;
+            background-color:gold;
+        }
+    </style>
+</head>
+<body>
+    
+    <h1>jQuery Effect - 애니메이션 효과(transition,animate)</h1>
+
+    <input type="button" value = "버튼1" id = "btn1">
+    <input type="button" value = "버튼2" id = "btn2">
+    <input type="button" value = "버튼3" id = "btn3">
+    <input type="button" value = "버튼4" id = "btn4">
+    <input type="button" value = "버튼5" id = "btn5">
+
+    <hr>
+    <div id="box1">상자</div>
+    
+    <script src = "js/jquery-1.12.4.js"></script>
+    
+    <script>
+
+	    //jQuery Effect Function
+		//1. hide(), show(), toggle() //***** -> toggle()-> hide & show 기능을 "모두" 수행하는 것이다.
+		//2. fadeOut(), fadeIn(), fadeToggle()
+		//3. slideDown(), slideUp(), slideToggle()
+		//4. animate() //*****
+
+
+        // jQuery("#btn1") 애도 쓰기 귀찮아서 jQuery 에 별명을 붙여놓은 것이다 -> $
+        $("#btn1").click(function(){
+
+            // $("#box1").hide("fast");//스피드~ 속도 제어 가능 쌉가능!
+            // $("#box1").hide("slow");
+            // $("#box1").hide(1000);//시간을 직접 주는것도 가능하다.
+
+            // $("#box1").fadeOut();//서서히 사라지는 용도
+            // $("#box1").slideUp(1000);
+
+
+        });
+
+        $("#btn2").click(function(){
+
+            // $("#box1").show("fast");
+            // $("#box1").show("slow");
+            // $("#box1").fadeIn();//서서히 나타나는 용도
+            $("#box1").slideDown(1000);
+            
+
+            
+        });
+
+        $("#btn3").click(function(){
+
+            // $("#box1").toggle();//나타났다 사라졌다 하는거 - 위에 두개 다 안쓰고 둘다의 역할을 수행해준다.
+            // $("#box1").fadeToggle();//나타났다 사라졌다 하는건데 좀 자연스럽게 하는것
+            $("#box1").slideToggle(1000);
+
+            
+        });
+
+        $("#btn4").click(function(){
+
+            // $("#box1").fadeOut(2000);
+            // setTimeout(function(){
+
+            //     $("#btn4").css("color","red");
+
+            // },2000);
+            
+
+            //아래 코드는 너무 지저분 하니 조정을해보자
+            $("#box1").fadeOut(2000,function(){
+                // alert("끝남");//애니매이션이 끝나는 순간에 펑션을 적용해준다 "콜백함수"  -> 어떤 애니매이션이 끝나는 순간에 무엇을 해야 한다면 써라  
+                $("#box1").fadeIn(2000,function(){
+                    $("#box1").slideUp(2000,function(){
+                        $("#box1").slideDown(2000);
+                    });
+                });
+            });
+
+
+            $("#box1")
+            .fadeOut(2000)
+            .fadeIn(2000)
+            .slideUp(2000)
+            .slideDown(2000);//앞에꺼를 기다렸다가 자신의 작업을 수행한다 -> 이런식으로 작성하는게 더욱 간결하고 편하다!
+            
+
+
+
+        });
+
+      
+
+
+        $("#btn5").click(function(){
+
+
+            //animate() : 모든 css 제어 가능하다
+            // 아래서 말하는 obj는 대상 객체를 의미하는것이지 무작정 객체를 만들어놓은것이 아니다.
+            
+            var obj = {
+
+                width : 0,
+                height : 0,
+                opacity : 0,
+                "margin-Left": 500//이런식으로 줘도 된다 px 붙여도 돌아가지만 안붙여소 px 로 인식하고 돌아가게 된다.
+            };
+            
+            $("#box1").animate(obj,1000);
+
+            $("#box1").animate({
+                width : "toggle",
+                height : "toggle",
+                opacity : "toggle"
+            },1000); 
+            
+            /*
+                위에서 toggle 에 대한 정확한 이해가 필요한데 toggle 이란것은 
+                만약 width 에 toggle 이 붙었다면 한번 클릭한 경우 width 가 0이 아닌경우에는
+                다시 0으로 만들어 주고 width = 0 인 경우에는 원래 너비로 다시 늘리게 된다.
+            */ 
+
+
+            // $("#box1").animate({
+            //     width : "+=50px"//이런식으로 하면 연산이 된다.
+            // },1000);
+
+
+        });
+
+    </script>
+
+    <!-- 2020/07/085 복습 완료 -->
+    
+</body>
+</html>

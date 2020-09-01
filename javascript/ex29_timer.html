@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+
+    <h1>타이머</h1>
+    <form name = "form1">
+        <input type="text" name = "txt1">
+        <hr>
+        <input type="button" value = "버튼1" name = "btn1">
+        <input type="button" value = "버튼2" name = "btn2">
+        <hr>
+		<img src="../images/catty01.png" name="img1">
+    </form>
+    
+    
+    
+
+    <script>
+		var txt1 = document.form1.txt1;
+		var btn1 = document.form1.btn1;
+        var btn2 = document.form1.btn2;	
+        var n = 0;
+        var timer = 0;
+        var tlist = [];//클릭할때마다 타이머값을 넣어주려는 용도이다.
+
+        var colors = ["red","orange","yellow","green","blue","indigo","purple"];
+        
+        var img1 = document.images["img1"];
+
+
+        //타이머
+        // -지정된 시간이 지나면 미리 준비해둔 코드를 실행하는 도구임(전자레인지 와 같은 원리)
+        // 도구 > setTimeout() -> 실행횟수 1회
+
+        //- 지정된 시간이 지날 때마다 미리 준비해둔 코드를 실행하는 도구 > 반복실행~
+        // 도수 > setInterval() + 실행횟수 N회 : 실행횟수가 사실상 무한대
+
+
+        btn1.onclick = function() {
+            // setTimeout(함수,시간); 이런식으로 사용함 : 해당 시간이 지나면 함수가 호풀된다.
+            //매개변수에서 시간은 밀리초단위이다.
+            // setTimeout(function(){
+            //     console.log("따르릉");
+
+            // },3000);
+
+
+
+            // setInterval(function(){
+            //     console.log("따르릉");
+            // },2000);
+            //계속 울리게 된다.
+
+            // test();
+            
+            //-----------------------------------------
+
+            // setInterval(function(){
+
+            //     txt1.value = (new Date).toLocaleTimeString();
+
+            // },1000) 
+
+            //-----------------------------------------
+            
+
+            // timer = setInterval(function(){//반환값이 존재한다.
+            //     txt1.value = n;
+            //     n++;
+            // },100);//타이머가 중첩이 될 수 있다! ***누를때마다 타이머가 생성된다!!*** -> 제어를 해줘야한다
+
+            // //var timer -> 이놈을 타이머 id 라고 부른다.
+            
+            // tlist.push(timer);
+
+
+            // console.log(timer);
+
+           	// if (timer == 0) {
+			// 	timer = setInterval(function() {
+			// 		// txt1.value = n;
+            //         // n++;
+                    
+            //         // txt1.size = n;
+            //         // n++;
+            //         //이런식으로 하면 애니매이션과 같은 효과가 나게 된다.
+
+
+            //         document.body.bgColor = colors[n];
+            //         n++;
+            //         if (n > 6) {
+            //             n =0;
+            //         }
+
+
+			// 	}, 100);    
+			// }
+
+
+
+        };
+
+
+        btn2.onclick = function() {
+            //타이머 중지
+            //setTimeout() -> cleartimeout(timer id)
+            //setInterval() -> clearInterval(timer id)
+            
+
+            // clearInterval(timer);//타이머를 삭제시키는 것이다 사실은 
+
+            //-----------------------------------------
+            //한번에 다 삭제하기
+            // for (var i =0; i<tlist.length; i++) {
+            //     clearInterval(tlist[i]);//이런식으로 통제하면 몇번을 클릭해도 올 스톱이 된다.
+            // }
+            //한번에 한개만 삭제하기
+            //-> 한번 클릭할때마다 배열에서 한개만 꺼내고 동시에 그 꺼낸건 배열에서 삭제가 되어야 한다.
+
+            //push() : 배열에 마지막에 추가하는것
+            //pop() : 배열의 마지막 항목을 꺼내고 제거(Stack 과 같음)
+            //shift() : 배열의 첫번째 항목을 꺼내고 제거(QUEUE 과 같음)
+
+
+            // if(tlist.length > 0) {
+
+            //     clearInterval(tlist.shift());//이런식으로 하면 넣은 순서대로 삭제가 된다.
+            
+            // } else {
+            //     console.log("empty list");
+            // }
+
+            //-----위에서 무조건 하나만 생성되게 통제를 해줬다면 제거도 쉽게된다
+            clearInterval(timer);
+            timer = 0;//초기화 
+            
+
+
+
+        }
+
+
+        function test() {
+
+            console.log("안녕하세요.");
+            setTimeout(test,3000);//재귀호출
+            //test() 이것은 반환값을 주게되는거고 test는 함수 포인터
+            //이런식으로 재귀로 걸어버리면 setInterval과 똑같은 형식이 나오게 된다.
+        }
+
+
+    		img1.onclick = function() {
+
+			if (timer == 0) {
+				timer = setInterval(function() {
+					n++;
+					if (n > 9) n = 1;
+					img1.src = "../images/catty0" + n + ".png";
+				}, 100);
+			} else {
+                clearInterval(timer);
+                timer = 0;
+            }
+
+			
+        };
+        
+        
+
+
+
+	</script>
+
+
+</body>
+</html>

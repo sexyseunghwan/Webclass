@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+
+	<!-- Bootstrap -->
+	<link rel="stylesheet" href="../bootstrap/css/bootstrap.css">
+	<script src="../bootstrap/js/jquery-1.12.4.js"></script>
+	<script src="../bootstrap/js/bootstrap.js"></script>
+
+	<!-- Kakao Map -->
+	<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=54a071d0346fc2959e14842620fa20f0"></script>
+
+    <!-- 로컬로 열때는 http: 를 붙여줘야 한다. -->
+	<!-- 좌표 데이터 -->
+	<script src="data.js"></script>
+
+	<style>
+		#map {
+			width: 100%;
+			height: 450px;
+		}
+
+        #plist > div {
+            cursor : pointer;
+            margin : 7px 10px;
+            border-bottom : 1px dashed #ccc;
+        }
+	</style>
+
+</head>
+<body>
+	<!-- WebContent > map > template.html -->
+
+	<div class="container">
+		<h1>Kakao Map <small>지도 클릭 이벤트 + 마커 표시</small></h1>
+        <table class = "table table-bordered">
+            <tr>
+                <td style = "width : 80%">
+                    <div id= "map"></div>
+                </td>
+                <td style = "width : 20%" id = "plist"></td>
+            </tr>
+            <tr>
+                <td colspan="2">
+                    <div id="msg" class = "well"></div>
+                </td>
+            </tr>
+        </table>
+
+
+	</div>
+
+	<script>
+		var container = document.getElementById('map'); 
+
+		var options = { 
+			center: new kakao.maps.LatLng(37.499359, 127.033175), 
+			level: 3
+		};
+
+        var map = new kakao.maps.Map(container, options); 
+        
+
+        //data.js -> 명단으로 출력할 것이다.
+        list.forEach(function(item,index){
+
+        $("#plist").append(`<div data-index = "${index}" class = "glyphicon glyphicon-pushpin">${item.name}</div>`)
+        });
+
+        
+
+     	var marker = null;
+
+		$("#plist > div").click(function() {
+			//alert($(this).data("index"));
+			//alert(list[$(this).data("index")].name);
+			//alert(list[$(this).data("index")].position.lat);
+            //alert(list[$(this).data("index")].position.lng);
+            
+            //이전 마커가 존재하면 화면에서 안보이게 해보자!
+            if(marker != null) {
+                marker.setMap(null);//마커삭제
+            }
+
+
+			var latlng = new kakao.maps.LatLng(
+				list[$(this).data("index")].position.lat,
+				list[$(this).data("index")].position.lng
+            );
+            
+
+			marker = new kakao.maps.Marker({
+				position: latlng
+			});
+
+			marker.setMap(map);
+            map.panTo(latlng);
+            
+            //클릭 이벤트
+            // 마커의 오른쪽 버튼을 눌러보자
+            kakao.maps.event.addListener(marker,"rightclick",function(){
+                // alert("mapmap!")
+                // 누구를 클릭했는지 알아내보자!
+                // alert(event.srcElement);//애는 안된다
+                // alert(evt.srcElement);//애도 안된다
+                // alert(this.constructor);
+
+                //도큐먼트를 보면 this가 클릭한 마커임 여기는 srcElement 못쓴다
+                this.setMap(null);
+                //마커를 오른쪽 버튼으로 누르면 삭제가 된다.
+
+            });//우측버튼 눌렀을때
+
+
+
+        });
+        
+ 
+        
+
+	</script>
+</body>
+</html>

@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <h1 align = "center">HTML5</h1>
+
+    <h2 align = "center">form 관련</h2>
+
+    <form action = "ex21.jsp" method = "POST">
+        <label for = "name">이름 : </label><input type = "text" name = "name" id = "name">
+    
+        <hr>
+
+        <input type = "text" value = "이름을 입력하세요." onfocus = "this.value='';">
+        <!-- js가 들어간 문 사용자가 입력하려고할때 "이름을 입력하세요를 지워라" -->
+        <!-- 텍스트 박스는 가능한데 패스워드 박스에서 적용이 안된다. -->
+        <input type = "password" value = "암호를 입력하세요.">
+
+        <hr>
+
+        <input type = "text" placeholder = "이름을 입력하세요">
+        <input type = "password" placeholder = "암호를 입력하세요.">
+        <textarea placeholder = "자기소개를 하세요"></textarea>
+
+        <!-- placeholder는 입력하기 위해 타자를 쳤을때 기본 글자가 사라지게 된다~ -->
+
+        <hr>
+
+
+        <!-- 필수값이라 입력을 하지 않으면 보내지지 않게 해보자!
+            원래 스크립트 작업을 해줘야 하는데 ... -->
+        이름(필수) : <input type = "text" required value = "홍길동"><br>
+        나이(필수) : <input type = "text" required value = "1234"><br>
+        <!-- 기본값을 넣어준것~ -->
+        <!-- required 는 꼭 입력을 강제하게 시키는 기능을 불러준다 ~
+            반드시 입력해야 하는 값이 있을때 쓰라고 만들음 -->
+
+        <textarea required></textarea>
+
+        <hr>
+
+        <!-- 의미가 강조된 태그~ -->
+        전화번호 : <input type = "tel">
+
+        <hr>
+        <!-- 의미 + 유효성 검사 -->
+        <!-- http://~ 이런식으로 되어 있어야 전송을 해주게 된다 -->
+        URL : <input type = "url">
+
+
+
+        <hr>
+
+        숫자 : <input type = "number" min = "0" max = "10" step = "2">
+
+        <!-- 
+            step : 몇개씩 증가시킬건지
+
+         -->
+        
+        <!--  우측에 화살표가 입력되고 숫자가 아닌놈은 입력 자체가 안된다.
+            오로지 숫자만 입력가능한 전용 컨트롤-->
+        <hr>
+
+
+        범위 : <input type = "range" min = "0" max = "1000" onchange = "document.getElementById('rtxt').value=this.value;">
+        <input type = "text" id = "rtxt">
+        
+        <!-- 자바스크립트를 써준것 -->
+
+        <hr>
+
+
+        색상 : <input type = "color" onchange = "document.getElementById('ctxt').value=this.value;doucument.body.bgColor=this.value;">
+        <input type = "text" id = "ctxt">
+
+        <!-- 색을 지정한다. -->
+        <hr>
+
+
+        
+        날짜 시간 : <input type = "date">
+
+        <hr>
+
+        <input type = "month"> 
+        <!-- 월까지만 선택할 수 있도록 보여준다 -->
+
+        <hr>
+
+        <input type = "week">
+        <!-- 주를 선택할 수 있다 -->
+        <hr>
+
+        <input type = "time">
+
+        <!-- 시간입력 전용 컨트롤 -->
+        <hr>
+
+        <input type = "datetime-local">  
+        
+        <!-- 년월일 시분초를 다 합친것이다. -->
+
+        <hr>
+        <!-- 의미만 가지고 있음 -->
+        <input type = "search">
+
+
+        <hr>
+
+            <!-- 기존에 없는 사람이면 추가를 해줘야 할때! -->
+
+        사원명:
+            <select>
+                <option>직접입력</option>
+                <option>홍길동</option>
+                <option>아무개</option>
+                <option>하하하</option>
+            </select>
+            <input type = "text" size = "5">
+
+
+        
+        <hr>
+
+
+        사원명 : <input type = "text" list = "list1">
+        <!-- datalist에 아이디를 받아준다 -->
+
+            <datalist id = "list1">
+                <option value = "홍길동"></option>
+                <option value = "아무개"></option>
+                <option value = "하하하"></option>
+            </datalist>
+
+        <!-- datalist 는 기본적으로 노출이 안되는 놈이다. -->
+        <hr>
+        <!-- 
+            progress는 뭔가의 진행률을 나타내고 싶을때 사용하는 개념이다. -->
+            
+            <!-- <progress></progress><br>
+            <progress value = "0"></progress><br>
+            <progress value = "0.5"></progress><br>
+            <progress value = "1"></progress><br>
+            <progress max = "100" value = "30"><br> -->
+            <!-- <progress max = "100" value = "30" onmouseover="this.title=this.value + '%';"></progress><br> -->
+           
+            <hr>
+            <hr>
+            
+            <meter></meter><br>
+            <meter value = "0.5"></meter><br>
+            <meter value = "0.5"></meter><br>
+
+            <meter min = "0" max = "100" high = "80" low = "20" value = "10"></meter><br>
+            <meter min = "0" max = "100" high = "80" low = "20" value = "20"></meter><br>
+            <meter min = "0" max = "100" high = "80" low = "20" value = "30"></meter><br>
+            <meter min = "0" max = "100" high = "80" low = "20" value = "40"></meter><br>
+            <meter min = "0" max = "100" high = "80" low = "20" value = "50"></meter><br>
+            <meter min = "0" max = "100" high = "80" low = "20" value = "60"></meter><br>
+            <meter min = "0" max = "100" high = "80" low = "20" value = "70"></meter><br>
+            <meter min = "0" max = "100" high = "80" low = "20" value = "80"></meter><br>
+        <hr>
+
+        <details>
+            <summary>JAVA?</summary>
+            <p>자바는 어쩌고자바는 어쩌고자바는 어쩌고자바는 어쩌고자바는 어쩌고자바는 어쩌고자바는 어쩌고자바는 어쩌고자바는 어쩌고자바는 어쩌고자바는 어쩌고자바는 어쩌고자바는 어쩌고자바는 어쩌고자바는 어쩌고자바는 어쩌고자바는 어쩌고자바는 어쩌고자바는 어쩌고자바는 어쩌고자바는 어쩌고자바는 어쩌고자바는 어쩌고자바는 어쩌고자바는 어쩌고자바는 어쩌고자바는 어쩌고자바는 어쩌고자바는 어쩌고자바는 어쩌고자바는 어쩌고자바는 어쩌고자바는 어쩌고자바는 어쩌고자바는 어쩌고자바는 어쩌고자바는 어쩌고자바는 어쩌고자바는 어쩌고자바는 어쩌고자바는 어쩌고자바는 어쩌고자바는 어쩌고자바는 어쩌고자바는 어쩌고자바는 어쩌고자바는 어쩌고자바는 어쩌고자바는 어쩌고자바는 어쩌고자바는 어쩌고자바는 어쩌고자바는 어쩌고자바는 어쩌고자바는 어쩌고자바는 어쩌고자바는 어쩌고자바는 어쩌고자바는 
+            어쩌고자바는 어쩌고자바는 어쩌고자바는 어쩌고자바는 어쩌고</p>
+        </details>
+
+        <hr>
+        <fieldset>
+            <legend align = "center">로그인</legend>
+            <div align = "center">
+            아이디 : <input type = "text"><br>
+            비밀번호 : <input type = "password"><br>
+            </div>
+
+        </fieldset>
+
+        <hr>
+
+        <marquee behavior = "alternate" scrollamount = "3000">안녕하세요 홍길동입니다.</marquee>
+
+        <!-- 뉴스 아래 지나가는 것과 같은 -->
+
+        <hr>
+        <!-- 그림판과 비슷한 기능을 하는 태그 : 수업때는 안한다.
+                GDI 그래픽 API -->
+        <canvas></canvas>
+        
+
+        
+        <input type = "submit" value = "가입하기">
+
+    </form>
+
+
+</body>
+</html>

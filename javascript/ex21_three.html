@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <!-- 결과 통보 페이지(성공,실패) -->
+
+    <script>
+
+        //가입 성공
+        // alert("회원가입 성공!!");
+
+
+
+        //가입 실패
+        //사용자가 뭔가 잘못입력했다고 하자
+        alert("회원가입 실패!!");
+        //뒤로가기를 대신 해주자
+
+        //다시입력을 위해서 첫번째 페이지로 자동 이동하기 해보자
+        // location.href="ex21_one.html";
+        //location.href -> 서버로 부터 새로 받아오라는 뜻이된다.
+        //근데 화면이 깨끗하게 지워져 있다 이런식으로 하면...
+        //가입하기 줠라 싫다...
+
+        //그래서 location 말고 다른걸 써준다 -> 뒤로가기를 두번눌러도 가능하다
+
+        history.back();
+        // history.go(-1);
+
+    </script>
+
+
+
+</body>
+</html>

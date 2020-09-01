@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        #main {
+            /* border : 1px solid black; */
+            padding:5px;
+            margin-left : 150px;
+            margin-top : 300px;   
+
+        }
+
+        #speak {
+            font-size: 2em;
+        }
+
+        #comment {
+            border: 1px solid white;
+        }
+
+    </style>
+
+
+</head>
+<body>
+    
+    <div id="main">
+        <img src="../images/img01.jpg" name = "pic1">
+        <img src="../images/img02.jpg" name = "pic2">
+        <img src="../images/img03.jpg" name = "pic3">
+        
+        
+
+        <div id = "speak" name = "speak">
+            <input type="text" value="" readonly="readonly" id="comment" name = "comment"> 
+        </div>
+    </div>
+
+
+    <script>
+        var pic1 = document.images.pic1;
+        var pic2 = document.images.pic2;
+        var pic3 = document.images.pic3;
+
+        var comment = document.all.comment;
+
+        var list = [pic1,pic2,pic3];
+
+        for(let i = 0; i < list.length; i++) {
+
+            let num = i+1;
+
+            list[i].onmouseover = function() {
+                list[i].src = "../images/img0" + (num + 3) + ".jpg";
+                
+                switch (num) {
+                    case 1:
+                        comment.value = "스키타는 새뀌가 당근으로 변함";
+                        break;
+                    case 2:
+                        comment.value = "바라바라 해바라기 -> 피망"
+                        break;
+                    case 3:
+                        comment.value = "나무 -> 개";
+                        break;
+                
+                    default:
+                        break;
+                }
+
+            }
+
+            list[i].onmouseout = function() {
+                list[i].src = "../images/img0" + (num) + ".jpg";
+
+
+                comment.value = "";
+                //     switch (num) {
+                //     case 1:
+                //         comment.value = "";
+                //         break;
+                //     case 2:
+                //         comment.value = ""
+                //         break;
+                //     case 3:
+                //         comment.value = "";
+                //         break;
+                
+                //     default:
+                //         break;
+                // }
+
+            }
+
+            
+
+        }
+        
+
+
+    </script>
+    
+
+
+
+
+</body>
+</html>

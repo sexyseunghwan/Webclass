@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+
+    </style>
+</head>
+<body>
+    
+
+    <input type="button" value = "버튼" id="btn1" name = "btn1">
+    <input type="button" value = "버튼2" id="btn2" name = "btn2">
+
+    <hr>
+
+    <img src="../images/catty01.png" id = "img1">
+
+
+    <script src = "js/jquery-1.12.4.js"></script>
+    <script>
+
+        //이벤트 사용 방법
+        //1. BOM 
+        // document.all.btn1.onclick = function(){};
+
+        //2. DOM
+        // document.getElementById("btn1").addEventListener("click",function(){});
+        // document.getElementById("btn1") = function() {};
+
+        //3. jQuery
+        //  a. 전용 이벤트 함수 사용
+        //  b. 범용 이벤트 함수 사용
+        
+        
+        
+        // <<<a. 전용 이벤트 함수를 사용해서 이벤트를 거는 경우>>>
+        jQuery("#btn1").click(function(){
+            alert("hohohohoh");
+        });
+        //버튼1을 클릭하면 함수가 실행된다 
+        // -> javascript 때는 onclick 이었는데 여기서 click을 뺀걸 보면 on을 빼주고 사용해주면 된다는 깊은 뜻을 알 수 있다.
+
+
+        //b. <<<범용 이벤트 함수 사용 -> 모든 이벤트를 걸 수 있다 안에는 onclick 이면 on을 빼주고 사용하면 된다.>>>
+        jQuery("#btn1").on("click",function(){
+            alert("wow");
+        });
+
+
+
+        //<<<이벤트 객체를 없애는 법>>> 
+        //1. BOM & DOM 에서의 경우
+        btn1.onclick = null;//이런식으로 해서 없앴다
+        btn1.removeEventListner("click");
+
+        //2. jQuery 에서의 경우
+        jQuery("#btn1").off("click");
+
+
+        jQuery("#img1").mouseover(function(){
+            
+        });//이런식으로 javascript 의 mouseover event 보단 -> jquery 전용 이벤트 함수를 쓰는것이 좋다!
+
+        //jquery 전용 이벤트 function -> mouseenter: 고객이 커서를 올려두었을 때
+        jQuery("#img1").mouseenter(function(){
+            jQuery("#img1").css("opacity",".3");
+        });
+
+        // jQuery("#img1").mouseout(function(){
+        //     jQuery("#img1").css("opacity","1");
+        // });
+        
+        //jquery 전용 함수 => mouseout 보다는 mouseleave 를 쓰는것이 더 좋다.
+        jQuery("#img1").mouseleave(function(){
+            jQuery("#img1").css("opacity","1"); 
+        });
+
+        //********* 아주 중요한 개념 => 제이쿼리문은 대부분 매개변수 객체를 반환한다 즉 위에서는  #img1 을 반환한다.
+        //위에 두개도 같이 쓸 수 있다
+        
+        // jQuery("#img1")
+        //     .mouseenter(function(){
+        //         jQuery("#img1").css("opacity",".3");
+        //     })
+        //     .mouseleave(function(){
+        //     jQuery("#img1").css("opacity","1"); 
+        // });
+
+        // 마우스 엔터를 걸었을때 img1객체가 반환되고 그걸 다시 mouseleave에서 받아서 다시 실행을 해준다
+
+
+        //jQuery -> 객체를 찾아서 일괄적용 하는 성질이 존재 , 함수위주의 패턴이 많이 보인다. 객체 표현식
+        // jQuery("#img1").on("mouseenter",function(){
+
+        // });
+        // 
+
+        jQuery("#img1").on({
+            mouseenter : function() {
+                jQuery("#img1").css("opacity",".3");
+            },
+            mouseleave: function(){
+                jQuery("#img1").css("opacity","1");
+            }
+        });
+        //역시 jquery의 장점중에 하나인 다중선택이 가능하다!
+
+
+        // this : window // 엥간하면 this는 window를 가리키는 표현이다
+        // object : this -> object // 객체 내에서 this는 객체자체를 가리키는 표현이 된다.
+
+        var obj = {
+            name: "홍길동",
+            foo : function() {
+                // console.log(this);//객체자신을 나타낼것
+                return this;
+            }
+        }
+        // => {name : "홍길동", foo : f} 이런식으로 표현될 것이다.
+        console.log(obj==obj.foo());//이게 true 가 된다 즉 this는 객체 자신을 가리키는 뜻이 된다.
+
+        // obj.foo = function(){};//펑션 내에서 this 하면 foo 를 가리키니까!
+        //                         //아래와 도 같은 맥락이 된다.
+
+        
+        document.getElementById("btn2").onclick = function() {
+            //누른버튼을 참조해야한다고 해보자
+            console.log(event.srcElement.id);
+            console.log(this.id);//this == event.srcElement
+            console.log(event.srcElement == this);//즉, 이벤트가 일어나는 함수 안에서는 this는 "이벤트가 걸린! 객체"를 가리킨다
+        };
+
+
+        
+        jQuery("#btn2").click(function(){
+            
+            console.log(event.srcElement.id);
+            console.log(this.id);//제이쿼리에서는 this를 자주 쓰게 된다.
+
+            //자료형 -> 자바스크립트 기반
+            this.css("color","blue");//이런걸 쓸 수 없게 된다. 순수 자바스크립트로 찾은것이므로..! -> ****this라는게 자바스크립트 객체를 가져온것이다!
+
+            //**순수자바스크립트 객체를 jQuery 객체로 변환시킬 수 있다 -> 일종의 형변환이라고 생각하면 된다.
+
+            // jQuery(this)//이렇게 하면 형변환이 된다 -> 제이쿼리 기능을 사용할 수 있게 된다.
+            jQuery(this).css("color","blue");
+            
+            //** 제이쿼리 객체를 자바스크립트 객체로 바꾸려면??
+
+            // jQuery("div") -> 애도 집합으로 반환
+            // jQuery("#div1") -> 애도 집합으로 반환
+            jQuery(this)[0].style.color = "red";//이런식으로 인덱싱을 해주면 다시 자바스크립트 객체로 만들어주게 된다.
+
+
+            //자바스크립트 객체 -> jQuery 객체
+            // => jQuery(자바스크립트)
+
+            //jQuery 객체 -> 자바스크립트 객체
+            // => jQeury 객체[0] 이런식으로 받아오면 바로 자바스크립트 형태가 된다.
+            
+        });
+
+
+    </script>
+
+    <!-- 2020.07.10 복습완료 -->
+
+
+</body>
+</html>

@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+<style>
+    /* <!-- 박스모델, Box Model
+        - CSS(HTML)는 모든 태그를 랜더링의 결과로 사격형 형태로 출력한다. (무조건 사각형 영역을 가지게 된다는 뜻이다 ~~원이 있어도)
+        - 어떠한 객체도 사각형이 아닐 수 없다!
+        
+        1. 테두리(border)
+            - 모든 요소는 테두리를 가질 수 있다.
+            - 일부 요소는 이미 시각적으로 테두리를 가지고 있다.(테이블, 폼컨트롤)
+        2. 너비,높이(width,height)
+            - width
+            - height
+            - 절대크기(px), 상대크기(%)
+        3. 여백(padding, margin)
+    
+    
+    --> */
+
+
+    /* 
+    
+        블럭태그의 너비,높이 정책
+        1. 너비와 높이를 지정할 수 있다.
+        2. 기본 정책
+            a. 너비: 100%
+            b. 높이: 콘텐츠 높이
+                1. 높이지정함 : 컨텐츠 높이와 상관없이 박스 높이는 고정된다.
+                2. 높이 지정안함 : 콘텐츠 높이에 따라 박스 높이도 자동 조절된다.
+
+
+        인라인 태그의 너비, 높이 정책
+        1. 너비와 높이를 지정할 수 없다.(예외, 이미지태그와 폼태그만 빼고 나머지 인라인태그는 너비와 높이를 줄 수 없다)
+        2. 기본정책
+            a.너비 : 콘텐츠 너비
+            b. 높이 : 콘텐츠 높이
+            - 직접 width, height 지정 불가능
+
+
+     */
+
+
+
+    .box {
+        border: 1px solid black;
+    }
+
+    #box2 {
+        background-color: orange;
+        /* width: 50%; */
+        /* height:50%; */
+        /* 높이는 실패 */
+
+        width: 300px;
+        /* height: 200px;    */
+
+
+        /* 높이는 상대값이 안먹고 절대값은 적용이 잘 된다. */
+        /* 내용물의 변화가 있다고 생각하면 고정높이를 주는게 위험하다 오버플로우가 되므로~ */
+    }
+
+    #txt1 {
+        width : 300px;
+        /* height : 500px; */
+        font-size: 3em;
+        /* 텍스트박스는 높이를 늘리는 것보다는 글자크기를 키우는게 좋다 ~ 알아서 커지기 때문이다 */
+    }
+
+    #cat1 {
+        
+        width : 500px;
+        height : 500px;
+
+    }
+
+    p > b {
+        
+        display: inline-block;
+        /* display 를 하면 되긴하는데 권하지 않는답 */
+        /* background-color: yellow; */
+        /* width : 500px; */
+        /* height : 200px */
+      
+    }
+
+
+    
+</style>
+
+</head>
+<body>
+    
+    <h1 align = "center">박스 모델</h1>
+
+    <!-- div#box$.box{상자$}*3 -->
+    <div id="box1" class="box">상자1</div>
+    홍길동
+    <div id="box2" class="box">상자2 Lorem, ipsum dolor sit amet consectetur adipisicing elit. Repudiandae itaque perspiciatis ipsum minus tempora soluta in esse natus, sapiente sit ex numquam eaque voluptatibus debitis nostrum quae amet cupiditate repellendus!
+        Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quibusdam iure autem aliquam neque minima, accusamus corporis id adipisci recusandae amet et aut dolor maiores ipsam laboriosam quam ex! Minima, quos?
+        Lorem ipsum dolor, sit amet consectetur adipisicing elit. Eum, accusantium odio tenetur, iusto doloremque facere sunt nihil magnam perspiciatis a itaque fugit nam ex quisquam qui repudiandae mollitia quod commodi!
+        Lorem ipsum dolor sit, amet consectetur adipisicing elit. Commodi iste minus totam doloribus quam sed nobis soluta consequatur vero nostrum! Cupiditate labore ipsum, explicabo nihil maiores nesciunt nemo voluptas architecto!
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Rerum corporis facilis sed eveniet explicabo iusto accusamus corrupti, repellat quaerat ab quis dolorum enim nulla labore quod. Cum adipisci pariatur perferendis?
+    </div>
+    아무개
+    <div id="box3" class="box">상자3</div>
+
+    
+    <hr>    
+
+
+    <input type="text" id = "txt1">
+
+    <hr>
+
+    <img src="../images/catty01.png" id="cat1">
+
+    <hr>
+
+    <p>
+        안녕하세요 홍길동 입니다.
+        안녕하세요 홍길동 입니다.
+        안녕하세요 홍길동 입니다.
+        안녕하세요 홍길동 입니다.
+        안녕하세요 홍길동 입니다.
+        안녕하세요 홍길동 입니다.
+        안녕하세요 홍길동 입니다.
+        안녕하세요 홍길동 입니다.
+        안녕하세요 홍길동 입니다.
+        안녕하세요 홍길동 입니다.
+        안녕하세요 홍길동 입니다.
+        안녕하세요 홍길동 입니다.
+        안녕하세요 홍길동 입니다.
+        안녕하세요 홍길동 입니다.
+        안녕하세요 홍길동 입니다.
+        안녕하세요 홍길동 입니다.
+        안녕하세요 홍길동 입니다.
+        안녕하세요 홍길동 입니다.
+        안녕하세요 홍길동 입니다.
+        안녕하세요 홍길동 입니다.
+        안녕하세요 홍길동 입니다.
+        안녕하세요 홍길동 입니다.
+        안녕하세요 홍길동 입니다.
+        안녕하세요 홍길동 입니다.
+        안녕하세요 홍길동 입니다.
+        안녕하세요 홍길동 입니다.
+        안녕하세요 홍길동 입니다.
+        안녕하세요 홍길동 입니다.
+        <b>안녕하세요 홍길동 입니다.</b>
+        안녕하세요 홍길동 입니다.
+        안녕하세요 홍길동 입니다.
+        안녕하세요 홍길동 입니다.
+        안녕하세요 홍길동 입니다.
+        안녕하세요 홍길동 입니다.
+        안녕하세요 홍길동 입니다.
+        안녕하세요 홍길동 입니다.
+        안녕하세요 홍길동 입니다.
+        안녕하세요 홍길동 입니다.
+        안녕하세요 홍길동 입니다.
+        안녕하세요 홍길동 입니다.
+        안녕하세요 홍길동 입니다.
+        안녕하세요 홍길동 입니다.
+    </p>
+
+
+
+
+
+</body>
+</html>

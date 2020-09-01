@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+
+        /* 
+        transform 속성값 -> 함수
+        1. translate() : 위치 변형(position:relative 유사)
+        2. scale() : 배율변형(크기변형)
+        3. rotate() : 회전변형
+        4. skew() : 비틀기 (x,y) : x축으로 얼만큼 기울이기 + y축으로 얼만큼 기울이기~
+        5. matrix() : 1~4 포함. 사용자 정의형. 행렬
+
+        matrix(a,b,c,d,e,f)
+        a : scaleX
+        b : tan(skewY)
+        c : tan(skewX)
+        d : scaleY
+        e : translateX
+        d : translateY
+
+        matrix는 몰라도 된다 아직은
+
+        */
+
+         .box {
+             width:150px;
+             height :150px;
+             border : 5px solid red;
+             margin: 30px;
+            }
+
+            #box1 {background-color: tomato;}
+            #box2 {
+                background-color: gold;
+                /* transform: translate(50px,50px); */
+                /* 위치에 대한 변형이 일어난다 원래 0,0 이 50,50 이 된다 즉 이동을한것처럼 보이게 된다 */
+                
+                }
+            #box3 {background-color: cornflowerblue;}
+
+
+            #box2:hover {
+                /* transform: translate(50px,50px); */
+                /* transform: scale(-1,-1); */
+                /* x,y 축 대칭 생각해보장 */
+                /* 돋보기 라고 생각하면 된다  크기와 너비가 2배만큼 늘어났다는건데 조금 차이가 있다*/
+                
+                /* 아래가 크기를 키우는거고 위에 transform 은 확대한것이다. */
+                /* width:300px;
+                height:300px; */
+                /* transform: rotate(360deg); */
+
+                /* transform: skew(10deg,10deg); */
+
+
+                transform: rotate(45deg) scale(2,2) translate(10px,10px);
+
+                cursor:pointer;
+            }
+
+
+            #cat {
+                margin-top: 100px;
+                margin-bottom: 100px;
+            }
+
+            #cat > img:hover {
+                /* transform: translate(0px,-20px); */
+                /* transform: scale(1.2,1.5); */
+                /* transform: rotate(20deg); */
+                cursor: pointer;
+
+            }
+
+            #txt input {
+                display: block;
+                margin-bottom: 5px;
+                width: 350px;
+                /* transform: rotate(45deg); */
+                /* transform: scale(1.2,1.5); */
+            }
+
+            #txt input:focus {
+                transform: rotate(180deg);
+                
+            }
+            /* 포커스를 주면 글자가 뒤집어진다*/
+
+
+            #tbl1 {
+                border : 1px solid black;
+                width : 1000px;
+                /* border-collapse: collapse; */
+            }
+
+            #tbl1 td {
+                border: 1px solid black;
+                width: 100px;
+                height:100px;
+            }
+
+            #tbl1 td:hover {
+                transform:rotate(30deg);
+            }
+
+
+    </style>
+    
+</head>
+<body>
+
+
+    <div id="box1" class="box">상자1</div>
+    <div id="box2" class="box">상자2</div>
+    <div id="box3" class="box">상자3</div>
+
+
+
+    <h1>고양이</h1>
+    <div id = "cat">
+        <img src="../images/catty01.png" alt="">
+        <img src="../images/catty02.png" alt="">
+        <img src="../images/catty03.png" alt="">
+        <img src="../images/catty04.png" alt="">
+        <img src="../images/catty05.png" alt="">
+    </div>
+
+
+    <h1>텍스트 박스</h1>
+    <div id="txt">
+        <input type="text">
+        <input type="text">
+        <input type="text">
+        <input type="text">
+        <input type="text">
+        <input type="text">
+        <input type="text">
+        <input type="text">
+        <input type="text">
+        <input type="text">
+        <input type="text">
+        <input type="text">
+    </div>
+
+
+
+    <table id="tbl1">
+        <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+    </table>
+
+
+    
+
+</body>
+</html>

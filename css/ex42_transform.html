@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+
+    <style>
+
+        /* translate 는 무엇이냐?
+            -
+        
+        
+         */
+        #menu {
+            border: 1px solid black;
+            width: 630px;
+            margin: 0px auto;
+            transform: translate(0px,-100px);
+            cursor: pointer;
+        }
+
+        #menu::after {
+            content: ' ';
+            display: block;
+            clear : both;
+        }
+        /* 플로팅 처리 */
+
+        #menu img {
+            float: left;            
+        }
+
+        #menu img:hover {
+            transform: translate(0px,90px);  
+             /*  지금 100으로 올라가 있으므로 0,0 을 주게되면 내려오지 않는다.! 주의! */
+                        
+        }
+
+        #submenu {
+            border: 1px solid black;
+            width: 126px;
+            transform: translate(-100px,0px);
+        }
+        #submenu img {
+            float:left;  
+        }
+        
+        #submenu img:hover {
+            cursor: pointer; 
+            transform: translate(90px,0px); 
+        }
+        
+        #submenu::after {
+            content: ' ';
+            display:block;
+            clear: both;
+        }
+
+        
+
+    </style>
+
+</head>
+<body>
+    
+    <!-- 간단한 메뉴 하나 만들어보자 -->
+
+    <nav id="menu">
+        <img src="../images/rect_icon01.png" alt="">
+        <img src="../images/rect_icon02.png" alt="">
+        <img src="../images/rect_icon03.png" alt="">
+        <img src="../images/rect_icon04.png" alt="">
+        <img src="../images/rect_icon05.png" alt="">
+        <!-- <div style=""></div> -->
+    </nav>
+
+    <nav id="submenu">
+        <img src="../images/rect_icon01.png" alt="">
+        <img src="../images/rect_icon02.png" alt="">
+        <img src="../images/rect_icon03.png" alt="">
+        <img src="../images/rect_icon04.png" alt="">
+        <img src="../images/rect_icon05.png" alt="">
+        <!-- <div style=""></div> -->
+    </nav>
+
+
+
+
+
+</body>
+</html>

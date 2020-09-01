@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    
+    <!-- 
+        
+        테이블 셀 병합
+
+        모든 tr 내의 td 개수는 동일해야 한다!(*****) -> 이게 안지켜진다면 에러가 나오게 된다
+    
+    -->
+
+    <h1>원본테이블</h1>
+    <table border = "1" width = "200" height = "100">
+        <tr>
+            <td>1</td>
+            <td>2</td>
+        </tr>
+        <tr>
+            <td>3</td>
+            <td>4</td>
+        </tr>
+    </table>
+
+    <hr>
+
+
+    <h1>가로로 인접한 셀 병합</h1>
+    <table border = "1" width = "200" height = "100">
+        <tr>
+            <td colspan = "2">1</td> <!--그냥 한 요소가 두배로 늘어난다! 2개짜리 td 로 쳐주니까 올바른 테이블이라고 볼 수 있다!  -->  
+            <!-- <td>2</td>  이런식으로 2번을 지워주면 된다!-->
+        </tr>
+        <tr>
+            <td>3</td>
+            <td>4</td>
+        </tr>
+    </table>
+
+
+    <hr>
+
+
+    <h1>가로로 인접한 셀 병합</h1>
+    <table border = "1" width = "400" height = "200">
+        <tr>
+            <td>1</td>  
+            <td colspan="2">2</td>  
+            <!-- <td>3</td>   -->
+            <td>4</td>  
+            
+        </tr>
+        <tr>
+            <td colspan="4">5</td><!-- 애도 길이가4개이므로 td 가 맞는거임! 즉 오류가 나지 않는다! -->
+            <!-- <td>6</td>   -->
+            <!-- <td>7</td>   -->
+            <!-- <td>8</td> -->
+        </tr>
+    </table>
+
+    
+    <hr>
+
+    <!--세로가 상당히 헷갈린다 td의 개수가 틀어졌다고 보이기 때문에 보기에 헷갈릴 수 있다!  -->
+    <h1>세로로 인접한 셀 병합</h1>
+    <table border = "1" width = "400" height = "200">
+        <tr>
+            <td rowspan="2">1</td>  
+            <td>2</td>  
+        </tr>
+        <tr>
+            <!-- <td>3</td> -->
+            <td>4</td>  
+        </tr>
+    </table>
+
+
+    
+    
+
+</body>
+</html>

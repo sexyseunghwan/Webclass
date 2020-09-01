@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+
+        #main {
+            margin-top : 450px;        
+            margin-left : 550px;
+                   
+        }
+        table {
+            border-collapse: collapse;
+            width : 610px;
+            height : 250px;
+        }
+        a {
+            border: 1px solid black;
+            display : block;
+            text-decoration: none;
+            text-align: center;
+            padding: 5px 10px;
+            margin: 10px;
+            font-size: 18.7px;
+            font-family : '굴림';
+            font-weight : bold;
+            border-radius: 5px;
+            background-color: #EEEEEE;
+            color : #444;
+            
+        }
+        td {
+            border: 1px solid black;
+        }
+        img {
+            margin-left: 100px;
+        }
+        #first {
+            width : 170px;
+        }
+        #second {
+            width : 420px;
+        }
+
+        
+
+    </style>
+
+
+</head>
+<body>
+    <div id="main">
+        <table>
+            <tr>
+                <td id = "first">
+                    <a href = "" name = "d1" data-index = "0">강아지1</a>
+                    <a href = "" name = "d2" data-index = "1">강아지2</a>
+                    <a href = "" name = "d3" data-index = "2">강아지3</a>
+                    <a href = "" name = "d4" data-index = "3">강아지4</a>
+                    <a href = "" name = "d5" data-index = "4">강아지5</a>
+                    
+                </td>
+                <td id = "second">
+                    <img src="../images/dog01.jpg" name = "img">
+                </td>
+            </tr>
+        </table>
+    </div>
+
+
+    <script>
+
+        var img = document.images.img;
+        var child;
+        var list = [["dog01.jpg","dog01_big.jpg"],
+                    ["dog02.jpg","dog02_big.jpg"],
+                    ["dog03.jpg","dog03_big.jpg"],
+                    ["dog04.jpg","dog04_big.jpg"],
+                    ["dog05.jpg","dog05_big.jpg"]];
+
+
+        for (var i = 1; i <= 5; i++) {
+            var d = document.all["d"+i];
+
+            d.onmouseover = function() {
+                // img.src = "../images/dog0" + i + ".jpg";
+                img.src = "../images/" + list[event.srcElement.dataset["index"]][0];
+            }
+
+            d.onclick = function() {
+                child = window.open("../images/"+list[event.srcElement.dataset["index"]][1],"child","width=1000, height=1500");
+            }
+
+        }
+
+
+
+    </script>
+
+
+</body>
+</html>

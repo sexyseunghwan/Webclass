@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+
+
+
+
+</head>
+<body>
+
+
+    <h1>회원가입</h1>
+
+    <h2>이용 약관</h2>
+
+   	<div style="border: 1px solid black; width: 500px; height: 150px; overflow: auto; padding: 20px;">Lorem ipsum dolor sit amet consectetur adipisicing elit. Est temporibus amet maxime accusamus aliquid minus voluptatibus reprehenderit culpa, ipsam tempora, ipsum quidem natus repellat doloremque. Inventore sapiente voluptatum facilis esse perspiciatis expedita aperiam deleniti, vitae numquam iure deserunt eveniet laudantium ipsam unde qui beatae id officiis quam. Quis officiis eius necessitatibus reiciendis vero, possimus illum sequi praesentium esse asperiores? Dolorem nesciunt, eaque accusantium fugit suscipit, maxime dignissimos quia aperiam temporibus animi veniam velit blanditiis tempora consequuntur distinctio unde modi quae delectus quasi non debitis deleniti voluptatum! At deleniti quaerat veritatis voluptatum beatae provident, esse distinctio! Aliquid ea tempore provident nesciunt maxime rerum qui aperiam vel, inventore porro necessitatibus, numquam accusamus harum quis ratione repellendus odio corporis in. Eum doloremque sapiente unde dolores, harum quasi, neque provident in dolorem beatae quaerat eligendi dolore a inventore commodi saepe, aperiam culpa cupiditate eveniet veritatis perferendis iure ad? Quis minus itaque voluptatibus consequatur inventore maxime explicabo impedit quibusdam a nisi perspiciatis odio, alias ea neque est molestiae ratione. Dolore totam quod labore laudantium natus, vel dignissimos blanditiis distinctio maiores nisi quis porro mollitia neque ea nostrum voluptates tempora, reprehenderit nesciunt dolores sapiente. Ipsam magni error nihil quas doloribus porro omnis, culpa aspernatur itaque placeat ratione iure et sit veritatis quia corrupti eligendi commodi laboriosam, unde a rem assumenda eveniet? Laborum a eos illo sed consequatur possimus omnis molestias ex laboriosam dolor odit veritatis sunt aspernatur assumenda enim nihil quidem, quam laudantium eaque quasi cumque unde aut et ipsa. Voluptatem nihil quibusdam officiis iste dolores nostrum perspiciatis nesciunt animi non aut repudiandae ab molestias doloremque culpa tempora autem provident, repellat similique. Molestias enim obcaecati earum iure, voluptate nemo similique commodi alias aliquid molestiae sapiente qui fugit laboriosam neque maxime consectetur tempore illum nobis repudiandae? Eaque quos magni doloribus ut? Impedit, atque nobis. Tenetur, sit aspernatur.</div>
+	<hr>
+	<input type="checkbox" name="cbAgree" id="cbAgree">
+	<label for="cbAgree">약관에 동의합니다.</label>
+	<hr>
+	<input type="button" value="다음 단계로"
+		onclick="location.href='next.html';"
+        name="btnNext" disabled>
+        
+
+
+    <h1>주소록</h1>
+
+
+    <table id="tbl1" style="border : 1px solid black;">
+        <tr>
+            <th><input type="checkbox" name = "cbAll"></th>
+            <th>번호</th>
+            <th>이름</th>
+            <th>주소</th>
+            <th>나이</th>
+        </tr>
+        <tr>
+            <td><input type="checkbox" name = "cb"></td>
+            <td>1</td>
+            <td>홍길동</td>
+            <td>서울시 강남구</td>
+            <td>22</td>
+        </tr>
+        <tr>
+            <td><input type="checkbox" name = "cb"></td>
+            <td>1</td>
+            <td>홍길동</td>
+            <td>서울시 강남구</td>
+            <td>22</td>
+        </tr>
+        <tr>
+            <td><input type="checkbox" name = "cb"></td>
+            <td>1</td>
+            <td>홍길동</td>
+            <td>서울시 강남구</td>
+            <td>22</td>
+        </tr>
+        <tr>
+            <td><input type="checkbox" name = "cb"></td>
+            <td>1</td>
+            <td>홍길동</td>
+            <td>서울시 강남구</td>
+            <td>22</td>
+        </tr>
+        <tr>
+            <td><input type="checkbox" name = "cb"></td>
+            <td>1</td>
+            <td>홍길동</td>
+            <td>서울시 강남구</td>
+            <td>22</td>
+        </tr>
+        <tr>
+            <td><input type="checkbox" name = "cb"></td>
+            <td>1</td>
+            <td>홍길동</td>
+            <td>서울시 강남구</td>
+            <td>22</td>
+        </tr>
+        <tr>
+            <td><input type="checkbox" name = "cb"></td>
+            <td>1</td>
+            <td>홍길동</td>
+            <td>서울시 강남구</td>
+            <td>22</td>
+        </tr>
+        <tr>
+            <td><input type="checkbox" name = "cb"></td>
+            <td>1</td>
+            <td>홍길동</td>
+            <td>서울시 강남구</td>
+            <td>22</td>
+        </tr>
+        <tr>
+            <td><input type="checkbox" name = "cb"></td>
+            <td>1</td>
+            <td>홍길동</td>
+            <td>서울시 강남구</td>
+            <td>22</td>
+        </tr>
+        <tr>
+            <td><input type="checkbox" name = "cb"></td>
+            <td>1</td>
+            <td>홍길동</td>
+            <td>서울시 강남구</td>
+            <td>22</td>
+        </tr>
+        <tr>
+            <td><input type="checkbox" name = "cb"></td>
+            <td>1</td>
+            <td>홍길동</td>
+            <td>서울시 강남구</td>
+            <td>22</td>
+        </tr>
+    </table>
+
+
+        <script>
+
+            var cbAgree = document.all.cbAgree;
+            var btnNext = document.all.btnNext;
+
+            //컨트롤의 값의 변화가 생기면 발생
+            cbAgree.onchange = function() {
+                // console.log(cbAgree.checked);
+                if(cbAgree.checked) {
+                    btnNext.disabled= false;
+                } else {
+                    btnNext.disabled= true; 
+                }
+
+
+           
+            }
+
+        //--------------------------------------
+            
+        var cbAll = document.all.cbAll; //일괄 체크박스
+		var cb = document.all.cb; //name이 동일한 태그를 BOM으로 검색하면 자동으로 배열 반환
+		//console.log(cb);
+
+		cbAll.onchange = function() {
+
+			// if (cbAll.checked) {
+			// 	for (var i=0; i<cb.length; i++) {
+			// 		cb[i].checked = true;
+			// 	}
+			// } else {
+			// 	for (var i=0; i<cb.length; i++) {
+			// 		cb[i].checked = false;
+			// 	}
+            // }
+            
+
+            for (var i=0; i<cb.length; i++) {
+					cb[i].checked = cbAll.checked;  
+				}
+
+
+
+		};
+        
+
+
+        </script>
+
+</body>
+</html>

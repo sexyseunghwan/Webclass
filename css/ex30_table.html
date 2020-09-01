@@ -1,0 +1,525 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+		
+		#title1 {
+			font-variant: small-caps;
+			font-family: Verdana;
+			border-bottom: 1px dashed gray;
+			width: 800px;
+			margin : 20px auto;
+		}
+		
+		#title1 span:first-child {
+			color:cornflowerblue;
+		}
+		#title1 span:last-child {
+			float:right;
+			font-size:19px;
+			margin-top:12px;
+		}
+
+		.tbl {
+			border: 1px solid #aaa;
+			border-collapse: collapse;
+			width : 800px;
+			margin : 20px auto;
+		}
+
+		.tbl th, .tbl td {
+			border: 1px solid #aaa;
+		}
+        
+		.tbl .col1 {width : 57px;}
+		.tbl .col2 {width : 89px;}
+		.tbl .col3 {width : 59px;}
+		.tbl .col4 {width : 110px;}
+		.tbl .col5 {width : 485px;}
+
+	   .tbl th {
+		   background-color: #ccc;
+		   color: #444;
+		   font-family: Verdana;
+		   padding : 5px;
+
+	   }
+
+	   .tbl td {
+		   font-family: Verdana;
+		   color:#444;
+		   text-align: center;
+		   padding : 5px;
+	   }
+
+	   .tbl td:last-child {
+		
+		text-align: left;
+
+	   }
+
+	   .tbl tr:nth-child(even) {
+		   background-color: #eee;	
+	   }
+
+	   .tbl td, .tbl th {
+		   border-left : 0px;
+		   border-right: 0px;
+	   }
+
+	   .tbl {
+			border-left : none;
+			border-right: none;
+	   }
+
+	   .tbl td, .tbl th {
+		   /* border-left : 0px; */
+		   border-right: 0px;
+	   }
+
+	   .tbl th:last-chid, .tbl td:last-child {
+		   border-right: 1px solid black;
+	   }
+
+        
+    </style>
+
+
+
+</head>
+<body>
+    
+    <div id = "total">
+    <h1 id="title1"><span class = "m">M</span>ember List <span class = "td">Table Design</span></h1>
+
+	<table id="tbl1" class="tbl">
+		<tr>
+			<th class="col1">No</th>
+			<th class="col2">Name</th>
+			<th class="col3">Age</th>
+			<th class="col4">ID</th>
+			<th class="col5">Description</th>
+		</tr>
+		<tr>
+			<td>01</td>
+			<td>Lorem.</td>
+			<td>21</td>
+			<td>Lorem.</td>
+			<td>Lorem ipsum dolor sit amet.</td>
+		</tr>
+		<tr>
+			<td>02</td>
+			<td>Quos.</td>
+			<td>22</td>
+			<td>Iusto?</td>
+			<td>Quae, exercitationem aliquid. Et, accusamus.</td>
+		</tr>
+		<tr>
+			<td>03</td>
+			<td>Laborum.</td>
+			<td>23</td>
+			<td>Aliquam.</td>
+			<td>Sit error architecto dolorum autem.</td>
+		</tr>
+		<tr>
+			<td>04</td>
+			<td>Quisquam.</td>
+			<td>24</td>
+			<td>Minima?</td>
+			<td>Impedit expedita rem sapiente odio?</td>
+		</tr>
+		<tr>
+			<td>05</td>
+			<td>Sunt.</td>
+			<td>25</td>
+			<td>Perspiciatis!</td>
+			<td>Cupiditate vel veniam ut laudantium!</td>
+		</tr>
+		<tr>
+			<td>06</td>
+			<td>Officia.</td>
+			<td>26</td>
+			<td>Saepe.</td>
+			<td>Placeat omnis veritatis inventore hic.</td>
+		</tr>
+		<tr>
+			<td>07</td>
+			<td>Quos.</td>
+			<td>27</td>
+			<td>Delectus!</td>
+			<td>Odio, a quis! Mollitia, perspiciatis.</td>
+		</tr>
+		<tr>
+			<td>08</td>
+			<td>Debitis.</td>
+			<td>28</td>
+			<td>Ab.</td>
+			<td>Saepe suscipit doloremque atque voluptate?</td>
+		</tr>
+		<tr>
+			<td>09</td>
+			<td>Totam.</td>
+			<td>29</td>
+			<td>Exercitationem.</td>
+			<td>Rem odit voluptate est voluptatum?</td>
+		</tr>
+		<tr>
+			<td>10</td>
+			<td>Distinctio?</td>
+			<td>210</td>
+			<td>Nihil.</td>
+			<td>Aspernatur quo facere ipsa beatae.</td>
+		</tr>
+	</table>
+
+
+
+
+	<h1 id="title2"><span class = "m">M</span>ember List <span class = "td">Table Design</span></h1>
+
+	<table id="tbl2" class="tbl">
+		<tr>
+			<th class="col1">No</th>
+			<th class="col2">Name</th>
+			<th class="col3">Age</th>
+			<th class="col4">ID</th>
+			<th class="col5">Description</th>
+		</tr>
+		<tr>
+			<td>01</td>
+			<td>Lorem.</td>
+			<td>21</td>
+			<td>Lorem.</td>
+			<td>Lorem ipsum dolor sit amet.</td>
+		</tr>
+		<tr>
+			<td>02</td>
+			<td>Quos.</td>
+			<td>22</td>
+			<td>Iusto?</td>
+			<td>Quae, exercitationem aliquid. Et, accusamus.</td>
+		</tr>
+		<tr>
+			<td>03</td>
+			<td>Laborum.</td>
+			<td>23</td>
+			<td>Aliquam.</td>
+			<td>Sit error architecto dolorum autem.</td>
+		</tr>
+		<tr>
+			<td>04</td>
+			<td>Quisquam.</td>
+			<td>24</td>
+			<td>Minima?</td>
+			<td>Impedit expedita rem sapiente odio?</td>
+		</tr>
+		<tr>
+			<td>05</td>
+			<td>Sunt.</td>
+			<td>25</td>
+			<td>Perspiciatis!</td>
+			<td>Cupiditate vel veniam ut laudantium!</td>
+		</tr>
+		<tr>
+			<td>06</td>
+			<td>Officia.</td>
+			<td>26</td>
+			<td>Saepe.</td>
+			<td>Placeat omnis veritatis inventore hic.</td>
+		</tr>
+		<tr>
+			<td>07</td>
+			<td>Quos.</td>
+			<td>27</td>
+			<td>Delectus!</td>
+			<td>Odio, a quis! Mollitia, perspiciatis.</td>
+		</tr>
+		<tr>
+			<td>08</td>
+			<td>Debitis.</td>
+			<td>28</td>
+			<td>Ab.</td>
+			<td>Saepe suscipit doloremque atque voluptate?</td>
+		</tr>
+		<tr>
+			<td>09</td>
+			<td>Totam.</td>
+			<td>29</td>
+			<td>Exercitationem.</td>
+			<td>Rem odit voluptate est voluptatum?</td>
+		</tr>
+		<tr>
+			<td>10</td>
+			<td>Distinctio?</td>
+			<td>210</td>
+			<td>Nihil.</td>
+			<td>Aspernatur quo facere ipsa beatae.</td>
+		</tr>
+	</table>
+
+
+
+
+
+	<h1 id="title3"><span class = "m">M</span>ember List <span class = "td">Table Design</span></h1>
+
+	<table id="tbl3" class="tbl">
+		<tr>
+			<th class="col1">No</th>
+			<th class="col2">Name</th>
+			<th class="col3">Age</th>
+			<th class="col4">ID</th>
+			<th class="col5">Description</th>
+		</tr>
+		<tr>
+			<td>01</td>
+			<td>Lorem.</td>
+			<td>21</td>
+			<td>Lorem.</td>
+			<td>Lorem ipsum dolor sit amet.</td>
+		</tr>
+		<tr>
+			<td>02</td>
+			<td>Quos.</td>
+			<td>22</td>
+			<td>Iusto?</td>
+			<td>Quae, exercitationem aliquid. Et, accusamus.</td>
+		</tr>
+		<tr>
+			<td>03</td>
+			<td>Laborum.</td>
+			<td>23</td>
+			<td>Aliquam.</td>
+			<td>Sit error architecto dolorum autem.</td>
+		</tr>
+		<tr>
+			<td>04</td>
+			<td>Quisquam.</td>
+			<td>24</td>
+			<td>Minima?</td>
+			<td>Impedit expedita rem sapiente odio?</td>
+		</tr>
+		<tr>
+			<td>05</td>
+			<td>Sunt.</td>
+			<td>25</td>
+			<td>Perspiciatis!</td>
+			<td>Cupiditate vel veniam ut laudantium!</td>
+		</tr>
+		<tr>
+			<td>06</td>
+			<td>Officia.</td>
+			<td>26</td>
+			<td>Saepe.</td>
+			<td>Placeat omnis veritatis inventore hic.</td>
+		</tr>
+		<tr>
+			<td>07</td>
+			<td>Quos.</td>
+			<td>27</td>
+			<td>Delectus!</td>
+			<td>Odio, a quis! Mollitia, perspiciatis.</td>
+		</tr>
+		<tr>
+			<td>08</td>
+			<td>Debitis.</td>
+			<td>28</td>
+			<td>Ab.</td>
+			<td>Saepe suscipit doloremque atque voluptate?</td>
+		</tr>
+		<tr>
+			<td>09</td>
+			<td>Totam.</td>
+			<td>29</td>
+			<td>Exercitationem.</td>
+			<td>Rem odit voluptate est voluptatum?</td>
+		</tr>
+		<tr>
+			<td>10</td>
+			<td>Distinctio?</td>
+			<td>210</td>
+			<td>Nihil.</td>
+			<td>Aspernatur quo facere ipsa beatae.</td>
+		</tr>
+	</table>
+
+
+
+
+	<h1 id="title4"><span class = "m">M</span>ember List <span class = "td">Table Design</span></h1>
+
+	<table id="tbl4" class="tbl">
+		<tr>
+			<th class="col1">No</th>
+			<th class="col2">Name</th>
+			<th class="col3">Age</th>
+			<th class="col4">ID</th>
+			<th class="col5">Description</th>
+		</tr>
+		<tr>
+			<td>01</td>
+			<td>Lorem.</td>
+			<td>21</td>
+			<td>Lorem.</td>
+			<td>Lorem ipsum dolor sit amet.</td>
+		</tr>
+		<tr>
+			<td>02</td>
+			<td>Quos.</td>
+			<td>22</td>
+			<td>Iusto?</td>
+			<td>Quae, exercitationem aliquid. Et, accusamus.</td>
+		</tr>
+		<tr>
+			<td>03</td>
+			<td>Laborum.</td>
+			<td>23</td>
+			<td>Aliquam.</td>
+			<td>Sit error architecto dolorum autem.</td>
+		</tr>
+		<tr>
+			<td>04</td>
+			<td>Quisquam.</td>
+			<td>24</td>
+			<td>Minima?</td>
+			<td>Impedit expedita rem sapiente odio?</td>
+		</tr>
+		<tr>
+			<td>05</td>
+			<td>Sunt.</td>
+			<td>25</td>
+			<td>Perspiciatis!</td>
+			<td>Cupiditate vel veniam ut laudantium!</td>
+		</tr>
+		<tr>
+			<td>06</td>
+			<td>Officia.</td>
+			<td>26</td>
+			<td>Saepe.</td>
+			<td>Placeat omnis veritatis inventore hic.</td>
+		</tr>
+		<tr>
+			<td>07</td>
+			<td>Quos.</td>
+			<td>27</td>
+			<td>Delectus!</td>
+			<td>Odio, a quis! Mollitia, perspiciatis.</td>
+		</tr>
+		<tr>
+			<td>08</td>
+			<td>Debitis.</td>
+			<td>28</td>
+			<td>Ab.</td>
+			<td>Saepe suscipit doloremque atque voluptate?</td>
+		</tr>
+		<tr>
+			<td>09</td>
+			<td>Totam.</td>
+			<td>29</td>
+			<td>Exercitationem.</td>
+			<td>Rem odit voluptate est voluptatum?</td>
+		</tr>
+		<tr>
+			<td>10</td>
+			<td>Distinctio?</td>
+			<td>210</td>
+			<td>Nihil.</td>
+			<td>Aspernatur quo facere ipsa beatae.</td>
+		</tr>
+	</table>
+
+
+
+
+	<h1 id="title5"><span class = "m">M</span>ember List <span class = "td">Table Design</span></h1>
+
+	<table id="tbl5" class="tbl">
+		<tr>
+			<th class="col1">No</th>
+			<th class="col2">Name</th>
+			<th class="col3">Age</th>
+			<th class="col4">ID</th>
+			<th class="col5">Description</th>
+		</tr>
+		<tr>
+			<td>01</td>
+			<td>Lorem.</td>
+			<td>21</td>
+			<td>Lorem.</td>
+			<td>Lorem ipsum dolor sit amet.</td>
+		</tr>
+		<tr>
+			<td>02</td>
+			<td>Quos.</td>
+			<td>22</td>
+			<td>Iusto?</td>
+			<td>Quae, exercitationem aliquid. Et, accusamus.</td>
+		</tr>
+		<tr>
+			<td>03</td>
+			<td>Laborum.</td>
+			<td>23</td>
+			<td>Aliquam.</td>
+			<td>Sit error architecto dolorum autem.</td>
+		</tr>
+		<tr>
+			<td>04</td>
+			<td>Quisquam.</td>
+			<td>24</td>
+			<td>Minima?</td>
+			<td>Impedit expedita rem sapiente odio?</td>
+		</tr>
+		<tr>
+			<td>05</td>
+			<td>Sunt.</td>
+			<td>25</td>
+			<td>Perspiciatis!</td>
+			<td>Cupiditate vel veniam ut laudantium!</td>
+		</tr>
+		<tr>
+			<td>06</td>
+			<td>Officia.</td>
+			<td>26</td>
+			<td>Saepe.</td>
+			<td>Placeat omnis veritatis inventore hic.</td>
+		</tr>
+		<tr>
+			<td>07</td>
+			<td>Quos.</td>
+			<td>27</td>
+			<td>Delectus!</td>
+			<td>Odio, a quis! Mollitia, perspiciatis.</td>
+		</tr>
+		<tr>
+			<td>08</td>
+			<td>Debitis.</td>
+			<td>28</td>
+			<td>Ab.</td>
+			<td>Saepe suscipit doloremque atque voluptate?</td>
+		</tr>
+		<tr>
+			<td>09</td>
+			<td>Totam.</td>
+			<td>29</td>
+			<td>Exercitationem.</td>
+			<td>Rem odit voluptate est voluptatum?</td>
+		</tr>
+		<tr>
+			<td>10</td>
+			<td>Distinctio?</td>
+			<td>210</td>
+			<td>Nihil.</td>
+			<td>Aspernatur quo facere ipsa beatae.</td>
+		</tr>
+    </table>
+</div>
+
+
+
+
+</body>
+</html>

@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+
+    <script>
+        //프로퍼티 초기화 단축, Property Initializer Shorthand
+
+        //생성자 함수
+
+        function createPerson(name,age) {
+            // return {
+            //     name : name,
+            //     age : age
+            // };//객체를 반환하고 있다!
+
+            return {
+                name,//프로퍼티의 이름과 객체의 이름이 같으면 이런식으로 그냥 한번만 써도 된다. -> 프로퍼티 초기화 단축방법
+                age
+            }
+
+
+        }
+
+        var p = createPerson("홍길동",20);
+        console.log(p);
+        
+
+        //간결한 메소드 (Consice Method)
+        var cat = {
+            sound : "야옹",
+            // soundPlay : function() {
+            //     console.log(this.sound);
+            // }
+            soundPlay() {
+                console.log(this.sound);//이런식으로 만들어도 된다.
+            }
+        }
+
+        cat.soundPlay();
+
+
+
+
+        //Class 표현식
+        //-class 가 결론은 함수와 매우 유사함...
+        //대문자 함수 함부로 만들지 마라 생성자 함수 쓸때 대문자를 앞에 적으니까!
+        function Person(name,age) {
+            this.name = name;
+            this.age = age;
+
+            this.hi = function() {
+                console.log(this.name);
+            }
+        }
+
+        var p1 = new Person("홍길동",190);//클래스와 유사한 틀이 생기는거단
+        var p2 = new Person("전우치",190);//클래스와 유사한 틀이 생기는거단
+        
+        console.log(p1);
+        console.log(p2);
+
+        p1.hi();
+
+        //진짜 class 키워드를 사용한다. -> 위와 같은 놈임 
+        //즉 아직까지도 자바스크립트에는 class가 없다는 것이다.
+
+        
+        
+        class User {
+            constructor(name,age) {
+                this.name = name;
+                this.age = age;
+            }
+            hi() {
+                console.log(this.name);
+            }
+            minfo() {
+                return this.name +" : "+ this.age;
+            }
+            //getter -> 변수처럼 쓸 수 있음
+            get info() {
+                return this.name +" : "+ this.age;
+            }
+        }
+
+        var p3 = new User("성춘향",12);
+        var p4 = new User("임진록",534);
+
+        console.log(p3);
+        console.log(p4);
+
+        p3.hi();
+
+        // console.log(p3)
+        console.log(p3.minfo());
+        console.log(p4.info);//이런식으로 변수처럼 쓸 수 있다...!
+
+
+
+
+
+        class Animal {
+
+            constructor(name) {
+                this.name = name;
+            }
+            info() {
+                console.log(this.name);
+            }
+        }
+
+
+        class Dog extends Animal {
+            bow() {
+                console.log("멍멍");
+            }
+        }
+        
+
+        var dog = new Dog("멍멍이");
+        dog.info();
+        dog.bow();
+
+
+        //ES6 + jQuery + BootStrap -> 순수 클라이언트
+
+
+
+
+
+
+    </script>
+
+
+
+
+
+
+
+</body>
+</html>

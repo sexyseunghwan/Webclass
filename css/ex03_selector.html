@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* 2. id 선택자 
+            - 태그에 명시된 id 속성을 참조하는 선택자
+            - 태그명#id
+            - *#아이디 
+            * : 모든태그라는 말임
+            #title2 -> 아이디 앞에는 태그명을 붙이던 말던 아무 상관이 없다 유일한 놈이므로
+        */
+
+        /* h1 필터 -> title1 필터 해서 넣어주는것 */
+        /* h1 태그 중에 id 값으로 title1을 가진 태그 내에 있는 속성을 변경시켜주는것이라고 생각하면 편하다. */
+        h1#title1 { color : chartreuse;}
+        h1#title2 { color : coral;}
+        
+        
+        h1 { font-style: italic;} 
+        /* h1 필터만 걸러줘서 이름은 모두 이텔릭체 */
+
+
+        
+        /* 이런경우는 좋은 식별자가 아니다 중복이 되므로 */
+        div#content1 {color : coral;}
+        div#content2 {color : cornflowerblue;}
+
+        /* 그래서 아래와 같은 클래스 선택자를 따로 사용한다. */
+
+        /* 3. 클래스 선택자
+            - 태그에 명시된 class 속성을 참조하는 선택자
+            - 태그명.클래스
+
+        */
+        /* div.content{color : darkgreen;} */
+        div.content{color :red;}
+        /* 태그가 있으면 제한적이된다.*/
+        
+
+        
+        
+    </style>
+</head>
+<body>
+    
+    <h1 id = "title1">회사 소개</h1>
+
+    <div id = "content1" class = "content">대표 : 홍길동</div>
+    <div id = "content2" class = "content">위치 : 역삼동</div>
+
+    <hr>
+
+    <h1 id = "title2">대표 소개</h1>
+    <div>인삿말 ~~~ 어쩌고 저쩌고</div>
+
+    <!-- 브라우저가 h1을 똑같이 보지 않기 위해 id 나 class 를 사용해준다! -->
+    <!-- 이런식으로 해주면 구별해서 색을 넣어주게 된다 -->
+
+
+    <p class = "content">문단입니다.</p>
+    
+
+
+</body>
+</html>

@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+
+    <form name="form1" action="ex24_ok.jsp">
+
+        <div>
+            <input type="text" name="txt1">
+            <div>
+                <input type="button" name="btn1" value="버튼1">
+                <input type="button" name="btn2" value="버튼2">
+            </div>
+        </div>
+
+
+        <h1>유효성 검사</h1>
+        <fieldset>
+            <legend>필수입력</legend>
+            <div>
+                <label for="">이름:</label>
+                <input type="text" name = "txtName">
+            </div>
+            <div>
+                <label for="">나이:</label>
+                <input type="text" name = "txtAge">
+            </div>
+            <div>
+                <label for="">아이디 :</label>
+                <input type="text" name = "txtid">
+            </div>
+        		<div>
+				<label>암호: </label>
+				<input type="text" name="txtPW">
+			</div>
+			<div>
+				<label>암호 확인: </label>
+				<input type="text" name="txtPW2">
+			</div>
+        </fieldset>
+        <input type="button" value="회원가입" name="btnRegister">
+
+    </form>
+
+
+
+
+
+
+    
+
+
+
+    <script>
+       var txt1 = document.form1.txt1;
+		var btn1 = document.form1.btn1;
+		var btn2 = document.form1.btn2;
+
+		btn1.onclick = function() {
+			//console.log(txt1.value);
+			//txt1.size = 5;
+			//txt1.readOnly = true;
+			//txt1.disabled = true;
+			//txt1.maxLength = 3;
+            //txt1.value = txt1.value.substr(0, 3);
+            
+
+            btn2.click();//두번쨰 버튼을 클릭해야 실행되는 일이었는데 여기서 실행되서 두번째 버튼이 클릭된것처럼 
+            //진짜 컨트롤을 클릭하지 않았는데 클릭된것처럼 실행
+            //-onclick -> click 대부분 존재
+            //-onmouseover -> mouseover 이 존재
+        
+        };
+
+		btn2.onclick = function() {
+			txt1.value = "홍길동";
+			txt1.disabled = false;
+		};
+		txt1.ondblclick = function() {
+			//txt1.readOnly = false;
+			txt1.disabled = false;
+        };
+        
+
+
+
+        //------------------------------------------------------
+
+        var txtName = document.form1.txtName;
+        var txtAge = document.form1.txtAge;
+        var txtID = document.form1.txtID;
+        var btnRegister = document.form1.btnRegister;
+        var txtPW = document.form1.txtPW; 
+        var txtPW2 = document.form1.txtPW2; 
+
+
+        //유효성 검사 -> 잘못된 부분을 찾는게 더 빠른 알고리즘이 완성가능.
+
+        btnRegister.onclick = function() {
+            
+            //1. 이름
+            // -필수 값
+            // -2~5자 이내
+            // -한글만 입력
+            
+            
+            if(txtName.value == "") {//아무것도 입력 안했을 때 상태
+                alert("이름을 필수로 입력해주세요");
+                txtName.focus();//텍스트 박스에 자동으로 포커스가 가버림
+                return;//빈 리턴문 -> 함수 종료 위해
+            }
+
+            if(txtName.value.length < 2 || txtName.value.length > 5) {
+                alert("이름을 2~5자 사이로 입력해주세요");
+                // txtName.focus();
+                // txtName.select();//색도 칠해준다-> 선택 상태로 바뀌어버림
+                
+                txtName.value="";//깨끗히 지우곤 아래로
+                txtName.focus();//리셋이 되고 포커스가 맞춰져 있다.
+
+                // 나쁘지는 않은데 그냥 select 가 더 나음 내가 무슨 짓을 해서 밴 먹은지는 알아야지
+                return;   
+            }
+
+            for (var i=0; i< txtName.value.length; i++) {
+                var c = txtName.value.charAt(i);
+                console.log(c);
+
+                if(c < "가" || c > "힣") {
+                    alert("이름은 한글로 입력하세요.")
+                    txtName.select();
+                    return;
+                }
+            }
+
+
+
+            //2. 나이
+            //- 필수값
+            //- 숫자만
+            //- 범위(1~100)
+
+            
+            if(txtAge.value=="") {
+                alert("나이를 반드시 입력하세요.");
+                txtAge.select();
+                return;
+            }
+
+
+            if(isNaN(txtAge.value)) {
+                alert("나이를 숫자로 입력하세요.");
+                txtAge.select();
+                return;
+            }
+
+     
+
+            if(txtAge.value < 1 || txtAge.value > 100) {
+                alert("나이를 1~100세 사이로 입력하세요");
+                txtAgee.select();
+                return;
+            }
+
+
+            
+            //3. 아이디
+            //- 필수값
+            //- 4~12 이내 
+            //- 영어 + 숫자 + '_'
+            //- 숫자로 시작 불가
+
+            if (txtID.value=="") {
+                alert("아이디를 반드시 입력하세요.");
+                txtID.select();
+                return;
+            }
+
+            if (txtID.value.length < 4 || txtID.value.length > 12) {
+
+                alert("아이디는 4~12이내로 입력하세요.");
+                txtID.select();
+                return;
+            }
+
+            for(var i = 0; i < txtID.value.length; i++) {
+                var c = txtID.value.charAt(i);
+
+                if((c < 'A' || c>'Z') && (c < 'a' || c > 'z') && 
+                    (c < '0' || c> '9') && c!= "_"    
+                ) {
+                    alert("아이디는 영어와 숫자와 '_'로 입력하세요");
+                    txtID.select();
+                    return;
+                }
+            }
+
+            if(!isNaN(txtID.value.charAt(0))) {
+                alert("아이디는 숫자로 시작 불가능합니다.");
+                txtID.select();
+                return;
+
+            }
+
+
+
+
+            //페이지 전송
+            alert("회원가입 성공!!");
+
+
+            //암호검사
+
+            if(txtPW.value != txtPW2.value) {
+                alert("암호가 일치하지 않습니다.");
+                txtPW.focus();
+                return;
+            }
+
+
+
+
+        }
+
+
+
+    </script>
+
+
+
+    
+</body>
+</html>

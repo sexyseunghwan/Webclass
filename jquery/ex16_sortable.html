@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="css/jquery-ui.css">
+    <!-- 위에꺼 가져와야 한다 -->
+    
+    <style>
+
+        #list2 {
+            border : 10px solid gray;
+            width : 800px;
+            text-align: center;
+            padding : 20px;
+        }
+
+        #list3, #list4 {
+            border : 10px solid gray;
+            width : 800px;
+            text-align: center;
+            padding : 20px;
+        }
+
+        #list3 {
+            background-color: blue;
+        }
+        #list4 {
+            background-color: red;
+        }
+
+
+
+    </style>
+</head>
+<body>
+    
+    <h1>목록</h1>
+    
+    <ul id="list1">
+		<li>강아지</li>
+		<li>고양이</li>
+		<li>거북이</li>
+		<li>병아리</li>
+		<li>토끼</li>
+    </ul>
+    
+	<h1>프로젝트 팀장 선택</h1>
+
+	<div id="list2">
+		<img src="../images/man_01.png" data-no="0">
+		<img src="../images/man_02.png" data-no="1">
+		<img src="../images/man_03.png" data-no="2">
+
+		<img src="../images/woman_01.png" data-no="3">
+		<img src="../images/woman_02.png" data-no="4">
+		<img src="../images/woman_03.png" data-no="5">
+    </div>
+
+    <hr>
+    <input type="button" value = "순서확인" id = "btn2">
+
+
+
+
+
+    <h1>프로젝트 팀장 선택</h1>
+
+	<div id="list3" class = "connectedSortable">
+        <!-- class 명이 예약어는 아님 -->
+		<img src="../images/man_01.png" data-no="0">
+		<img src="../images/man_02.png" data-no="1">
+		<img src="../images/man_03.png" data-no="2">
+    </div>
+
+
+    <hr>
+
+    <h1>프로젝트 팀장 선택</h1>
+
+	<div id="list4" class = "connectedSortable">
+		<img src="../images/woman_01.png" data-no="3">
+		<img src="../images/woman_02.png" data-no="4">
+		<img src="../images/woman_03.png" data-no="5">
+    </div>
+
+
+    
+
+    <script src = "js/jquery-1.12.4.js"></script>
+    <script src = "js/jquery-ui.js"></script>
+    <!-- 위의 스크립트 불러오는 순서는 딱 저대로 해줘야 한다 그래야 제이쿼리 유아이를 쓸 수 있다! -->
+
+    
+    <script>
+        
+        $("#list1").sortable();//드래그 해서 요소들의 위치를 재정렬 할 수 있다!
+        $("#list2").sortable();
+        
+        $("#btn2").click(function(){
+
+            $("#list2").children().each(function(index,item){
+                alert($(item).data("no"));
+            });//순서를 알아낼수 있다 -> 순서는 바뀌지만 data-no은 바뀌지 않는다!
+
+        });
+
+        $("#list3,#list4").sortable({
+            connectWith : ".connectedSortable"//이런식으로 하면 서로 목록이 연계가 되어 swap이 가능해진다
+
+        }); 
+
+
+    </script>
+
+</body>
+</html>

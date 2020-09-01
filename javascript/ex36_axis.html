@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+	<style>
+
+		div {
+			border: 1px solid black;
+			padding: 15px;
+			margin: 15px;
+		}
+
+		#n7 { border: 10px solid black; }
+
+		.check { background-color: cornflowerblue; }
+
+	</style>
+</head>
+<body>
+	<!-- ex36_axis.html -->
+	<h1>HTML Traversing</h1>
+
+	<input type="button" value="버튼" id="btn">
+	<hr>
+
+	<div id="n1">
+		할아버지
+		<div id="n2">
+			큰아버지
+			<div id="n5">사촌</div>
+		</div>
+		<div id="n3">
+			아버지
+			<div id="n6">형</div>
+			<div id="n7">
+                나
+                <div id="n10">첫째 자식</div>
+				<div id="n11">
+					둘째 자식
+					<div id="n13">손자</div>
+				</div>
+				<div id="n12">셋째 자식</div>
+			</div>
+			<div id="n8">동생</div>
+		</div>
+		<div id="n4">
+			작은아버지
+			<div id="n9">사촌</div>
+		</div>
+	</div>
+
+
+	<script>
+
+		//Axis 검색
+		// - 나를 중심으로 다른 노드를 검색하는 도구
+		// - 트리 구조 + 촌수
+		var me = document.getElementById("n7");
+
+        //아래 세개는 모두 "배열형식"이라고 볼 수 있다. -> 객체들이 한개만 있다는 보장이 없으므로 배열형태가 당연한 것이다.
+		//me.childNodes : 자식 노드
+		//me.parentNode : 부모 노드
+        //me.children : 자식 노드
+
+        // ****** 매우 중요한 개념 *******
+        //childNodes는 주석,태그 등등 모든 객체를 불러오는 것이다
+        //뒤에 Nodes가 붙어있으면 위와 같은 행동을 하는 경향이 존재한다.
+        //반대로, children은 태그객체만 가져오게 된다.
+        // ******************************
+       
+        //DOM Node
+        //1. nodeName
+        //  - 태그 : 태그명 반환(*****) -> div 이면 DIV
+        //  - PCDATA : #text 반환
+        //  - 주석 : #comment 반환
+        //  - 속성 : 속성명 반환(*)
+
+        //2. nodeType
+        //  - 1 : 태그
+        //  - 2 : 속성
+        //  - 3 : PCDATA
+        //  - 8 : 주석
+        //  - 13 : 선언문(<!DOCTYPE)
+
+        //3. nodeValue
+        //  - 태그 : null
+        //  - 속성 : 속성값 반환
+        //  - PCDATA : 문자열 반환
+
+        
+
+
+
+		console.log(me.childNodes.length);
+
+		for (var i=0; i < me.childNodes.length; i++) {
+            
+			var node = me.childNodes[i];
+
+			//DOM 노드 + 프로퍼티
+			console.log(node.nodeName);
+			console.log(node.nodeType);
+			console.log(node.nodeValue);
+			console.log("------------");
+
+        }
+        
+
+        console.clear();
+
+        /*
+            나를 중심으로 자식 탐색
+            1. firstChild : 첫번째 자식 찾아오는것
+            2. lastChild : 마지막 자식 찾아오는것 
+            3. childrenNodes : 진짜 모두 다 가져오는것
+            (진짜 모든 객체들을 가져옴)
+            ------------------------------------------
+            (태그객체만 가져옴)
+            4. children : 태그만 불러옴
+        */
+
+        // console.log(me.firstChild.nodeType);
+		// console.log(me.childNodes[0].nodeType);
+
+		// console.log(me.lastChild.nodeType);
+		// console.log(me.childNodes[me.childNodes.length-1].nodeType);
+
+
+        //childNodes : ***모든 타입을 찾아가져온다***
+        //children : ***태그만 찾아 가져온다***
+        // console.log(me.childNodes.length);
+        // console.log(me.children.length);
+
+        
+        // console.log(me.childNodes[0]);
+        // console.log(me.children[0]);
+
+
+        //<div class = "test">
+        // me.children[0].className = "check";//여기서는 class 를 className으로 받아야한다.
+        // me.children[2].className = "check";//여기서는 class 를 className으로 받아야한다.
+
+        // me.children[1].children[0].className = "check";//손자접근 가능
+
+
+        //부모 노드를 찾아보자 -> 잘 생각해보면 나의 부모는 하나다!
+        // me.parentNode.className = "check";
+        // console.log(me.parentNode.id);//n3이라고 나온다.
+
+        //할아버지 노드는?
+        // me.parentNode.parentNode.className = "check";
+
+
+        // console.log(me.parentNode.parentNode.parentNode.nodeName);//할아버지의 조상 바디태그
+        // console.log(me.parentNode.parentNode.parentNode.parentNode.nodeName);//바디의 조상 HTML
+        // console.log(me.parentNode.parentNode.parentNode.parentNode.parentNode.nodeName);//HTML 의 조상 -> "document" -> DOM 의 최상위 노드
+        
+
+
+
+        //형제 노드 탐색법 -> 부모로 올라갔다가 다시 내려와야 한다.
+        // me.parentNode.children[0].className = "check";
+        // me.parentNode.children[2].className = "check";
+
+        //형제를 자주 찾다보니 이걸 이미 구현한 프로퍼티가 존재한다.
+        
+        //바로 전 형제
+        me.previousSibling//모든 노드
+        me.previousElementSibling//태그만
+        me.previousElementSibling.className = "check";
+
+        //바로 다음 형제
+        me.nextSibling//모든 노드
+        me.nextElementSibling//태그만
+        me.nextElementSibling.className = "check";
+        
+
+        /*
+            아주 중요한 아이디어
+
+            내가 어떠한 객체 일때 나의 자식은 여러명 있을 수 있지만
+            부모는 무조건 유일할 것이다 -> style 이나 여러가지 걸어줄때 유용한 개념으로 다가올것!   
+        
+        */
+
+
+
+
+        /*
+            <Axis>
+            1. 자식
+                - firstChild
+                - lastChild
+                - childNodes
+                - firstElementChild
+                - lastElementChild
+                - children
+
+            2. 부모
+                - parentNode
+                - parentElement
+
+            3. 형제
+			    - previousSibling
+			    - nextSibling
+			    - previousElementSibling
+			    - nextElementSibling
+        
+        */
+
+        
+        
+
+        
+
+	</script>
+
+
+    <!--2020.07.110 복습완료  -->
+
+
+</body>
+</html>

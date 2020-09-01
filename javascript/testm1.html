@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+   
+
+    <style>
+        
+        
+
+    </style>
+
+</head>
+<body>
+    
+    <img src = "../images/catty01.png" id="cat1">
+    <br>
+    <img src = "../images/catty02.png" id="cat2">
+    <br>
+
+    <input type="button" value = "투명하게" id = "btn1">
+    <input type="button" value = "선명하게" id = "btn2">
+    
+    <script src = "js/jquery-1.12.4.js"></script>
+
+    <script>
+        $("#btn1").mouseenter(function(){
+            $("#cat1").css("opacity",".3");
+            $("#cat2").css("opacity",".3");
+        })
+
+
+
+    </script>
+
+
+
+</body>
+</html>
